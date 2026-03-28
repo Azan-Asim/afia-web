@@ -1,53 +1,4 @@
-export type IconName =
-  | "activity"
-  | "arrowRight"
-  | "brain"
-  | "chart"
-  | "chevronRight"
-  | "cpu"
-  | "database"
-  | "dollar"
-  | "externalLink"
-  | "globe"
-  | "heart"
-  | "layers"
-  | "mail"
-  | "menu"
-  | "moon"
-  | "network"
-  | "shield"
-  | "sparkles"
-  | "star"
-  | "trendingUp"
-  | "users"
-  | "watch"
-  | "zap";
-
-export type Accent =
-  | "green"
-  | "blue"
-  | "purple"
-  | "orange"
-  | "pink"
-  | "red";
-
-export interface NavItem {
-  href: string;
-  label: string;
-}
-
-export interface HeroMetric {
-  value: string;
-  label: string;
-}
-
-export interface FloatingSignal {
-  label: string;
-  value: string;
-  icon: IconName;
-  accent: Accent;
-  position: string;
-}
+import type { Accent, IconName } from "./Common";
 
 export interface OpportunityCard {
   value: string;
@@ -83,7 +34,8 @@ export interface RevenueYear {
   year: string;
   revenue: string;
   users: string;
-  heightClassName: string;
+  revenueHeight: string;
+  userHeight: string;
   accent: Accent;
 }
 

@@ -1,0 +1,28 @@
+import { pageContainerClass } from "@/components/common/layout/PageContainer";
+import { ScrollActiveZoom } from "@/components/common/motion/ScrollActiveZoom";
+import { SectionHeading } from "@/components/common/ui/SectionHeading";
+
+import { MoatFeatureList } from "./MoatFeatureList";
+import { MoatVisual } from "./MoatVisual";
+
+export function MoatSection() {
+  return (
+    <section id="moat" className="relative py-24 md:py-32">
+      <div
+        aria-hidden="true"
+        className="absolute left-[-4%] top-[28%] size-[20rem] rounded-full bg-[rgba(45,156,219,0.16)] blur-3xl"
+      />
+      <ScrollActiveZoom variant="story" className={pageContainerClass}>
+        <SectionHeading
+          badge="Competitive Moat"
+          title="An AI Moat Difficult to Replicate"
+        />
+
+        <div className="mt-16 grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
+          <MoatVisual />
+          <MoatFeatureList />
+        </div>
+      </ScrollActiveZoom>
+    </section>
+  );
+}

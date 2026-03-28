@@ -1,6 +1,6 @@
 import type { ReactElement, ReactNode, SVGProps } from "react";
 
-import type { IconName } from "@/types/investor";
+import type { IconName } from "@/types/home/Home";
 
 type IconProps = SVGProps<SVGSVGElement>;
 
@@ -54,9 +54,25 @@ const ChartIcon = createIcon(
   </>,
 );
 
+const ChartLineIcon = createIcon(
+  <>
+    <path d="M4 5v14" />
+    <path d="M4 19h16" />
+    <path d="m8 14 3-3 3 2 3-5" />
+  </>,
+);
+
 const ChevronRightIcon = createIcon(
   <>
     <path d="m9 18 6-6-6-6" />
+  </>,
+);
+
+const ChipIcon = createIcon(
+  <>
+    <rect x="7" y="7" width="10" height="10" rx="2" />
+    <rect x="10" y="10" width="4" height="4" rx="1" />
+    <path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3" />
   </>,
 );
 
@@ -190,6 +206,13 @@ const WatchIcon = createIcon(
   </>,
 );
 
+const XIcon = createIcon(
+  <>
+    <path d="M18 6 6 18" />
+    <path d="m6 6 12 12" />
+  </>,
+);
+
 const ZapIcon = createIcon(
   <>
     <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" />
@@ -201,7 +224,9 @@ const iconMap = {
   arrowRight: ArrowRightIcon,
   brain: BrainIcon,
   chart: ChartIcon,
+  chartLine: ChartLineIcon,
   chevronRight: ChevronRightIcon,
+  chip: ChipIcon,
   cpu: CpuIcon,
   database: DatabaseIcon,
   dollar: DollarIcon,
@@ -219,6 +244,7 @@ const iconMap = {
   trendingUp: TrendingUpIcon,
   users: UsersIcon,
   watch: WatchIcon,
+  x: XIcon,
   zap: ZapIcon,
 } satisfies Record<IconName, (props: IconProps) => ReactElement>;
 
