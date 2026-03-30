@@ -1,5 +1,5 @@
+// Investment thesis section that groups market size, projections, and unit economics.
 import { pageContainerClass } from "@/components/common/layout/PageContainer";
-import { ScrollActiveZoom } from "@/components/common/motion/ScrollActiveZoom";
 import { SectionHeading } from "@/components/common/ui/SectionHeading";
 
 import { MarketLayersShowcase } from "./MarketLayersShowcase";
@@ -18,7 +18,7 @@ export function InvestmentSection() {
         className="absolute left-[-4%] top-[55%] size-[16rem] rounded-full bg-[rgba(45,156,219,0.16)] blur-3xl"
       />
 
-      <ScrollActiveZoom variant="data" className={pageContainerClass}>
+      <div className={pageContainerClass}>
         <SectionHeading
           badge="Investment Opportunity"
           title="Why Invest in Afia AI"
@@ -26,7 +26,7 @@ export function InvestmentSection() {
         <MarketLayersShowcase />
         <RevenueProjectionCard />
         <UnitEconomicsGrid />
-      </ScrollActiveZoom>
+      </div>
     </section>
   );
 }

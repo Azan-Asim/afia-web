@@ -1,5 +1,6 @@
 "use client";
 
+// Positive-state comparison card showing the guided experience with Afia AI.
 import { LineIcon } from "@/components/common/icons/LineIcons";
 import { SurfaceCard } from "@/components/common/ui/SurfaceCard";
 

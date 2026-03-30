@@ -1,3 +1,4 @@
+// Static hero visual configuration for orbit nodes, floating signals, and layout timing.
 import type { Accent } from "@/types/home/Home";
 
 export const heroOrbitNodes = [
@@ -16,7 +17,7 @@ export const heroSignalConfigs = {
     floatOffset: "-2.247px",
     entryDelay: "0.12s",
     animationClass:
-      "motion-safe:animate-[hero-card-float_13.8s_ease-in-out_infinite]",
+      "motion-safe:animate-[hero-card-float_9.2s_ease-in-out_infinite]",
   },
   Sleep: {
     positionX: "162px",
@@ -24,7 +25,7 @@ export const heroSignalConfigs = {
     floatOffset: "-2.21788px",
     entryDelay: "0.6s",
     animationClass:
-      "motion-safe:animate-[hero-card-float-alt_15.2s_ease-in-out_infinite]",
+      "motion-safe:animate-[hero-card-float-alt_10.1s_ease-in-out_infinite]",
   },
   Activity: {
     positionX: "34px",
@@ -32,7 +33,7 @@ export const heroSignalConfigs = {
     floatOffset: "-2.19455px",
     entryDelay: "0.84s",
     animationClass:
-      "motion-safe:animate-[hero-card-float_14.4s_ease-in-out_infinite]",
+      "motion-safe:animate-[hero-card-float_9.6s_ease-in-out_infinite]",
   },
   Decision: {
     positionX: "-214px",
@@ -40,7 +41,7 @@ export const heroSignalConfigs = {
     floatOffset: "-0.475549px",
     entryDelay: "0s",
     animationClass:
-      "motion-safe:animate-[hero-card-float-alt_15.8s_ease-in-out_infinite]",
+      "motion-safe:animate-[hero-card-float-alt_10.4s_ease-in-out_infinite]",
   },
   HRV: {
     positionX: "-162px",
@@ -48,7 +49,7 @@ export const heroSignalConfigs = {
     floatOffset: "-0.555132px",
     entryDelay: "0.32s",
     animationClass:
-      "motion-safe:animate-[hero-card-float_14.9s_ease-in-out_infinite]",
+      "motion-safe:animate-[hero-card-float_9.8s_ease-in-out_infinite]",
   },
 } as const;
 

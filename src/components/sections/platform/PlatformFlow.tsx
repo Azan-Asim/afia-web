@@ -1,10 +1,16 @@
+"use client";
+
+// Step-by-step platform flow diagram that explains how signals turn into decisions.
 import { LineIcon } from "@/components/common/icons/LineIcons";
+import { useInViewOnce } from "@/components/sections/opportunity/useInViewOnce";
 import { accentStyles } from "@/components/common/styles/AccentStyles";
 import { platformSteps } from "@/content/home/platform/PlatformContent";
 
 export function PlatformFlow() {
+  const { ref, hasEntered } = useInViewOnce<HTMLDivElement>();
+
   return (
-    <div className="mt-16">
+    <div ref={ref} className="mt-16">
       <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
         {platformSteps.map((step, index) => {
           const styles = accentStyles[step.accent];
@@ -15,7 +21,11 @@ export function PlatformFlow() {
               className="flex w-full flex-col items-center gap-4 md:flex-1 md:flex-row"
             >
               <div
-                className={`relative w-full min-w-0 flex-1 rounded-[1.75rem] p-6 text-center shadow-[0_4px_16px_rgba(0,0,0,0.04)] motion-safe:animate-[platform-flow-enter_760ms_cubic-bezier(0.22,1,0.36,1)_both] ${
+                className={`relative w-full min-w-0 flex-1 rounded-[1.75rem] p-6 text-center shadow-[0_4px_16px_rgba(0,0,0,0.04)] ${
+                  hasEntered
+                    ? "motion-safe:animate-[platform-flow-enter_760ms_cubic-bezier(0.22,1,0.36,1)_both]"
+                    : "opacity-0"
+                } ${
                   step.featured
                     ? "border-[1.5px] border-[rgba(139,92,246,0.22)] bg-[linear-gradient(135deg,rgba(139,92,246,0.07),rgba(139,92,246,0.024))] shadow-[0_8px_32px_rgba(139,92,246,0.09)]"
                     : "border-[1.5px] border-black/6 bg-white"

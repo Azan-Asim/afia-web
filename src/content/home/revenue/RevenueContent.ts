@@ -1,3 +1,4 @@
+// Revenue funnel and stream content used in the monetization section.
 import type { RevenueFunnelStage, RevenueStream } from "@/types/home/Home";
 
 export const revenueFunnel: RevenueFunnelStage[] = [

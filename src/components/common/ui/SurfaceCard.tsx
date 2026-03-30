@@ -1,3 +1,4 @@
+// Lightweight card wrapper used where sections need a consistent elevated surface style.
 import type { ReactNode } from "react";
 
 type SurfaceCardProps = {

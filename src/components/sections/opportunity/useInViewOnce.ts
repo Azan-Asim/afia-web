@@ -1,22 +1,32 @@
 "use client";
 
+// Shared viewport observer hook used to trigger section animations when content enters view.
 import { useEffect, useRef, useState } from "react";
 
 export function useInViewOnce<T extends HTMLElement>() {
   const ref = useRef<T | null>(null);
   const [hasEntered, setHasEntered] = useState(false);
+  // Components use `cycle` to replay entrance animations whenever they re-enter view.
+  const [cycle, setCycle] = useState(0);
+  const wasActiveRef = useRef(false);
 
   useEffect(() => {
-    if (hasEntered || !ref.current) {
+    if (!ref.current) {
       return;
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry?.isIntersecting) {
-          setHasEntered(true);
-          observer.disconnect();
+        const isActive = Boolean(entry?.isIntersecting);
+
+        // Bump the cycle only when the section re-enters the active viewport zone.
+        if (isActive && !wasActiveRef.current) {
+          setCycle((current) => current + 1);
         }
+
+        // `hasEntered` acts as the current active state for replayable animations.
+        wasActiveRef.current = isActive;
+        setHasEntered(isActive);
       },
       {
         threshold: 0.35,
@@ -29,7 +39,7 @@ export function useInViewOnce<T extends HTMLElement>() {
     return () => {
       observer.disconnect();
     };
-  }, [hasEntered]);
+  }, []);
 
-  return { ref, hasEntered };
+  return { ref, hasEntered, isActive: hasEntered, cycle };
 }

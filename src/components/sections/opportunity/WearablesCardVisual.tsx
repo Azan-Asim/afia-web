@@ -1,3 +1,4 @@
+// Illustration for the wearable adoption card in the opportunity highlights section.
 export function WearablesCardVisual() {
   return (
     <svg viewBox="0 0 120 130" fill="none" className="h-full w-full">

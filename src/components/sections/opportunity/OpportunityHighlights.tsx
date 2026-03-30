@@ -1,3 +1,4 @@
+// Highlight cards that quantify the market opportunity and unmet user need.
 import { accentStyles } from "@/components/common/styles/AccentStyles";
 import { SurfaceCard } from "@/components/common/ui/SurfaceCard";
 import { opportunityCards } from "@/content/home/opportunity/OpportunityContent";

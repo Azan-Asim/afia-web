@@ -1,10 +1,11 @@
 "use client";
 
+// SWOT section that frames Afia's strengths, risks, and broader strategic landscape.
 import { LineIcon } from "@/components/common/icons/LineIcons";
 import { pageContainerClass } from "@/components/common/layout/PageContainer";
-import { ScrollActiveZoom } from "@/components/common/motion/ScrollActiveZoom";
 import { SectionHeading } from "@/components/common/ui/SectionHeading";
 import { useInViewOnce } from "@/components/sections/opportunity/useInViewOnce";
+import { ConvergenceGrid } from "@/components/sections/swot/ConvergenceGrid";
 
 type SwotCard = {
   letter: string;
@@ -42,7 +43,7 @@ const swotCards: SwotCard[] = [
     bullets: [
       "Pre-revenue stage",
       "Third-party API dependency",
-      "New category — market education",
+      "New category â€” market education",
     ],
     visual: "weakness",
   },
@@ -54,7 +55,7 @@ const swotCards: SwotCard[] = [
     borderColor: "rgba(45, 156, 219, 0.2)",
     topLineColor: "rgba(45, 156, 219, 0.5)",
     bullets: [
-      "$100B+ market · 14.9% CAGR",
+      "$100B+ market Â· 14.9% CAGR",
       "MENA under-served by AI health",
       "Enterprise & insurance expansion",
     ],
@@ -391,11 +392,19 @@ export function SwotSection() {
         }}
       />
 
-      <ScrollActiveZoom variant="data" className={pageContainerClass}>
+      <div className={pageContainerClass}>
+        <SectionHeading
+          badge="Why Now"
+          title="The AI Convergence Moment"
+        />
+        <ConvergenceGrid />
+
+        <div className="mt-24">
         <SectionHeading
           badge="SWOT Analysis"
           title="A Transparent Business Landscape"
         />
+        </div>
 
         <div ref={ref} className="mt-14 grid gap-6 md:grid-cols-2">
           {swotCards.map((card, index) => (
@@ -425,7 +434,7 @@ export function SwotSection() {
                   >
                     {card.letter}
                   </span>
-                  <span className="text-[2rem] font-semibold leading-none text-[#2D2D2D]">
+                  <span className="text-[1.25rem] font-semibold leading-none text-[#2D2D2D]">
                     {card.title}
                   </span>
                 </div>
@@ -474,12 +483,12 @@ export function SwotSection() {
             <LineIcon name="sparkles" className="size-5 text-white" />
           </div>
           <p className="text-xs leading-relaxed text-[#6B7280] md:text-[0.95rem]">
-            <span className="font-semibold text-[#27AE60]">Investor takeaway — </span>
+            <span className="font-semibold text-[#27AE60]">Investor takeaway â€” </span>
             Strengths and opportunities significantly outweigh execution-stage risks.
             Threats are manageable with strategic capital deployment.
           </p>
         </div>
-      </ScrollActiveZoom>
+      </div>
     </section>
   );
 }

@@ -1,3 +1,4 @@
+// Reusable Afia brand mark used in navigation, footer, and other branded surfaces.
 import Image from "next/image";
 
 type AfiaLogoProps = {
@@ -28,7 +29,7 @@ export function AfiaLogo({
       ) : (
         <div className="h-9 w-9">
           <Image
-            src="/Logo.svg"
+            src="/logo.svg"
             alt="Afia logo"
             width={36}
             height={36}

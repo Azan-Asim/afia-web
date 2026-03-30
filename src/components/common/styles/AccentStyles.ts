@@ -1,3 +1,4 @@
+// Accent style tokens that map semantic colors to reusable Tailwind utility fragments.
 import type { Accent } from "@/types/home/Home";
 
 export const accentStyles: Record<

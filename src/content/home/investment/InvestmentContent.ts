@@ -1,3 +1,4 @@
+// Static investment data that powers market layers, projections, and unit economics.
 import type {
   CompetitorRow,
   MarketLayer,
@@ -9,20 +10,19 @@ export const marketLayers: MarketLayer[] = [
   {
     label: "TAM",
     value: "$100B+",
-    description: "Global digital health and wearable AI market by 2030",
+    description: "Global digital health & AI market by 2030",
     accent: "green",
   },
   {
     label: "SAM",
     value: "$22B",
-    description: "AI-powered wearable interpretation platforms globally",
+    description: "AI wearable interpretation platforms globally",
     accent: "blue",
   },
   {
     label: "SOM",
     value: "$1.2B",
-    description:
-      "Afia's realistic 5-year capture across MENA and emerging markets",
+    description: "Afia's 5-year capture across MENA & emerging markets",
     accent: "purple",
   },
 ];

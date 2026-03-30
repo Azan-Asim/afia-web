@@ -1,3 +1,4 @@
+// Small reusable badge used above section headings to label the current narrative block.
 import { LineIcon } from "@/components/common/icons/LineIcons";
 
 type SectionBadgeProps = {

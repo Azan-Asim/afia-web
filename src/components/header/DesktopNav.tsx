@@ -1,3 +1,4 @@
+// Desktop navigation links displayed in the header on larger screens.
 import type { NavItem } from "@/types/home/Home";
 
 type DesktopNavProps = {

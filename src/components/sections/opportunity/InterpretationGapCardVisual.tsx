@@ -1,3 +1,4 @@
+// Illustration for the interpretation-gap card in the opportunity highlights section.
 export function InterpretationGapCardVisual() {
   return (
     <svg viewBox="0 0 120 110" fill="none" className="h-full w-full">

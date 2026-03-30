@@ -1,5 +1,5 @@
+// Closing contact section that frames the investor CTA and outreach details.
 import { ContactCtaCard } from "./ContactCtaCard";
-import { ScrollActiveZoom } from "@/components/common/motion/ScrollActiveZoom";
 
 export function ContactSection() {
   return (
@@ -16,9 +16,9 @@ export function ContactSection() {
         aria-hidden="true"
         className="absolute right-[16%] top-[68%] size-[16rem] rounded-full bg-[rgba(245,158,11,0.07)] blur-[80px]"
       />
-      <ScrollActiveZoom variant="cta" className="mx-auto max-w-5xl px-6 lg:px-10">
+      <div className="mx-auto max-w-5xl px-6 lg:px-10">
         <ContactCtaCard />
-      </ScrollActiveZoom>
+      </div>
     </section>
   );
 }

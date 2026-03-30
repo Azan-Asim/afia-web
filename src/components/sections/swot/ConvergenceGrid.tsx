@@ -1,7 +1,31 @@
 "use client";
 
+// Four-card convergence block that explains why the current market timing is compelling.
 import { useInViewOnce } from "@/components/sections/opportunity/useInViewOnce";
 import { convergenceItems } from "@/content/home/swot/SwotContent";
+
+const convergenceCardStyleMap = {
+  green: {
+    background:
+      "linear-gradient(135deg, rgba(39, 174, 96, 0.03), rgba(39, 174, 96, 0.016))",
+    border: "1.5px solid rgba(39, 174, 96, 0.125)",
+  },
+  blue: {
+    background:
+      "linear-gradient(135deg, rgba(45, 156, 219, 0.03), rgba(45, 156, 219, 0.016))",
+    border: "1.5px solid rgba(45, 156, 219, 0.125)",
+  },
+  pink: {
+    background:
+      "linear-gradient(135deg, rgba(236, 72, 153, 0.03), rgba(236, 72, 153, 0.016))",
+    border: "1.5px solid rgba(236, 72, 153, 0.125)",
+  },
+  orange: {
+    background:
+      "linear-gradient(135deg, rgba(245, 158, 11, 0.03), rgba(245, 158, 11, 0.016))",
+    border: "1.5px solid rgba(245, 158, 11, 0.125)",
+  },
+} as const;
 
 function FirstCardVisual({ hasEntered }: { hasEntered: boolean }) {
   return (
@@ -330,11 +354,11 @@ function FourthCardVisual() {
         cy="55"
         r="24"
         fill="rgba(0,0,0,0.03)"
-        stroke="#F59E0B22"
-        strokeWidth="1.5"
+        stroke="#F59E0B99"
+        strokeWidth="1.9"
         strokeDasharray="6 4"
       >
-        <animate attributeName="opacity" values="0.2;0.45;0.2" dur="4.8s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.68;0.98;0.68" dur="4.8s" repeatCount="indefinite" />
         <animate attributeName="r" values="22;25.5;22" dur="4.8s" repeatCount="indefinite" />
       </circle>
 
@@ -417,31 +441,8 @@ export function ConvergenceGrid() {
   return (
     <div ref={ref} className="mt-14 grid grid-cols-2 gap-6 md:grid-cols-4">
       {convergenceItems.map((item, index) => {
-        const cardStyleMap = {
-          green: {
-            background:
-              "linear-gradient(135deg, rgba(39, 174, 96, 0.03), rgba(39, 174, 96, 0.016))",
-            border: "1.5px solid rgba(39, 174, 96, 0.125)",
-          },
-          blue: {
-            background:
-              "linear-gradient(135deg, rgba(45, 156, 219, 0.03), rgba(45, 156, 219, 0.016))",
-            border: "1.5px solid rgba(45, 156, 219, 0.125)",
-          },
-          pink: {
-            background:
-              "linear-gradient(135deg, rgba(236, 72, 153, 0.03), rgba(236, 72, 153, 0.016))",
-            border: "1.5px solid rgba(236, 72, 153, 0.125)",
-          },
-          orange: {
-            background:
-              "linear-gradient(135deg, rgba(245, 158, 11, 0.03), rgba(245, 158, 11, 0.016))",
-            border: "1.5px solid rgba(245, 158, 11, 0.125)",
-          },
-        } as const;
-
         const cardStyle =
-          cardStyleMap[item.accent as keyof typeof cardStyleMap] ?? {
+          convergenceCardStyleMap[item.accent as keyof typeof convergenceCardStyleMap] ?? {
             background: "white",
             border: "1.5px solid rgba(0, 0, 0, 0.06)",
           };

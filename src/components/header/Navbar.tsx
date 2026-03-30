@@ -1,5 +1,6 @@
 "use client";
 
+// Responsive top navigation that coordinates the logo, desktop nav, and mobile menu.
 import { useEffect, useRef, useState } from "react";
 
 import { AfiaLogo } from "@/components/common/branding/AfiaLogo";
@@ -15,11 +16,22 @@ type NavbarProps = {
 export function Navbar({ items }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 24);
+
+      // Drive the thin top bar like a reading progress indicator for the page.
+      const documentHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const nextProgress =
+        documentHeight > 0
+          ? Math.min(Math.max(window.scrollY / documentHeight, 0), 1)
+          : 0;
+
+      setScrollProgress(nextProgress);
     };
 
     handleScroll();
@@ -70,6 +82,12 @@ export function Navbar({ items }: NavbarProps) {
             : "bg-transparent"
         }`}
       >
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-black/[0.04]">
+          <div
+            className="h-full origin-left bg-[linear-gradient(90deg,var(--color-green),var(--color-blue))] transition-transform duration-200 ease-out"
+            style={{ transform: `scaleX(${scrollProgress})` }}
+          />
+        </div>
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-5 lg:px-10">
           <a href="#top" aria-label="Afia home">
             <AfiaLogo />

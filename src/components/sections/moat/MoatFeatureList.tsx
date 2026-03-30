@@ -1,5 +1,6 @@
 "use client";
 
+// Supporting moat bullet list that explains why the platform is difficult to replicate.
 import { LineIcon } from "@/components/common/icons/LineIcons";
 import { accentStyles } from "@/components/common/styles/AccentStyles";
 import { useInViewOnce } from "@/components/sections/opportunity/useInViewOnce";

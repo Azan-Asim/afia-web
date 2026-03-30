@@ -1,5 +1,5 @@
+// Revenue strategy section that combines funnel mechanics with monetization streams.
 import { pageContainerClass } from "@/components/common/layout/PageContainer";
-import { ScrollActiveZoom } from "@/components/common/motion/ScrollActiveZoom";
 import { SectionHeading } from "@/components/common/ui/SectionHeading";
 
 import { RevenueFunnelCard } from "./RevenueFunnelCard";
@@ -8,7 +8,7 @@ import { RevenueStreamsList } from "./RevenueStreamsList";
 export function RevenueSection() {
   return (
     <section id="revenue" className="bg-white py-24 md:py-32">
-      <ScrollActiveZoom variant="split" className={pageContainerClass}>
+      <div className={pageContainerClass}>
         <SectionHeading
           badge="Business Model"
           title="Multi-Layer AI Revenue Engine"
@@ -18,7 +18,7 @@ export function RevenueSection() {
           <RevenueFunnelCard />
           <RevenueStreamsList />
         </div>
-      </ScrollActiveZoom>
+      </div>
     </section>
   );
 }

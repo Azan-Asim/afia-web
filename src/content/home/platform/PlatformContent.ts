@@ -1,3 +1,4 @@
+// Platform steps and capabilities content used to explain the product stack.
 import type { PlatformCapability, PlatformStep } from "@/types/home/Home";
 
 export const platformSteps: PlatformStep[] = [
@@ -9,7 +10,7 @@ export const platformSteps: PlatformStep[] = [
   },
   {
     title: "Health Signals",
-    subtitle: "Heart · Sleep · HRV",
+    subtitle: "Heart Â· Sleep Â· HRV",
     icon: "activity",
     accent: "blue",
   },
@@ -28,7 +29,7 @@ export const platformSteps: PlatformStep[] = [
   },
   {
     title: "Ecosystem",
-    subtitle: "Services · API",
+    subtitle: "Services Â· API",
     icon: "globe",
     accent: "pink",
   },

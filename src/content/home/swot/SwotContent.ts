@@ -1,3 +1,4 @@
+// Convergence metrics content shown before the SWOT analysis cards.
 import type { ConvergenceItem } from "@/types/home/Home";
 
 export const convergenceItems: ConvergenceItem[] = [

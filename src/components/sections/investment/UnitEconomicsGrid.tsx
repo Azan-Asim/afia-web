@@ -1,5 +1,6 @@
 "use client";
 
+// Unit economics summary cards that highlight the key investor-facing business metrics.
 import { LineIcon } from "@/components/common/icons/LineIcons";
 import { accentStyles } from "@/components/common/styles/AccentStyles";
 import { useInViewOnce } from "@/components/sections/opportunity/useInViewOnce";

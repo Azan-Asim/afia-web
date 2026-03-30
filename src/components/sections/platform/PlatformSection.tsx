@@ -1,5 +1,5 @@
+// Product platform section that explains how the system works end to end.
 import { pageContainerClass } from "@/components/common/layout/PageContainer";
-import { ScrollActiveZoom } from "@/components/common/motion/ScrollActiveZoom";
 import { SectionHeading } from "@/components/common/ui/SectionHeading";
 
 import { PlatformCapabilities } from "./PlatformCapabilities";
@@ -13,14 +13,14 @@ export function PlatformSection() {
         className="pointer-events-none absolute rounded-full bg-[rgb(39,174,96)] blur-[60px] motion-safe:animate-[hero-drift_15s_ease-in-out_infinite]"
         style={{ width: "25rem", height: "25rem", left: "60%", top: "20%", opacity: 0.16 }}
       />
-      <ScrollActiveZoom variant="story" className={pageContainerClass}>
+      <div className={pageContainerClass}>
         <SectionHeading
           badge="AI Platform"
           title="AI Intelligence at Every Layer"
         />
         <PlatformFlow />
         <PlatformCapabilities />
-      </ScrollActiveZoom>
+      </div>
     </section>
   );
 }

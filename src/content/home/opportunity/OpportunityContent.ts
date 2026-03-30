@@ -1,3 +1,4 @@
+// Content definitions for opportunity highlight cards and supporting comparisons.
 import type { OpportunityCard } from "@/types/home/Home";
 
 export const opportunityCards: OpportunityCard[] = [

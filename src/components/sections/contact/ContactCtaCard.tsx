@@ -1,3 +1,4 @@
+// Final call-to-action card that encourages contact and reinforces the Afia brand.
 import { LineIcon } from "@/components/common/icons/LineIcons";
 import { contactEmail } from "@/content/home/contact/ContactContent";
 
@@ -12,8 +13,8 @@ export function ContactCtaCard() {
             aria-hidden="true"
             className="block h-8 w-8 bg-white"
             style={{
-              WebkitMaskImage: "url('/Logo.svg')",
-              maskImage: "url('/Logo.svg')",
+              WebkitMaskImage: "url('/logo.svg')",
+              maskImage: "url('/logo.svg')",
               WebkitMaskRepeat: "no-repeat",
               maskRepeat: "no-repeat",
               WebkitMaskPosition: "center",
@@ -35,9 +36,9 @@ export function ContactCtaCard() {
       <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a
           href={`mailto:${contactEmail}`}
-          className="inline-flex min-w-[14.5rem] items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,var(--color-green),var(--color-blue))] px-7 py-3.5 text-[1.02rem] font-semibold text-white shadow-[0_16px_40px_rgba(39,174,96,0.24)] transition-transform duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-blue)] focus-visible:ring-offset-2"
+          className="inline-flex min-w-[14.5rem] items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,var(--color-green),var(--color-blue))] px-7 py-3.5 text-[1.02rem] font-semibold !text-white shadow-[0_16px_40px_rgba(39,174,96,0.24)] transition-transform duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-blue)] focus-visible:ring-offset-2"
         >
-          <LineIcon name="mail" className="size-4.5" />
+          <LineIcon name="mail" className="size-4.5 !text-white" />
           Contact Afia Team
         </a>
         <a

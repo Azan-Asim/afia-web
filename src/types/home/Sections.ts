@@ -1,3 +1,4 @@
+// Section-specific interfaces that describe the structured content for each landing block.
 import type { Accent, IconName } from "./Common";
 
 export interface OpportunityCard {

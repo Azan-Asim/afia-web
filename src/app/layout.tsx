@@ -1,3 +1,4 @@
+// Root app shell that defines metadata, global styles, and the shared document structure.
 import type { Metadata } from "next";
 
 import "./globals.css";
@@ -41,7 +42,8 @@ export const metadata: Metadata = {
       "Explore Afia's investor overview for an AI-driven preventive health platform.",
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/logo.svg",
+    shortcut: "/logo.svg",
   },
 };
 
