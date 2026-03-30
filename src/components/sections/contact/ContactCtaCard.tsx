@@ -12,8 +12,8 @@ export function ContactCtaCard() {
             aria-hidden="true"
             className="block h-8 w-8 bg-white"
             style={{
-              WebkitMaskImage: "url('/Logo.svg')",
-              maskImage: "url('/Logo.svg')",
+              WebkitMaskImage: "url('/logo.svg')",
+              maskImage: "url('/logo.svg')",
               WebkitMaskRepeat: "no-repeat",
               maskRepeat: "no-repeat",
               WebkitMaskPosition: "center",

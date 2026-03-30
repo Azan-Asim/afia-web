@@ -11,7 +11,7 @@ export function Footer() {
         <div className="flex items-center gap-2">
           <div className="relative h-7 w-7">
             <Image
-              src="/Logo.svg"
+              src="/logo.svg"
               alt="Afia logo"
               fill
               className="object-contain"
