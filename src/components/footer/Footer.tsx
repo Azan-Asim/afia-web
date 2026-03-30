@@ -22,14 +22,14 @@ export function Footer() {
             Afia
           </span>
           <span className="ml-1 text-xs text-[#9CA3AF]">
-            â€” Investor Overview 2026
+            — Investor Overview 2026
           </span>
         </div>
         <p className="text-center text-xs text-[#9CA3AF]">
           Confidential. For informational purposes only. Not an offer of securities.
         </p>
         <div className="text-xs text-[#9CA3AF]">
-          Â© 2026 Afia Health
+          © 2026 Afia Health
         </div>
       </div>
     </footer>

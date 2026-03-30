@@ -1,16 +1,15 @@
 // Accent style tokens that map semantic colors to reusable Tailwind utility fragments.
 import type { Accent } from "@/types/home/Home";
 
-export const accentStyles: Record<
-  Accent,
-  {
-    text: string;
-    soft: string;
-    border: string;
-    solid: string;
-    softSolid: string;
-  }
-> = {
+type AccentStyle = {
+  text: string;
+  soft: string;
+  border: string;
+  solid: string;
+  softSolid: string;
+};
+
+export const accentStyles: Record<Accent, AccentStyle> = {
   green: {
     text: "text-[var(--color-green)]",
     soft: "bg-[var(--color-green-soft)]",

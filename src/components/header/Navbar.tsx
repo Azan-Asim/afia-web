@@ -5,6 +5,10 @@ import { useEffect, useRef, useState } from "react";
 
 import { AfiaLogo } from "@/components/common/branding/AfiaLogo";
 import { LineIcon } from "@/components/common/icons/LineIcons";
+import {
+  gradientCtaClass,
+  gradientCtaFocusClass,
+} from "@/components/common/styles/CtaStyles";
 import { DesktopNav } from "@/components/header/DesktopNav";
 import { MobileMenu } from "@/components/header/MobileMenu";
 import type { NavItem } from "@/types/home/Home";
@@ -12,6 +16,12 @@ import type { NavItem } from "@/types/home/Home";
 type NavbarProps = {
   items: NavItem[];
 };
+
+const requestDeckLinkClass =
+  `${gradientCtaClass} ${gradientCtaFocusClass} hidden px-5 py-2.5 text-sm leading-[var(--text-sm--line-height)] shadow-[0_4px_20px_rgba(39,174,96,0.25)] duration-500 md:inline-flex`;
+
+const mobileMenuButtonClass =
+  "rounded-xl p-2 text-[var(--color-ink)] transition-colors hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-green)] md:hidden";
 
 export function Navbar({ items }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -98,7 +108,7 @@ export function Navbar({ items }: NavbarProps) {
           <div className="flex items-center gap-3">
             <a
               href="#contact"
-              className="hidden items-center gap-2 rounded-full !bg-transparent [background-image:linear-gradient(135deg,rgb(39,174,96),rgb(45,156,219))] px-5 py-2.5 font-[family:var(--font-sans)] text-sm font-medium leading-[var(--text-sm--line-height)] !text-white [font-synthesis:none] shadow-[0_4px_20px_rgba(39,174,96,0.25)] transition-transform duration-500 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-blue)] focus-visible:ring-offset-2 md:inline-flex"
+              className={requestDeckLinkClass}
             >
               <LineIcon name="mail" className="size-3.5 !text-white" />
               Request Deck
@@ -106,7 +116,7 @@ export function Navbar({ items }: NavbarProps) {
             <button
               ref={menuButtonRef}
               type="button"
-              className="rounded-xl p-2 text-[var(--color-ink)] transition-colors hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-green)] md:hidden"
+              className={mobileMenuButtonClass}
               aria-controls="mobile-navigation"
               aria-expanded={isMenuOpen}
               aria-label={isMenuOpen ? "Close navigation" : "Open navigation"}

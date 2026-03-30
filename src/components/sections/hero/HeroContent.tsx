@@ -4,12 +4,24 @@
 import { useEffect, useState } from "react";
 
 import { LineIcon } from "@/components/common/icons/LineIcons";
+import {
+  gradientCtaClass,
+  gradientCtaFocusClass,
+  secondaryCtaClass as sharedSecondaryCtaClass,
+} from "@/components/common/styles/CtaStyles";
 import { heroMetrics } from "@/content/home/hero/HeroContent";
 
 type HeroContentProps = {
   cycle: number;
   isActive: boolean;
 };
+
+const heroCagrAnimationDurationMs = 1400;
+const heroCagrTargetValue = 14.9;
+const heroPrimaryCtaClass =
+  `${gradientCtaClass} ${gradientCtaFocusClass} px-5 py-2.5 text-sm leading-[var(--text-sm--line-height)] shadow-[0_4px_20px_rgba(39,174,96,0.25)] duration-500`;
+const heroSecondaryCtaClass =
+  `${sharedSecondaryCtaClass} border-[1.5px] border-[rgba(39,174,96,0.25)] px-6 py-3 text-sm shadow-[0_4px_16px_rgba(0,0,0,0.04)] duration-500`;
 
 export function HeroContent({ cycle, isActive }: HeroContentProps) {
   const [marketCagrValue, setMarketCagrValue] = useState(0);
@@ -20,18 +32,16 @@ export function HeroContent({ cycle, isActive }: HeroContentProps) {
     }
 
     // Re-run the CAGR count-up every time the hero section becomes active again.
-    const durationMs = 1400;
-    const targetValue = 14.9;
     const startTime = performance.now();
 
     let frameId = 0;
 
     const updateValue = (timestamp: number) => {
       const elapsed = timestamp - startTime;
-      const progress = Math.min(elapsed / durationMs, 1);
+      const progress = Math.min(elapsed / heroCagrAnimationDurationMs, 1);
       const easedProgress = 1 - (1 - progress) * (1 - progress);
 
-      setMarketCagrValue(targetValue * easedProgress);
+      setMarketCagrValue(heroCagrTargetValue * easedProgress);
 
       if (progress < 1) {
         frameId = window.requestAnimationFrame(updateValue);
@@ -117,14 +127,14 @@ export function HeroContent({ cycle, isActive }: HeroContentProps) {
       >
         <a
           href="#contact"
-          className="inline-flex items-center gap-2 rounded-full !bg-transparent [background-image:linear-gradient(135deg,rgb(39,174,96),rgb(45,156,219))] px-5 py-2.5 font-[family:var(--font-sans)] text-sm font-medium leading-[var(--text-sm--line-height)] !text-white [font-synthesis:none] shadow-[0_4px_20px_rgba(39,174,96,0.25)] transition-transform duration-500 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-blue)] focus-visible:ring-offset-2"
+          className={heroPrimaryCtaClass}
         >
           <LineIcon name="mail" className="size-3.5 !text-white" />
           Request Deck
         </a>
         <a
           href="#platform"
-          className="inline-flex items-center gap-2 rounded-full border-[1.5px] border-[rgba(39,174,96,0.25)] bg-white px-6 py-3 text-sm font-medium text-[#2D2D2D] shadow-[0_4px_16px_rgba(0,0,0,0.04)] transition-transform duration-500 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-green)] focus-visible:ring-offset-2"
+          className={heroSecondaryCtaClass}
         >
           Explore
           <LineIcon name="chevronRight" className="size-4 text-[#27AE60]" />

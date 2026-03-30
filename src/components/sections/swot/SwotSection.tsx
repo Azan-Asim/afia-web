@@ -18,6 +18,16 @@ type SwotCard = {
   visual: "strength" | "weakness" | "opportunity" | "threat";
 };
 
+const swotSummaryCardStyle = {
+  background:
+    "linear-gradient(135deg, rgba(39, 174, 96, 0.05), rgba(45, 156, 219, 0.05))",
+  border: "1.5px solid rgba(39, 174, 96, 0.15)",
+} as const;
+
+const swotSummaryIconStyle = {
+  background: "linear-gradient(135deg, rgb(39, 174, 96), rgb(45, 156, 219))",
+} as const;
+
 const swotCards: SwotCard[] = [
   {
     letter: "S",
@@ -43,7 +53,7 @@ const swotCards: SwotCard[] = [
     bullets: [
       "Pre-revenue stage",
       "Third-party API dependency",
-      "New category â€” market education",
+      "New category - market education",
     ],
     visual: "weakness",
   },
@@ -55,7 +65,7 @@ const swotCards: SwotCard[] = [
     borderColor: "rgba(45, 156, 219, 0.2)",
     topLineColor: "rgba(45, 156, 219, 0.5)",
     bullets: [
-      "$100B+ market Â· 14.9% CAGR",
+      "$100B+ market - 14.9% CAGR",
       "MENA under-served by AI health",
       "Enterprise & insurance expansion",
     ],
@@ -214,10 +224,20 @@ function OpportunityVisual() {
       </ellipse>
 
       <path d="M55,96 Q51,106 46,116" stroke="#2D9CDB28" strokeWidth="4.5" strokeLinecap="round">
-        <animate attributeName="opacity" values="0.2;0.72;0.2" dur="2.7s" repeatCount="indefinite" />
+        <animate
+          attributeName="opacity"
+          values="0.2;0.72;0.2"
+          dur="2.7s"
+          repeatCount="indefinite"
+        />
       </path>
       <path d="M65,96 Q69,106 74,116" stroke="#2D9CDB18" strokeWidth="3" strokeLinecap="round">
-        <animate attributeName="opacity" values="0.12;0.5;0.12" dur="2.7s" repeatCount="indefinite" />
+        <animate
+          attributeName="opacity"
+          values="0.12;0.5;0.12"
+          dur="2.7s"
+          repeatCount="indefinite"
+        />
       </path>
 
       <g>
@@ -393,17 +413,11 @@ export function SwotSection() {
       />
 
       <div className={pageContainerClass}>
-        <SectionHeading
-          badge="Why Now"
-          title="The AI Convergence Moment"
-        />
+        <SectionHeading badge="Why Now" title="The AI Convergence Moment" />
         <ConvergenceGrid />
 
         <div className="mt-24">
-        <SectionHeading
-          badge="SWOT Analysis"
-          title="A Transparent Business Landscape"
-        />
+          <SectionHeading badge="SWOT Analysis" title="A Transparent Business Landscape" />
         </div>
 
         <div ref={ref} className="mt-14 grid gap-6 md:grid-cols-2">
@@ -468,22 +482,18 @@ export function SwotSection() {
               : "opacity-0"
           }`}
           style={{
-            background:
-              "linear-gradient(135deg, rgba(39, 174, 96, 0.05), rgba(45, 156, 219, 0.05))",
-            border: "1.5px solid rgba(39, 174, 96, 0.15)",
+            ...swotSummaryCardStyle,
             animationDelay: "520ms",
           }}
         >
           <div
             className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl"
-            style={{
-              background: "linear-gradient(135deg, rgb(39, 174, 96), rgb(45, 156, 219))",
-            }}
+            style={swotSummaryIconStyle}
           >
             <LineIcon name="sparkles" className="size-5 text-white" />
           </div>
           <p className="text-xs leading-relaxed text-[#6B7280] md:text-[0.95rem]">
-            <span className="font-semibold text-[#27AE60]">Investor takeaway â€” </span>
+            <span className="font-semibold text-[#27AE60]">Investor takeaway - </span>
             Strengths and opportunities significantly outweigh execution-stage risks.
             Threats are manageable with strategic capital deployment.
           </p>

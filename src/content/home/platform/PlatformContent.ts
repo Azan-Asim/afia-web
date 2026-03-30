@@ -10,7 +10,7 @@ export const platformSteps: PlatformStep[] = [
   },
   {
     title: "Health Signals",
-    subtitle: "Heart Â· Sleep Â· HRV",
+    subtitle: "Heart · Sleep · HRV",
     icon: "activity",
     accent: "blue",
   },
@@ -29,7 +29,7 @@ export const platformSteps: PlatformStep[] = [
   },
   {
     title: "Ecosystem",
-    subtitle: "Services Â· API",
+    subtitle: "Services · API",
     icon: "globe",
     accent: "pink",
   },
