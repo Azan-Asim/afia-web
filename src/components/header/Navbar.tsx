@@ -18,10 +18,10 @@ type NavbarProps = {
 };
 
 const requestDeckLinkClass =
-  `${gradientCtaClass} ${gradientCtaFocusClass} hidden px-5 py-2.5 text-sm leading-[var(--text-sm--line-height)] shadow-[0_4px_20px_rgba(39,174,96,0.25)] duration-500 md:inline-flex`;
+  `${gradientCtaClass} ${gradientCtaFocusClass} px-5 py-2.5 text-sm leading-[var(--text-sm--line-height)] shadow-[0_4px_20px_rgba(39,174,96,0.25)] duration-500`;
 
 const mobileMenuButtonClass =
-  "rounded-xl p-2 text-[var(--color-ink)] transition-colors hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-green)] md:hidden";
+  "rounded-xl p-2 text-[var(--color-ink)] transition-colors hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-green)] lg:hidden";
 
 export function Navbar({ items }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -106,13 +106,15 @@ export function Navbar({ items }: NavbarProps) {
           <DesktopNav items={items} />
 
           <div className="flex items-center gap-3">
-            <a
-              href="#contact"
-              className={requestDeckLinkClass}
-            >
-              <LineIcon name="mail" className="size-3.5 !text-white" />
-              Request Deck
-            </a>
+            <div className="hidden xl:block">
+              <a
+                href="#contact"
+                className={requestDeckLinkClass}
+              >
+                <LineIcon name="mail" className="size-3.5 !text-white" />
+                Request Deck
+              </a>
+            </div>
             <button
               ref={menuButtonRef}
               type="button"
