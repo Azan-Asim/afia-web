@@ -41,7 +41,7 @@ export function HeroSection() {
         className={`relative ${pageContainerClass}`}
       >
         <div
-          className="grid items-center gap-14 md:gap-16 lg:grid-cols-[0.92fr_1.08fr] lg:gap-24 xl:gap-28"
+          className="grid items-center gap-14 md:gap-16 lg:grid-cols-[0.82fr_1.18fr] lg:gap-44 xl:gap-40"
         >
           {/* Remount on cycle change so metric counts and staged text reveals restart cleanly. */}
           <HeroContent key={cycle} cycle={cycle} isActive={hasEntered} />

@@ -6,6 +6,8 @@ type AfiaLogoProps = {
   compact?: boolean;
   inverse?: boolean;
   showBadge?: boolean;
+  brandLabel?: string;
+  badgeLabel?: string;
 };
 
 const logoImageSrc = "/logo.svg";
@@ -19,6 +21,8 @@ export function AfiaLogo({
   compact = false,
   inverse = false,
   showBadge = true,
+  brandLabel = "Afia",
+  badgeLabel = "Investor",
 }: AfiaLogoProps) {
   const textColor = inverse ? "text-white" : "text-[#2d2d2d]";
   const badgeText = inverse ? "text-white/80" : "text-[var(--color-muted)]";
@@ -50,11 +54,11 @@ export function AfiaLogo({
         <span
           className={`${nameSizeClass} font-[family:var(--font-sans)] leading-none font-semibold tracking-[-0.01em] [font-synthesis:none] ${compact ? badgeText : textColor}`}
         >
-          Afia
+          {brandLabel}
         </span>
         {!compact && showBadge ? (
           <span className="ml-1 rounded-full border border-[rgba(39,174,96,0.2)] bg-[rgba(39,174,96,0.08)] px-2 py-0.5 text-[10px] leading-none font-semibold text-[rgb(39,174,96)] [font-synthesis:none]">
-            Investor
+            {badgeLabel}
           </span>
         ) : null}
       </div>

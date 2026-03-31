@@ -1,11 +1,14 @@
 // Product platform section that explains how the system works end to end.
 import { pageContainerClass } from "@/components/common/layout/PageContainer";
 import { SectionHeading } from "@/components/common/ui/SectionHeading";
+import { useHomeContent } from "@/content/home/useHomeContent";
 
 import { PlatformCapabilities } from "./PlatformCapabilities";
 import { PlatformFlow } from "./PlatformFlow";
 
 export function PlatformSection() {
+  const { platform } = useHomeContent();
+
   return (
     <section id="platform" className="relative overflow-hidden py-24 md:py-32">
       <div
@@ -15,8 +18,8 @@ export function PlatformSection() {
       />
       <div className={pageContainerClass}>
         <SectionHeading
-          badge="AI Platform"
-          title="AI Intelligence at Every Layer"
+          badge={platform.badgeLabel}
+          title={platform.heading}
         />
         <PlatformFlow />
         <PlatformCapabilities />

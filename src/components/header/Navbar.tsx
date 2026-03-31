@@ -5,16 +5,31 @@ import { useEffect, useRef, useState } from "react";
 
 import { AfiaLogo } from "@/components/common/branding/AfiaLogo";
 import { LineIcon } from "@/components/common/icons/LineIcons";
+import { LocaleSwitcher } from "@/components/common/ui/LocaleSwitcher";
 import {
   gradientCtaClass,
   gradientCtaFocusClass,
 } from "@/components/common/styles/CtaStyles";
+import type { SupportedLocale } from "@/content/i18n/Config";
 import { DesktopNav } from "@/components/header/DesktopNav";
 import { MobileMenu } from "@/components/header/MobileMenu";
 import type { NavItem } from "@/types/home/Home";
 
 type NavbarProps = {
   items: NavItem[];
+  locale: SupportedLocale;
+  brandLabel: string;
+  homeLabel: string;
+  investorBadgeLabel: string;
+  requestDeckLabel: string;
+  languageLabel: string;
+  languageOptions: { value: SupportedLocale; label: string }[];
+  primaryNavLabel: string;
+  mobileNavLabel: string;
+  mobileDialogLabel: string;
+  openNavigationLabel: string;
+  closeNavigationLabel: string;
+  onLocaleChange: (locale: SupportedLocale) => void;
 };
 
 const requestDeckLinkClass =
@@ -23,7 +38,22 @@ const requestDeckLinkClass =
 const mobileMenuButtonClass =
   "rounded-xl p-2 text-[var(--color-ink)] transition-colors hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-green)] md:hidden";
 
-export function Navbar({ items }: NavbarProps) {
+export function Navbar({
+  items,
+  locale,
+  brandLabel,
+  homeLabel,
+  investorBadgeLabel,
+  requestDeckLabel,
+  languageLabel,
+  languageOptions,
+  primaryNavLabel,
+  mobileNavLabel,
+  mobileDialogLabel,
+  openNavigationLabel,
+  closeNavigationLabel,
+  onLocaleChange,
+}: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -86,6 +116,7 @@ export function Navbar({ items }: NavbarProps) {
   return (
     <>
       <header
+        dir={locale === "ar" ? "rtl" : "ltr"}
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
           isScrolled || isMenuOpen
             ? "border-b border-black/5 bg-white/92 shadow-[0_12px_35px_rgba(17,24,39,0.06)] backdrop-blur-xl"
@@ -99,19 +130,27 @@ export function Navbar({ items }: NavbarProps) {
           />
         </div>
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-5 lg:px-10">
-          <a href="#top" aria-label="Afia home">
-            <AfiaLogo />
+          <a href="#top" aria-label={homeLabel}>
+            <AfiaLogo brandLabel={brandLabel} badgeLabel={investorBadgeLabel} />
           </a>
 
-          <DesktopNav items={items} />
+          <DesktopNav items={items} ariaLabel={primaryNavLabel} />
 
           <div className="flex items-center gap-3">
+            <div className="hidden md:block">
+              <LocaleSwitcher
+                locale={locale}
+                label={languageLabel}
+                options={languageOptions}
+                onChange={onLocaleChange}
+              />
+            </div>
             <a
               href="#contact"
               className={requestDeckLinkClass}
             >
               <LineIcon name="mail" className="size-3.5 !text-white" />
-              Request Deck
+              {requestDeckLabel}
             </a>
             <button
               ref={menuButtonRef}
@@ -119,7 +158,7 @@ export function Navbar({ items }: NavbarProps) {
               className={mobileMenuButtonClass}
               aria-controls="mobile-navigation"
               aria-expanded={isMenuOpen}
-              aria-label={isMenuOpen ? "Close navigation" : "Open navigation"}
+              aria-label={isMenuOpen ? closeNavigationLabel : openNavigationLabel}
               onClick={() => {
                 setIsMenuOpen((current) => !current);
               }}
@@ -129,7 +168,18 @@ export function Navbar({ items }: NavbarProps) {
           </div>
         </div>
       </header>
-      <MobileMenu items={items} isOpen={isMenuOpen} onClose={closeMenu} />
+      <MobileMenu
+        items={items}
+        isOpen={isMenuOpen}
+        locale={locale}
+        requestDeckLabel={requestDeckLabel}
+        languageLabel={languageLabel}
+        languageOptions={languageOptions}
+        dialogLabel={mobileDialogLabel}
+        navLabel={mobileNavLabel}
+        onLocaleChange={onLocaleChange}
+        onClose={closeMenu}
+      />
     </>
   );
 }

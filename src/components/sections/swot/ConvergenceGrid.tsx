@@ -2,7 +2,8 @@
 
 // Four-card convergence block that explains why the current market timing is compelling.
 import { useInViewOnce } from "@/components/sections/opportunity/useInViewOnce";
-import { convergenceItems } from "@/content/home/swot/SwotContent";
+import { useHomeContent } from "@/content/home/useHomeContent";
+import type { ConvergenceItemId } from "@/content/home/swot/SwotTypes";
 
 const convergenceCardStyleMap = {
   green: {
@@ -390,21 +391,21 @@ function FourthCardVisual() {
 }
 
 function ConvergenceVisual({
-  index,
+  itemId,
   hasEntered,
 }: {
-  index: number;
+  itemId: ConvergenceItemId;
   hasEntered: boolean;
 }) {
-  if (index === 0) {
+  if (itemId === "marketCagr") {
     return <FirstCardVisual hasEntered={hasEntered} />;
   }
 
-  if (index === 1) {
+  if (itemId === "wearableUsers") {
     return <SecondCardVisual />;
   }
 
-  if (index === 2) {
+  if (itemId === "wantAiClarity") {
     return <ThirdCardVisual />;
   }
 
@@ -413,17 +414,18 @@ function ConvergenceVisual({
 
 export function ConvergenceGrid() {
   const { ref, hasEntered } = useInViewOnce<HTMLDivElement>();
+  const { swot } = useHomeContent();
 
   return (
     <div ref={ref} className="mt-14 grid grid-cols-2 gap-6 md:grid-cols-4">
-      {convergenceItems.map((item, index) => {
+      {swot.convergenceItems.map((item, index) => {
         const cardStyle =
           convergenceCardStyleMap[item.accent as ConvergenceAccent] ??
           defaultConvergenceCardStyle;
 
         return (
           <div
-            key={item.label}
+            key={item.id}
             className={`flex min-h-[16.25rem] flex-col items-center rounded-[2rem] p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.03)] ${
               hasEntered
                 ? "animate-[convergence-card-enter_760ms_cubic-bezier(0.22,1,0.36,1)_both]"
@@ -435,7 +437,7 @@ export function ConvergenceGrid() {
             }}
           >
             <div className="mb-4 flex h-20 w-full justify-center">
-              <ConvergenceVisual index={index} hasEntered={hasEntered} />
+              <ConvergenceVisual itemId={item.id} hasEntered={hasEntered} />
             </div>
             <div className="mb-1 text-[1.8rem] font-bold text-[#2D2D2D]">{item.value}</div>
             <div className="text-xs font-medium text-[#9CA3AF]">{item.label}</div>

@@ -1,16 +1,36 @@
 // Mobile navigation drawer that shows links and actions on smaller screens.
 import { useEffect, useRef } from "react";
 
+import type { SupportedLocale } from "@/content/i18n/Config";
 import { LineIcon } from "@/components/common/icons/LineIcons";
+import { LocaleSwitcher } from "@/components/common/ui/LocaleSwitcher";
 import type { NavItem } from "@/types/home/Home";
 
 type MobileMenuProps = {
   items: NavItem[];
   isOpen: boolean;
+  locale: SupportedLocale;
+  requestDeckLabel: string;
+  languageLabel: string;
+  languageOptions: { value: SupportedLocale; label: string }[];
+  dialogLabel: string;
+  navLabel: string;
+  onLocaleChange: (locale: SupportedLocale) => void;
   onClose: () => void;
 };
 
-export function MobileMenu({ items, isOpen, onClose }: MobileMenuProps) {
+export function MobileMenu({
+  items,
+  isOpen,
+  locale,
+  requestDeckLabel,
+  languageLabel,
+  languageOptions,
+  dialogLabel,
+  navLabel,
+  onLocaleChange,
+  onClose,
+}: MobileMenuProps) {
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -65,16 +85,30 @@ export function MobileMenu({ items, isOpen, onClose }: MobileMenuProps) {
         id="mobile-navigation"
         role="dialog"
         aria-modal="true"
-        aria-label="Mobile navigation"
+        aria-label={dialogLabel}
         aria-hidden={!isOpen}
         tabIndex={-1}
+        dir={locale === "ar" ? "rtl" : "ltr"}
         className={`fixed inset-x-4 top-[5.25rem] z-40 rounded-[2rem] border border-black/5 bg-white p-5 shadow-[0_24px_70px_rgba(17,24,39,0.12)] transition-all duration-300 md:hidden ${
           isOpen
             ? "pointer-events-auto translate-y-0 opacity-100"
             : "pointer-events-none -translate-y-4 opacity-0"
         }`}
       >
-        <nav className="flex flex-col gap-2" aria-label="Mobile">
+        <div className="mb-4">
+          <p className="mb-2 block text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-muted)]">
+            {languageLabel}
+          </p>
+          <LocaleSwitcher
+            locale={locale}
+            label={languageLabel}
+            options={languageOptions}
+            onChange={onLocaleChange}
+            fullWidth
+          />
+        </div>
+
+        <nav className="flex flex-col gap-2" aria-label={navLabel}>
           {items.map((item) => (
             <a
               key={item.href}
@@ -93,7 +127,7 @@ export function MobileMenu({ items, isOpen, onClose }: MobileMenuProps) {
           onClick={onClose}
         >
           <LineIcon name="mail" className="size-4 !text-white" />
-          Request Deck
+          {requestDeckLabel}
         </a>
       </div>
     </>

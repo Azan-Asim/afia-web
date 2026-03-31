@@ -6,17 +6,8 @@ import { pageContainerClass } from "@/components/common/layout/PageContainer";
 import { SectionHeading } from "@/components/common/ui/SectionHeading";
 import { useInViewOnce } from "@/components/sections/opportunity/useInViewOnce";
 import { ConvergenceGrid } from "@/components/sections/swot/ConvergenceGrid";
-
-type SwotCard = {
-  letter: string;
-  title: string;
-  accent: string;
-  softBackground: string;
-  borderColor: string;
-  topLineColor: string;
-  bullets: string[];
-  visual: "strength" | "weakness" | "opportunity" | "threat";
-};
+import { useHomeContent } from "@/content/home/useHomeContent";
+import type { SwotCard as SwotCardContent } from "@/content/home/swot/SwotTypes";
 
 const swotSummaryCardStyle = {
   background:
@@ -27,65 +18,6 @@ const swotSummaryCardStyle = {
 const swotSummaryIconStyle = {
   background: "linear-gradient(135deg, rgb(39, 174, 96), rgb(45, 156, 219))",
 } as const;
-
-const swotCards: SwotCard[] = [
-  {
-    letter: "S",
-    title: "Strengths",
-    accent: "#27AE60",
-    softBackground: "rgba(39, 174, 96, 0.05)",
-    borderColor: "rgba(39, 174, 96, 0.2)",
-    topLineColor: "rgba(39, 174, 96, 0.5)",
-    bullets: [
-      "First-mover AI advantage",
-      "20+ device integrations",
-      "Multi-stream revenue model",
-    ],
-    visual: "strength",
-  },
-  {
-    letter: "W",
-    title: "Weaknesses",
-    accent: "#F59E0B",
-    softBackground: "rgba(245, 158, 11, 0.05)",
-    borderColor: "rgba(245, 158, 11, 0.2)",
-    topLineColor: "rgba(245, 158, 11, 0.5)",
-    bullets: [
-      "Pre-revenue stage",
-      "Third-party API dependency",
-      "New category - market education",
-    ],
-    visual: "weakness",
-  },
-  {
-    letter: "O",
-    title: "Opportunities",
-    accent: "#2D9CDB",
-    softBackground: "rgba(45, 156, 219, 0.05)",
-    borderColor: "rgba(45, 156, 219, 0.2)",
-    topLineColor: "rgba(45, 156, 219, 0.5)",
-    bullets: [
-      "$100B+ market - 14.9% CAGR",
-      "MENA under-served by AI health",
-      "Enterprise & insurance expansion",
-    ],
-    visual: "opportunity",
-  },
-  {
-    letter: "T",
-    title: "Threats",
-    accent: "#EC4899",
-    softBackground: "rgba(236, 72, 153, 0.05)",
-    borderColor: "rgba(236, 72, 153, 0.2)",
-    topLineColor: "rgba(236, 72, 153, 0.5)",
-    bullets: [
-      "Big Tech entering AI health",
-      "Evolving data privacy laws",
-      "Consumer AI adoption pace",
-    ],
-    visual: "threat",
-  },
-];
 
 function StrengthVisual({ hasEntered }: { hasEntered: boolean }) {
   return (
@@ -366,7 +298,7 @@ function SwotVisual({
   visual,
   hasEntered,
 }: {
-  visual: SwotCard["visual"];
+  visual: SwotCardContent["visual"];
   hasEntered: boolean;
 }) {
   if (visual === "strength") {
@@ -386,6 +318,7 @@ function SwotVisual({
 
 export function SwotSection() {
   const { ref, hasEntered } = useInViewOnce<HTMLDivElement>();
+  const { swot } = useHomeContent();
 
   return (
     <section id="swot" className="relative overflow-hidden bg-white py-24 md:py-32">
@@ -413,17 +346,17 @@ export function SwotSection() {
       />
 
       <div className={pageContainerClass}>
-        <SectionHeading badge="Why Now" title="The AI Convergence Moment" />
+        <SectionHeading badge={swot.convergenceBadgeLabel} title={swot.convergenceHeading} />
         <ConvergenceGrid />
 
         <div className="mt-24">
-          <SectionHeading badge="SWOT Analysis" title="A Transparent Business Landscape" />
+          <SectionHeading badge={swot.swotBadgeLabel} title={swot.swotHeading} />
         </div>
 
         <div ref={ref} className="mt-14 grid gap-6 md:grid-cols-2">
-          {swotCards.map((card, index) => (
+          {swot.swotCards.map((card, index) => (
             <article
-              key={card.title}
+              key={card.id}
               className={`relative overflow-hidden rounded-[2rem] p-8 shadow-[0_4px_24px_rgba(0,0,0,0.04)] ${
                 hasEntered
                   ? "animate-[convergence-card-enter_760ms_cubic-bezier(0.22,1,0.36,1)_both]"
@@ -493,9 +426,8 @@ export function SwotSection() {
             <LineIcon name="sparkles" className="size-5 text-white" />
           </div>
           <p className="text-xs leading-relaxed text-[#6B7280] md:text-[0.95rem]">
-            <span className="font-semibold text-[#27AE60]">Investor takeaway - </span>
-            Strengths and opportunities significantly outweigh execution-stage risks.
-            Threats are manageable with strategic capital deployment.
+            <span className="font-semibold text-[#27AE60]">{swot.summaryPrefix}</span>
+            {swot.summaryText}
           </p>
         </div>
       </div>

@@ -4,20 +4,21 @@
 import { LineIcon } from "@/components/common/icons/LineIcons";
 import { useInViewOnce } from "@/components/sections/opportunity/useInViewOnce";
 import { accentStyles } from "@/components/common/styles/AccentStyles";
-import { platformSteps } from "@/content/home/platform/PlatformContent";
+import { useHomeContent } from "@/content/home/useHomeContent";
 
 export function PlatformFlow() {
   const { ref, hasEntered } = useInViewOnce<HTMLDivElement>();
+  const { platform } = useHomeContent();
 
   return (
     <div ref={ref} className="mt-16">
       <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-        {platformSteps.map((step, index) => {
+        {platform.steps.map((step, index) => {
           const styles = accentStyles[step.accent];
 
           return (
             <div
-              key={step.title}
+              key={step.id}
               className="flex w-full flex-col items-center gap-4 md:flex-1 md:flex-row"
             >
               <div
@@ -50,12 +51,12 @@ export function PlatformFlow() {
 
                 {step.featured ? (
                   <div className="mt-2 inline-flex rounded-full bg-[rgba(139,92,246,0.082)] px-2 py-0.5 text-[9px] font-bold text-[var(--color-purple)] motion-safe:animate-[platform-feature-chip_3s_ease-in-out_infinite]">
-                    Afia Layer
+                    {platform.featuredChipLabel}
                   </div>
                 ) : null}
               </div>
 
-              {index < platformSteps.length - 1 ? (
+              {index < platform.steps.length - 1 ? (
                 <div className="hidden items-center md:flex">
                   <LineIcon
                     name="chevronRight"

@@ -40,18 +40,6 @@ export interface NavItem {
   label: string;
 }
 
-export interface HeroMetric {
-  value: string;
-  label: string;
-}
-
-export interface FloatingSignal {
-  label: string;
-  value: string;
-  icon: IconName;
-  accent: Accent;
-}
-
 export interface RevenueFunnelStage {
   label: string;
   icon: IconName;

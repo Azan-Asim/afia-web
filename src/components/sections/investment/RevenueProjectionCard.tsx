@@ -3,10 +3,11 @@
 // Five-year projection chart that compares revenue growth against user growth over time.
 import { accentStyles } from "@/components/common/styles/AccentStyles";
 import { useInViewOnce } from "@/components/sections/opportunity/useInViewOnce";
-import { revenueProjection } from "@/content/home/investment/InvestmentContent";
+import { useHomeContent } from "@/content/home/useHomeContent";
 
 export function RevenueProjectionCard() {
   const { ref, hasEntered } = useInViewOnce<HTMLDivElement>();
+  const { investment } = useHomeContent();
 
   return (
     <div ref={ref} className="mt-20">
@@ -14,35 +15,36 @@ export function RevenueProjectionCard() {
         <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
             <div className="mb-1 text-xs font-semibold uppercase tracking-wider text-[#9CA3AF]">
-              5-Year Projection
+              {investment.projectionEyebrow}
             </div>
             <h3 className="font-[family:var(--font-display)] text-[clamp(18px,3vw,26px)] font-bold tracking-[-0.02em] text-[#2D2D2D]">
-              Reaching <span className="text-[rgb(39,174,96)]">$58M ARR</span> by
-              Year 5
+              {investment.projectionTitlePrefix}{" "}
+              <span className="text-[rgb(39,174,96)]">{investment.projectionHighlight}</span>{" "}
+              {investment.projectionTitleSuffix}
             </h3>
           </div>
 
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-1.5 text-xs text-[#9CA3AF]">
               <div className="size-3 rounded-sm bg-[rgba(39,174,96,0.376)]" />
-              Revenue ($M)
+              {investment.revenueLegendLabel}
             </div>
             <div className="flex items-center gap-1.5 text-xs text-[#9CA3AF]">
               <div className="h-1 w-3 rounded-full bg-[#2D9CDB]" />
-              Users (K)
+              {investment.usersLegendLabel}
             </div>
           </div>
         </div>
 
         <div className="flex h-44 items-end gap-4">
-          {revenueProjection.map((entry, index) => {
+          {investment.revenueProjection.map((entry, index) => {
             const styles = accentStyles[entry.accent];
             // Larger bars can comfortably host the revenue label inside the fill.
-            const showInsideBar = ["Y3", "Y4", "Y5"].includes(entry.year);
+            const showInsideBar = ["y3", "y4", "y5"].includes(entry.id);
 
             return (
               <div
-                key={entry.year}
+                key={entry.id}
                 className="flex flex-1 flex-col items-center gap-1"
               >
                 <div className="flex h-40 w-full items-end justify-center gap-1">
@@ -102,24 +104,21 @@ export function RevenueProjectionCard() {
         </div>
 
         <div className="mt-4 flex flex-wrap gap-6 border-t border-black/[0.04] pt-4">
-          <div>
-            <div className="text-[10px] text-[#9CA3AF]">Year 1</div>
-            <div className="text-xs font-bold text-[rgb(39,174,96)]">
-              50K users - $0.4M
-            </div>
-          </div>
-          <div>
-            <div className="text-[10px] text-[#9CA3AF]">Break-even</div>
-            <div className="text-xs font-bold text-[rgb(45,156,219)]">
-              Year 3 - 600K users
-            </div>
-          </div>
-          <div>
-            <div className="text-[10px] text-[#9CA3AF]">Year 5</div>
-            <div className="text-xs font-bold text-[rgb(139,92,246)]">
-              $58M - 3M users
-            </div>
-          </div>
+          {investment.projectionSummary.map((item) => {
+            const accentText =
+              item.accent === "green"
+                ? "text-[rgb(39,174,96)]"
+                : item.accent === "blue"
+                  ? "text-[rgb(45,156,219)]"
+                  : "text-[rgb(139,92,246)]";
+
+            return (
+              <div key={item.label}>
+                <div className="text-[10px] text-[#9CA3AF]">{item.label}</div>
+                <div className={`text-xs font-bold ${accentText}`}>{item.value}</div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

@@ -4,19 +4,20 @@
 import { LineIcon } from "@/components/common/icons/LineIcons";
 import { accentStyles } from "@/components/common/styles/AccentStyles";
 import { useInViewOnce } from "@/components/sections/opportunity/useInViewOnce";
-import { moatItems } from "@/content/home/moat/MoatContent";
+import { useHomeContent } from "@/content/home/useHomeContent";
 
 export function MoatFeatureList() {
   const { ref, hasEntered } = useInViewOnce<HTMLDivElement>();
+  const { moat } = useHomeContent();
 
   return (
     <div ref={ref} className="space-y-5">
-      {moatItems.map((item, index) => {
+      {moat.items.map((item, index) => {
         const styles = accentStyles[item.accent];
 
         return (
           <div
-            key={item.title}
+            key={item.id}
             className={`flex gap-4 ${
               hasEntered
                 ? "motion-safe:animate-[moat-card-enter_760ms_cubic-bezier(0.22,1,0.36,1)_both]"
@@ -33,6 +34,9 @@ export function MoatFeatureList() {
               <h3 className="text-[1.02rem] font-semibold text-[var(--color-ink)]">
                 {item.title}
               </h3>
+              <p className="mt-1 text-sm leading-6 text-[var(--color-muted)]">
+                {item.description}
+              </p>
             </div>
           </div>
         );

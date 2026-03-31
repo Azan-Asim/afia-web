@@ -1,0 +1,50 @@
+import type { OpportunityContentData } from "@/content/home/opportunity/OpportunityTypes";
+
+export const opportunityContent: OpportunityContentData = {
+  badgeLabel: "فرصة السوق",
+  heading: "فجوة الذكاء الاصطناعي التي لم يحلها أحد",
+  cards: [
+    {
+      id: "wearablesBy2028",
+      value: "5.8B",
+      title: "الأجهزة القابلة للارتداء بحلول 2028",
+      description: "أجهزة تولد بيانات صحية يومياً، دون ذكاء اصطناعي يفسرها.",
+      icon: "watch",
+      accent: "green",
+    },
+    {
+      id: "digitalHealthMarket",
+      value: "$100B+",
+      title: "سوق الصحة الرقمية",
+      description: "الذكاء الصحي المدعوم بالذكاء الاصطناعي ينمو بمعدل 14.9%.",
+      icon: "chart",
+      accent: "blue",
+    },
+    {
+      id: "aiPlatformsThatInterpret",
+      value: "0",
+      title: "منصات ذكاء اصطناعي تفسر البيانات",
+      description: "الجميع يجمع البيانات الصحية، لكن لا يوجد ذكاء اصطناعي يشرح معناها.",
+      icon: "brain",
+      accent: "purple",
+    },
+  ],
+  withoutAiLabel: "بدون ذكاء اصطناعي",
+  withoutAiTitle: "تكدس البيانات الخام",
+  withoutAiFooter: "لا توجد أي إرشادات",
+  withoutAiSignals: [
+    { id: "hrv", label: "تذبذب النبض", value: "42 مللي ثانية", accent: "red" },
+    { id: "spo2", label: "الأكسجين", value: "97%", accent: "orange" },
+    { id: "steps", label: "الخطوات", value: "8,240", accent: "orange" },
+    { id: "sleep", label: "النوم", value: "7س 20د", accent: "pink" },
+    { id: "stress", label: "الإجهاد", value: "34", accent: "red" },
+    { id: "calories", label: "السعرات", value: "1,840", accent: "orange" },
+  ],
+  withAiLabel: "مع أفيا AI",
+  withAiTitle: "رؤية واضحة من الذكاء الاصطناعي",
+  withAiSourceLabel: "أفيا AI",
+  withAiInsight: "جسمك يحتاج إلى الراحة اليوم.",
+  withAiContext: "تذبذب النبض أقل من خط الأساس بنسبة 18%.",
+  withAiScoreLabel: "/ 100",
+  withAiFooter: "تم إيصال القرار.",
+};

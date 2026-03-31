@@ -1,4 +1,5 @@
 // Static hero visual configuration for orbit nodes, floating signals, and layout timing.
+import type { HeroSignalId } from "@/content/home/hero/HeroTypes";
 import type { Accent } from "@/types/home/Home";
 
 export const heroOrbitNodes = [
@@ -10,8 +11,17 @@ export const heroOrbitNodes = [
   { x: 84, y: 18.430780618346944, lineOpacity: 0.380253251909744, dotOpacity: 0.780253251909744, scale: 1.13519 },
 ] as const;
 
-export const heroSignalConfigs = {
-  "Heart Rate": {
+export const heroSignalConfigs: Record<
+  HeroSignalId,
+  {
+    positionX: string;
+    positionY: string;
+    floatOffset: string;
+    entryDelay: string;
+    animationClass: string;
+  }
+> = {
+  heartRate: {
     positionX: "42px",
     positionY: "-164px",
     floatOffset: "-2.247px",
@@ -19,7 +29,7 @@ export const heroSignalConfigs = {
     animationClass:
       "motion-safe:animate-[hero-card-float_9.2s_ease-in-out_infinite]",
   },
-  Sleep: {
+  sleep: {
     positionX: "162px",
     positionY: "-28px",
     floatOffset: "-2.21788px",
@@ -27,7 +37,7 @@ export const heroSignalConfigs = {
     animationClass:
       "motion-safe:animate-[hero-card-float-alt_10.1s_ease-in-out_infinite]",
   },
-  Activity: {
+  activity: {
     positionX: "34px",
     positionY: "144px",
     floatOffset: "-2.19455px",
@@ -35,7 +45,7 @@ export const heroSignalConfigs = {
     animationClass:
       "motion-safe:animate-[hero-card-float_9.6s_ease-in-out_infinite]",
   },
-  Decision: {
+  decision: {
     positionX: "-214px",
     positionY: "34px",
     floatOffset: "-0.475549px",
@@ -43,7 +53,7 @@ export const heroSignalConfigs = {
     animationClass:
       "motion-safe:animate-[hero-card-float-alt_10.4s_ease-in-out_infinite]",
   },
-  HRV: {
+  hrv: {
     positionX: "-162px",
     positionY: "-108px",
     floatOffset: "-0.555132px",
@@ -51,7 +61,7 @@ export const heroSignalConfigs = {
     animationClass:
       "motion-safe:animate-[hero-card-float_9.8s_ease-in-out_infinite]",
   },
-} as const;
+};
 
 export const heroSignalStyles: Record<
   Accent,

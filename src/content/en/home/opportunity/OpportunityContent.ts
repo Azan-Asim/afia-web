@@ -1,0 +1,50 @@
+import type { OpportunityContentData } from "@/content/home/opportunity/OpportunityTypes";
+
+export const opportunityContent: OpportunityContentData = {
+  badgeLabel: "Market Opportunity",
+  heading: "The AI Gap No One Has Solved",
+  cards: [
+    {
+      id: "wearablesBy2028",
+      value: "5.8B",
+      title: "Wearables by 2028",
+      description: "Devices generating health data daily, with no AI to interpret it.",
+      icon: "watch",
+      accent: "green",
+    },
+    {
+      id: "digitalHealthMarket",
+      value: "$100B+",
+      title: "Digital Health Market",
+      description: "AI-driven health intelligence growing at 14.9% CAGR.",
+      icon: "chart",
+      accent: "blue",
+    },
+    {
+      id: "aiPlatformsThatInterpret",
+      value: "0",
+      title: "AI Platforms That Interpret",
+      description: "Everyone collects health data. No AI explains what it means.",
+      icon: "brain",
+      accent: "purple",
+    },
+  ],
+  withoutAiLabel: "Without AI",
+  withoutAiTitle: "Raw Data Overload",
+  withoutAiFooter: "No guidance provided",
+  withoutAiSignals: [
+    { id: "hrv", label: "HRV", value: "42ms", accent: "red" },
+    { id: "spo2", label: "SpO2", value: "97%", accent: "orange" },
+    { id: "steps", label: "Steps", value: "8,240", accent: "orange" },
+    { id: "sleep", label: "Sleep", value: "7h 20m", accent: "pink" },
+    { id: "stress", label: "Stress", value: "34", accent: "red" },
+    { id: "calories", label: "Calories", value: "1,840", accent: "orange" },
+  ],
+  withAiLabel: "With Afia AI",
+  withAiTitle: "Clear AI Insight",
+  withAiSourceLabel: "Afia AI",
+  withAiInsight: "Your body needs rest today.",
+  withAiContext: "HRV 18% below baseline.",
+  withAiScoreLabel: "/ 100",
+  withAiFooter: "Decision delivered.",
+};

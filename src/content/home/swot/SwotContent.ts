@@ -1,29 +1,14 @@
-// Convergence metrics content shown before the SWOT analysis cards.
-import type { ConvergenceItem } from "@/types/home/Home";
+import { swotContent as arSwotContent } from "@/content/ar/home/swot/SwotContent";
+import { swotContent as enSwotContent } from "@/content/en/home/swot/SwotContent";
+import type { SupportedLocale } from "@/content/i18n/Config";
 
-export const convergenceItems: ConvergenceItem[] = [
-  {
-    value: "14.9%",
-    label: "Market CAGR",
-    icon: "trendingUp",
-    accent: "green",
-  },
-  {
-    value: "1.1B",
-    label: "Wearable Users",
-    icon: "watch",
-    accent: "blue",
-  },
-  {
-    value: "78%",
-    label: "Want AI Clarity",
-    icon: "heart",
-    accent: "pink",
-  },
-  {
-    value: "None",
-    label: "True AI Interpreters",
-    icon: "zap",
-    accent: "orange",
-  },
-];
+import type { SwotContentData } from "./SwotTypes";
+
+const swotContentByLocale: Record<SupportedLocale, SwotContentData> = {
+  en: enSwotContent,
+  ar: arSwotContent,
+};
+
+export function getSwotContent(locale: SupportedLocale): SwotContentData {
+  return swotContentByLocale[locale];
+}

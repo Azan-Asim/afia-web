@@ -1,5 +1,6 @@
 // Orbiting hero illustration layer that visualizes connected signals around the core product.
 import { heroOrbitNodes } from "@/components/sections/hero/HeroVisualData";
+import { useHomeContent } from "@/content/home/useHomeContent";
 
 const heroOrbitPairs = [
   [heroOrbitNodes[0], heroOrbitNodes[3]],
@@ -29,6 +30,8 @@ function createOpacityValues(baseOpacity: number, reverse = false) {
 }
 
 export function HeroOrbit() {
+  const { hero } = useHomeContent();
+
   return (
     <div className="absolute inset-0 z-10 flex items-center justify-center">
       <div
@@ -150,7 +153,7 @@ export function HeroOrbit() {
         </svg>
 
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-xs font-bold text-white">Afia AI</span>
+          <span className="text-xs font-bold text-white">{hero.orbitLabel}</span>
         </div>
       </div>
     </div>

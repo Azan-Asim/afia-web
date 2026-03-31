@@ -1,0 +1,63 @@
+import type { SwotContentData } from "@/content/home/swot/SwotTypes";
+
+export const swotContent: SwotContentData = {
+  convergenceBadgeLabel: "Why Now",
+  convergenceHeading: "The AI Convergence Moment",
+  convergenceItems: [
+    { id: "marketCagr", value: "14.9%", label: "Market CAGR", icon: "trendingUp", accent: "green" },
+    { id: "wearableUsers", value: "1.1B", label: "Wearable Users", icon: "watch", accent: "blue" },
+    { id: "wantAiClarity", value: "78%", label: "Want AI Clarity", icon: "heart", accent: "pink" },
+    { id: "trueAiInterpreters", value: "None", label: "True AI Interpreters", icon: "zap", accent: "orange" },
+  ],
+  swotBadgeLabel: "SWOT Analysis",
+  swotHeading: "A Transparent Business Landscape",
+  swotCards: [
+    {
+      id: "strengths",
+      letter: "S",
+      title: "Strengths",
+      accent: "#27AE60",
+      softBackground: "rgba(39, 174, 96, 0.05)",
+      borderColor: "rgba(39, 174, 96, 0.2)",
+      topLineColor: "rgba(39, 174, 96, 0.5)",
+      bullets: ["First-mover AI advantage", "20+ device integrations", "Multi-stream revenue model"],
+      visual: "strength",
+    },
+    {
+      id: "weaknesses",
+      letter: "W",
+      title: "Weaknesses",
+      accent: "#F59E0B",
+      softBackground: "rgba(245, 158, 11, 0.05)",
+      borderColor: "rgba(245, 158, 11, 0.2)",
+      topLineColor: "rgba(245, 158, 11, 0.5)",
+      bullets: ["Pre-revenue stage", "Third-party API dependency", "New category - market education"],
+      visual: "weakness",
+    },
+    {
+      id: "opportunities",
+      letter: "O",
+      title: "Opportunities",
+      accent: "#2D9CDB",
+      softBackground: "rgba(45, 156, 219, 0.05)",
+      borderColor: "rgba(45, 156, 219, 0.2)",
+      topLineColor: "rgba(45, 156, 219, 0.5)",
+      bullets: ["$100B+ market - 14.9% CAGR", "MENA under-served by AI health", "Enterprise & insurance expansion"],
+      visual: "opportunity",
+    },
+    {
+      id: "threats",
+      letter: "T",
+      title: "Threats",
+      accent: "#EC4899",
+      softBackground: "rgba(236, 72, 153, 0.05)",
+      borderColor: "rgba(236, 72, 153, 0.2)",
+      topLineColor: "rgba(236, 72, 153, 0.5)",
+      bullets: ["Big Tech entering AI health", "Evolving data privacy laws", "Consumer AI adoption pace"],
+      visual: "threat",
+    },
+  ],
+  summaryPrefix: "Investor takeaway - ",
+  summaryText:
+    "Strengths and opportunities significantly outweigh execution-stage risks. Threats are manageable with strategic capital deployment.",
+};

@@ -1,12 +1,15 @@
 // Investment thesis section that groups market size, projections, and unit economics.
 import { pageContainerClass } from "@/components/common/layout/PageContainer";
 import { SectionHeading } from "@/components/common/ui/SectionHeading";
+import { useHomeContent } from "@/content/home/useHomeContent";
 
 import { MarketLayersShowcase } from "./MarketLayersShowcase";
 import { RevenueProjectionCard } from "./RevenueProjectionCard";
 import { UnitEconomicsGrid } from "./UnitEconomicsGrid";
 
 export function InvestmentSection() {
+  const { investment } = useHomeContent();
+
   return (
     <section id="investment" className="relative py-24 md:py-32">
       <div
@@ -20,8 +23,8 @@ export function InvestmentSection() {
 
       <div className={pageContainerClass}>
         <SectionHeading
-          badge="Investment Opportunity"
-          title="Why Invest in Afia AI"
+          badge={investment.badgeLabel}
+          title={investment.heading}
         />
         <MarketLayersShowcase />
         <RevenueProjectionCard />

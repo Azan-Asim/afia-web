@@ -3,9 +3,11 @@
 // Radial moat diagram that visualizes Afia's defensibility pillars around a central core.
 import { LineIcon } from "@/components/common/icons/LineIcons";
 import { useInViewOnce } from "@/components/sections/opportunity/useInViewOnce";
+import { useHomeContent } from "@/content/home/useHomeContent";
+import type { MoatSectorId } from "@/content/home/moat/MoatTypes";
 
-type MoatSector = {
-  label: string[];
+type MoatSectorLayout = {
+  id: MoatSectorId;
   fill: string;
   stroke: string;
   labelColor: string;
@@ -15,10 +17,10 @@ type MoatSector = {
   endAngle: number;
 };
 
-const moatSectors: MoatSector[] = [
+const moatSectorLayouts: MoatSectorLayout[] = [
   // These wedges map directly to the five moat pillars shown around the shield core.
   {
-    label: ["AI", "Architecture"],
+    id: "aiArchitecture",
     fill: "rgba(39, 174, 96, 0.10)",
     stroke: "rgba(39, 174, 96, 0.4)",
     labelColor: "#27AE60",
@@ -28,7 +30,7 @@ const moatSectors: MoatSector[] = [
     endAngle: -18,
   },
   {
-    label: ["Device", "Network"],
+    id: "deviceNetwork",
     fill: "rgba(45, 156, 219, 0.10)",
     stroke: "rgba(45, 156, 219, 0.4)",
     labelColor: "#2D9CDB",
@@ -38,7 +40,7 @@ const moatSectors: MoatSector[] = [
     endAngle: 54,
   },
   {
-    label: ["Revenue", "Layers"],
+    id: "revenueLayers",
     fill: "rgba(139, 92, 246, 0.10)",
     stroke: "rgba(139, 92, 246, 0.38)",
     labelColor: "#8B5CF6",
@@ -48,7 +50,7 @@ const moatSectors: MoatSector[] = [
     endAngle: 126,
   },
   {
-    label: ["Data", "Intelligence"],
+    id: "dataIntelligence",
     fill: "rgba(245, 158, 11, 0.10)",
     stroke: "rgba(245, 158, 11, 0.4)",
     labelColor: "#F59E0B",
@@ -58,7 +60,7 @@ const moatSectors: MoatSector[] = [
     endAngle: 198,
   },
   {
-    label: ["Privacy"],
+    id: "privacy",
     fill: "rgba(236, 72, 153, 0.10)",
     stroke: "rgba(236, 72, 153, 0.4)",
     labelColor: "#EC4899",
@@ -104,14 +106,16 @@ function describeSector(
 
 export function MoatVisual() {
   const { ref, hasEntered } = useInViewOnce<HTMLDivElement>();
+  const { moat } = useHomeContent();
+  const moatSectorLabels = new Map(moat.sectors.map((sector) => [sector.id, sector.label]));
 
   return (
     <div ref={ref} className="flex justify-center">
       <div className="relative size-80">
         <svg viewBox="0 0 320 320" className="h-full w-full">
-          {moatSectors.map((sector, index) => (
+          {moatSectorLayouts.map((sector, index) => (
             <path
-              key={sector.label.join("-")}
+              key={sector.id}
               d={describeSector(160, 160, 122, sector.startAngle, sector.endAngle)}
               fill={sector.fill}
               stroke={sector.stroke}
@@ -165,9 +169,9 @@ export function MoatVisual() {
             );
           })}
 
-          {moatSectors.map((sector, index) => (
+          {moatSectorLayouts.map((sector, index) => (
             <text
-              key={`${sector.label.join("-")}-text`}
+              key={`${sector.id}-text`}
               x={sector.labelX}
               y={sector.labelY}
               textAnchor="middle"
@@ -179,7 +183,7 @@ export function MoatVisual() {
               }
               style={{ animationDelay: `${340 + index * 90}ms` }}
             >
-              {sector.label.map((line, lineIndex) => (
+              {(moatSectorLabels.get(sector.id) ?? []).map((line, lineIndex) => (
                 <tspan
                   key={line}
                   x={sector.labelX}

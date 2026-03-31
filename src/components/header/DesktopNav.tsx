@@ -3,11 +3,12 @@ import type { NavItem } from "@/types/home/Home";
 
 type DesktopNavProps = {
   items: NavItem[];
+  ariaLabel: string;
 };
 
-export function DesktopNav({ items }: DesktopNavProps) {
+export function DesktopNav({ items, ariaLabel }: DesktopNavProps) {
   return (
-    <nav className="hidden items-center gap-7 md:flex" aria-label="Primary">
+    <nav className="hidden items-center gap-7 md:flex" aria-label={ariaLabel}>
       {items.map((item) => (
         <a
           key={item.href}

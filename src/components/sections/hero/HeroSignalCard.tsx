@@ -4,18 +4,19 @@ import {
   heroSignalConfigs,
   heroSignalStyles,
 } from "@/components/sections/hero/HeroVisualData";
-import type { FloatingSignal } from "@/types/home/Home";
+import type { FloatingSignal } from "@/content/home/hero/HeroTypes";
 
 type HeroSignalCardProps = FloatingSignal;
 
 export function HeroSignalCard({
+  id,
   label,
   value,
   icon,
   accent,
 }: HeroSignalCardProps) {
   const styles = heroSignalStyles[accent];
-  const config = heroSignalConfigs[label as keyof typeof heroSignalConfigs];
+  const config = heroSignalConfigs[id];
 
   return (
     <div

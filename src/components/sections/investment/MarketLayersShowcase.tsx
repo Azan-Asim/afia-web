@@ -3,7 +3,7 @@
 // TAM/SAM/SOM showcase that pairs orbit rings with supporting market cards.
 import { accentStyles } from "@/components/common/styles/AccentStyles";
 import { useInViewOnce } from "@/components/sections/opportunity/useInViewOnce";
-import { marketLayers } from "@/content/home/investment/InvestmentContent";
+import { useHomeContent } from "@/content/home/useHomeContent";
 
 const layerPositions = [
   "right-[0.2rem] top-[-0.1rem]",
@@ -13,14 +13,9 @@ const layerPositions = [
 
 const ringInsets = ["inset-0", "inset-[3rem]", "inset-[6rem]"] as const;
 
-const marketCardTitles = {
-  TAM: "Total Addressable Market",
-  SAM: "Serviceable Addressable Market",
-  SOM: "Serviceable Obtainable Market",
-} as const;
-
 export function MarketLayersShowcase() {
   const { ref, hasEntered } = useInViewOnce<HTMLDivElement>();
+  const { investment } = useHomeContent();
 
   return (
     <div
@@ -31,12 +26,12 @@ export function MarketLayersShowcase() {
         <div className="relative flex h-[300px] w-[300px] items-center justify-center">
           <div className="absolute inset-[1.15rem] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.94)_0%,rgba(255,255,255,0.78)_44%,rgba(247,249,250,0.34)_68%,transparent_100%)]" />
 
-          {marketLayers.map((layer, index) => {
+          {investment.marketLayers.map((layer, index) => {
             const styles = accentStyles[layer.accent];
 
             return (
               <div
-                key={`${layer.label}-ring`}
+                key={`${layer.id}-ring`}
                 className={`absolute ${ringInsets[index]} ${
                   hasEntered
                     ? "motion-safe:animate-[investment-orbit-enter_900ms_cubic-bezier(0.22,1,0.36,1)_both]"
@@ -52,12 +47,12 @@ export function MarketLayersShowcase() {
             );
           })}
 
-          {marketLayers.map((layer, index) => {
+          {investment.marketLayers.map((layer, index) => {
             const styles = accentStyles[layer.accent];
 
             return (
               <div
-                key={layer.label}
+                key={layer.id}
                 className={`absolute ${layerPositions[index]} text-center ${
                   hasEntered
                     ? "motion-safe:animate-[investment-orbit-label-enter_720ms_cubic-bezier(0.22,1,0.36,1)_both]"
@@ -86,10 +81,10 @@ export function MarketLayersShowcase() {
             >
               <div className="flex size-[5.9rem] flex-col items-center justify-center rounded-full bg-[radial-gradient(circle_at_50%_45%,rgba(250,250,251)_0%,rgba(245,246,248)_62%,rgba(241,237,250)_100%)] text-center shadow-[inset_0_0_0_2px_rgba(139,92,246)] backdrop-blur-[2px] motion-safe:animate-[investment-orbit-core-glow_6.2s_ease-in-out_infinite]">
                 <div className="text-[1.95rem] font-black leading-none tracking-[-0.04em] text-[#2D2D2D]">
-                  $1.2B
+                  {investment.marketLayers[2]?.value}
                 </div>
                 <div className="mt-2 text-[0.76rem] font-bold uppercase leading-none tracking-[0.01em] text-[#8B5CF6]">
-                  SOM
+                  {investment.marketLayers[2]?.label}
                 </div>
               </div>
             </div>
@@ -98,12 +93,12 @@ export function MarketLayersShowcase() {
       </div>
 
       <div className="space-y-4">
-        {marketLayers.map((layer, index) => {
+        {investment.marketLayers.map((layer, index) => {
           const styles = accentStyles[layer.accent];
 
           return (
             <div
-              key={layer.label}
+              key={layer.id}
               className={`rounded-[1.7rem] border bg-[rgba(255,255,255,0.72)] px-6 py-6 shadow-[0_10px_30px_rgba(15,23,42,0.02)] backdrop-blur-[2px] ${styles.border} ${
                 hasEntered
                   ? "motion-safe:animate-[investment-market-card-enter_760ms_cubic-bezier(0.22,1,0.36,1)_both]"
@@ -119,7 +114,7 @@ export function MarketLayersShowcase() {
                 </div>
                 <div className="pt-1">
                   <div className="text-[1.08rem] font-semibold leading-[1.25] tracking-[-0.015em] text-[#3A3A3A]">
-                    {layer.value} {"\u2014"} {marketCardTitles[layer.label]}
+                    {layer.value} {"\u2014"} {investment.marketCardTitles[layer.label]}
                   </div>
                   <p className="mt-3 text-[0.84rem] font-medium leading-[1.45] tracking-[-0.01em] text-[#A1ACBB]">
                     {layer.description}

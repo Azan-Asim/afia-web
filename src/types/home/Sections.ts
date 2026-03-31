@@ -2,6 +2,7 @@
 import type { Accent, IconName } from "./Common";
 
 export interface OpportunityCard {
+  id?: string;
   value: string;
   title: string;
   description: string;
@@ -10,6 +11,7 @@ export interface OpportunityCard {
 }
 
 export interface PlatformStep {
+  id?: string;
   title: string;
   subtitle: string;
   icon: IconName;
@@ -18,6 +20,7 @@ export interface PlatformStep {
 }
 
 export interface PlatformCapability {
+  id?: string;
   title: string;
   description: string;
   icon: IconName;

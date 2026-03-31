@@ -4,22 +4,23 @@
 import { LineIcon } from "@/components/common/icons/LineIcons";
 import { accentStyles } from "@/components/common/styles/AccentStyles";
 import { useInViewOnce } from "@/components/sections/opportunity/useInViewOnce";
-import { revenueFunnel } from "@/content/home/revenue/RevenueContent";
+import { useHomeContent } from "@/content/home/useHomeContent";
 
 export function RevenueFunnelCard() {
   const { ref, hasEntered } = useInViewOnce<HTMLDivElement>();
+  const { revenue } = useHomeContent();
 
   return (
     <div ref={ref} className="pt-5 lg:pr-4">
       <div className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-subtle)]">
-        Revenue Funnel
+        {revenue.funnelLabel}
       </div>
       <div className="mt-8 space-y-4">
-        {revenueFunnel.map((stage, index) => {
+        {revenue.revenueFunnel.map((stage, index) => {
           const styles = accentStyles[stage.accent];
 
           return (
-            <div key={stage.label} className="flex items-center gap-4">
+            <div key={stage.id} className="flex items-center gap-4">
               <div className="w-28 text-right text-sm font-medium text-[var(--color-subtle)]">
                 {stage.label}
               </div>

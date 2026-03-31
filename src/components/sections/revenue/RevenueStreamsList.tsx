@@ -4,19 +4,20 @@
 import { LineIcon } from "@/components/common/icons/LineIcons";
 import { accentStyles } from "@/components/common/styles/AccentStyles";
 import { useInViewOnce } from "@/components/sections/opportunity/useInViewOnce";
-import { revenueStreams } from "@/content/home/revenue/RevenueContent";
+import { useHomeContent } from "@/content/home/useHomeContent";
 
 export function RevenueStreamsList() {
   const { ref, hasEntered } = useInViewOnce<HTMLDivElement>();
+  const { revenue } = useHomeContent();
 
   return (
     <div ref={ref} className="space-y-4">
-      {revenueStreams.map((stream, index) => {
+      {revenue.revenueStreams.map((stream, index) => {
         const styles = accentStyles[stream.accent];
 
         return (
           <div
-            key={stream.title}
+            key={stream.id}
             className="rounded-[1.5rem] border border-black/5 bg-[var(--color-sand)] p-5"
           >
             <div className="flex items-start gap-3">
@@ -34,6 +35,9 @@ export function RevenueStreamsList() {
                     {stream.share}
                   </span>
                 </div>
+                <p className="mt-2 text-sm leading-6 text-[var(--color-muted)]">
+                  {stream.description}
+                </p>
                 <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-black/5">
                   <div
                     className={`h-full rounded-full ${styles.solid} transition-[width] duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]`}

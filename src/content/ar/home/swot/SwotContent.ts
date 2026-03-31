@@ -1,0 +1,63 @@
+import type { SwotContentData } from "@/content/home/swot/SwotTypes";
+
+export const swotContent: SwotContentData = {
+  convergenceBadgeLabel: "لماذا الآن",
+  convergenceHeading: "لحظة تقاطع الذكاء الاصطناعي",
+  convergenceItems: [
+    { id: "marketCagr", value: "14.9%", label: "معدل نمو السوق", icon: "trendingUp", accent: "green" },
+    { id: "wearableUsers", value: "1.1B", label: "مستخدمو الأجهزة القابلة للارتداء", icon: "watch", accent: "blue" },
+    { id: "wantAiClarity", value: "78%", label: "يريدون وضوح الذكاء الاصطناعي", icon: "heart", accent: "pink" },
+    { id: "trueAiInterpreters", value: "لا يوجد", label: "مفسرو ذكاء اصطناعي حقيقيون", icon: "zap", accent: "orange" },
+  ],
+  swotBadgeLabel: "تحليل SWOT",
+  swotHeading: "مشهد أعمال واضح وشفاف",
+  swotCards: [
+    {
+      id: "strengths",
+      letter: "S",
+      title: "نقاط القوة",
+      accent: "#27AE60",
+      softBackground: "rgba(39, 174, 96, 0.05)",
+      borderColor: "rgba(39, 174, 96, 0.2)",
+      topLineColor: "rgba(39, 174, 96, 0.5)",
+      bullets: ["أفضلية السبق في الذكاء الاصطناعي", "أكثر من 20 تكامل جهاز", "نموذج إيرادات متعدد المسارات"],
+      visual: "strength",
+    },
+    {
+      id: "weaknesses",
+      letter: "W",
+      title: "نقاط الضعف",
+      accent: "#F59E0B",
+      softBackground: "rgba(245, 158, 11, 0.05)",
+      borderColor: "rgba(245, 158, 11, 0.2)",
+      topLineColor: "rgba(245, 158, 11, 0.5)",
+      bullets: ["مرحلة ما قبل الإيرادات", "الاعتماد على واجهات خارجية", "فئة جديدة تحتاج لتثقيف السوق"],
+      visual: "weakness",
+    },
+    {
+      id: "opportunities",
+      letter: "O",
+      title: "الفرص",
+      accent: "#2D9CDB",
+      softBackground: "rgba(45, 156, 219, 0.05)",
+      borderColor: "rgba(45, 156, 219, 0.2)",
+      topLineColor: "rgba(45, 156, 219, 0.5)",
+      bullets: ["سوق +$100B بنمو 14.9%", "الشرق الأوسط غير مخدوم كفاية", "توسع الشركات والتأمين"],
+      visual: "opportunity",
+    },
+    {
+      id: "threats",
+      letter: "T",
+      title: "التهديدات",
+      accent: "#EC4899",
+      softBackground: "rgba(236, 72, 153, 0.05)",
+      borderColor: "rgba(236, 72, 153, 0.2)",
+      topLineColor: "rgba(236, 72, 153, 0.5)",
+      bullets: ["دخول شركات التقنية الكبرى للصحة", "تطور قوانين خصوصية البيانات", "وتيرة تبني المستهلك للذكاء الاصطناعي"],
+      visual: "threat",
+    },
+  ],
+  summaryPrefix: "خلاصة للمستثمر - ",
+  summaryText:
+    "تفوق نقاط القوة والفرص بشكل واضح مخاطر مرحلة التنفيذ. ويمكن إدارة التهديدات عبر توظيف رأس المال بشكل استراتيجي.",
+};

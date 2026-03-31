@@ -4,19 +4,20 @@
 import { LineIcon } from "@/components/common/icons/LineIcons";
 import { accentStyles } from "@/components/common/styles/AccentStyles";
 import { useInViewOnce } from "@/components/sections/opportunity/useInViewOnce";
-import { unitEconomics } from "@/content/home/investment/InvestmentContent";
+import { useHomeContent } from "@/content/home/useHomeContent";
 
 export function UnitEconomicsGrid() {
   const { ref, hasEntered } = useInViewOnce<HTMLDivElement>();
+  const { investment } = useHomeContent();
 
   return (
     <div ref={ref} className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-      {unitEconomics.map((card, index) => {
+      {investment.unitEconomics.map((card, index) => {
         const styles = accentStyles[card.accent];
 
         return (
           <div
-            key={card.title}
+            key={card.id}
             className={`${
               hasEntered
                 ? "motion-safe:animate-[investment-metric-card-enter_720ms_cubic-bezier(0.22,1,0.36,1)_both]"
