@@ -33,10 +33,10 @@ type NavbarProps = {
 };
 
 const requestDeckLinkClass =
-  `${gradientCtaClass} ${gradientCtaFocusClass} hidden px-5 py-2.5 text-sm leading-[var(--text-sm--line-height)] shadow-[0_4px_20px_rgba(39,174,96,0.25)] duration-500 md:inline-flex`;
+  `${gradientCtaClass} ${gradientCtaFocusClass} max-lg:hidden px-5 py-2.5 text-sm leading-[var(--text-sm--line-height)] shadow-[0_4px_20px_rgba(39,174,96,0.25)] duration-500 lg:inline-flex`;
 
 const mobileMenuButtonClass =
-  "rounded-xl p-2 text-[var(--color-ink)] transition-colors hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-green)] md:hidden";
+  "rounded-xl p-2 text-[var(--color-ink)] transition-colors hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-green)] lg:hidden";
 
 export function Navbar({
   items,
@@ -137,7 +137,7 @@ export function Navbar({
           <DesktopNav items={items} ariaLabel={primaryNavLabel} />
 
           <div className="flex items-center gap-3">
-            <div className="hidden md:block">
+            <div className="hidden lg:block">
               <LocaleSwitcher
                 locale={locale}
                 label={languageLabel}
@@ -147,7 +147,7 @@ export function Navbar({
             </div>
             <a
               href="#contact"
-              className={requestDeckLinkClass}
+              className={`${requestDeckLinkClass} ${isMenuOpen ? "!hidden" : ""}`}
             >
               <LineIcon name="mail" className="size-3.5 !text-white" />
               {requestDeckLabel}

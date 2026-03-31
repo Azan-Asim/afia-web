@@ -25,7 +25,7 @@ export function PlatformCapabilities() {
           <h3
             className={`font-semibold text-[#2D2D2D] ${
               isRtl
-                ? "text-[0.82rem] leading-6 tracking-[-0.02em] sm:text-[0.84rem] lg:whitespace-nowrap"
+                ? "text-[0.82rem] leading-6 tracking-[-0.02em] sm:text-[0.84rem]"
                 : "text-sm"
             }`}
           >

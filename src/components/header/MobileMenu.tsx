@@ -73,7 +73,7 @@ export function MobileMenu({
   return (
     <>
       <div
-        className={`fixed inset-0 z-40 bg-[rgba(17,24,39,0.18)] backdrop-blur-[2px] transition-opacity duration-300 md:hidden ${
+        className={`fixed inset-0 z-40 bg-[rgba(17,24,39,0.18)] backdrop-blur-[2px] transition-opacity duration-300 lg:hidden ${
           isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
         aria-hidden={!isOpen}
@@ -89,7 +89,7 @@ export function MobileMenu({
         aria-hidden={!isOpen}
         tabIndex={-1}
         dir={locale === "ar" ? "rtl" : "ltr"}
-        className={`fixed inset-x-4 top-[5.25rem] z-40 rounded-[2rem] border border-black/5 bg-white p-5 shadow-[0_24px_70px_rgba(17,24,39,0.12)] transition-all duration-300 md:hidden ${
+        className={`fixed inset-x-4 top-[5.25rem] z-40 rounded-[2rem] border border-black/5 bg-white p-5 shadow-[0_24px_70px_rgba(17,24,39,0.12)] transition-all duration-300 lg:hidden ${
           isOpen
             ? "pointer-events-auto translate-y-0 opacity-100"
             : "pointer-events-none -translate-y-4 opacity-0"

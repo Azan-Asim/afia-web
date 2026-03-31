@@ -20,10 +20,10 @@ const logoMaskStyle = {
 } as const;
 
 const primaryCtaClass =
-  `${gradientCtaClass} ${gradientCtaFocusClass} min-w-[14.5rem] bg-[linear-gradient(135deg,var(--color-green),var(--color-blue))] px-7 py-3.5 text-[1.02rem] font-semibold shadow-[0_16px_40px_rgba(39,174,96,0.24)] duration-300`;
+  `${gradientCtaClass} ${gradientCtaFocusClass} w-full sm:w-auto sm:min-w-[14.5rem] bg-[linear-gradient(135deg,var(--color-green),var(--color-blue))] px-7 py-3.5 text-[1.02rem] font-semibold shadow-[0_16px_40px_rgba(39,174,96,0.24)] duration-300`;
 
 const secondaryCtaButtonClass =
-  `${sharedSecondaryCtaClass} min-w-[12.4rem] border border-[rgba(39,174,96,0.24)] px-7 py-3.5 text-[1.02rem] font-semibold shadow-[0_8px_24px_rgba(17,24,39,0.04)] duration-300`;
+  `${sharedSecondaryCtaClass} w-full sm:w-auto sm:min-w-[12.4rem] border border-[rgba(39,174,96,0.24)] px-7 py-3.5 text-[1.02rem] font-semibold shadow-[0_8px_24px_rgba(17,24,39,0.04)] duration-300`;
 
 export function ContactCtaCard() {
   const { contact } = useHomeContent();
@@ -57,7 +57,7 @@ export function ContactCtaCard() {
         {contact.description}
       </p>
 
-      <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
+      <div className="mt-9 flex flex-col items-stretch justify-center gap-4 sm:items-center sm:flex-row">
         <a
           href={`mailto:${contact.email}`}
           className={primaryCtaClass}

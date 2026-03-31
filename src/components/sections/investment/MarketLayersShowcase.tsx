@@ -23,7 +23,7 @@ export function MarketLayersShowcase() {
       className="mt-16 grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr]"
     >
       <div className="flex justify-center">
-        <div className="relative flex h-[300px] w-[300px] items-center justify-center">
+        <div className="relative flex h-[260px] w-[260px] items-center justify-center sm:h-[300px] sm:w-[300px]">
           <div className="absolute inset-[1.15rem] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.94)_0%,rgba(255,255,255,0.78)_44%,rgba(247,249,250,0.34)_68%,transparent_100%)]" />
 
           {investment.marketLayers.map((layer, index) => {
@@ -60,10 +60,10 @@ export function MarketLayersShowcase() {
                 }`}
                 style={{ animationDelay: `${360 + index * 100}ms` }}
               >
-                <div className={`text-[1.05rem] font-black leading-none ${styles.text}`}>
+                <div className={`text-[0.95rem] font-black leading-none sm:text-[1.05rem] ${styles.text}`}>
                   {layer.value}
                 </div>
-                <div className={`mt-1 text-[0.84rem] font-bold leading-none ${styles.text}`}>
+                <div className={`mt-1 text-[0.72rem] font-bold leading-none sm:text-[0.84rem] ${styles.text}`}>
                   {layer.label}
                 </div>
               </div>
@@ -79,11 +79,11 @@ export function MarketLayersShowcase() {
               }`}
               style={{ animationDelay: "240ms" }}
             >
-              <div className="flex size-[5.9rem] flex-col items-center justify-center rounded-full bg-[radial-gradient(circle_at_50%_45%,rgba(250,250,251)_0%,rgba(245,246,248)_62%,rgba(241,237,250)_100%)] text-center shadow-[inset_0_0_0_2px_rgba(139,92,246)] backdrop-blur-[2px] motion-safe:animate-[investment-orbit-core-glow_6.2s_ease-in-out_infinite]">
-                <div className="text-[1.95rem] font-black leading-none tracking-[-0.04em] text-[#2D2D2D]">
+              <div className="flex size-[5.1rem] flex-col items-center justify-center rounded-full bg-[radial-gradient(circle_at_50%_45%,rgba(250,250,251)_0%,rgba(245,246,248)_62%,rgba(241,237,250)_100%)] text-center shadow-[inset_0_0_0_2px_rgba(139,92,246)] backdrop-blur-[2px] motion-safe:animate-[investment-orbit-core-glow_6.2s_ease-in-out_infinite] sm:size-[5.9rem]">
+                <div className="text-[1.7rem] font-black leading-none tracking-[-0.04em] text-[#2D2D2D] sm:text-[1.95rem]">
                   {investment.marketLayers[2]?.value}
                 </div>
-                <div className="mt-2 text-[0.76rem] font-bold uppercase leading-none tracking-[0.01em] text-[#8B5CF6]">
+                <div className="mt-1.5 text-[0.68rem] font-bold uppercase leading-none tracking-[0.01em] text-[#8B5CF6] sm:mt-2 sm:text-[0.76rem]">
                   {investment.marketLayers[2]?.label}
                 </div>
               </div>

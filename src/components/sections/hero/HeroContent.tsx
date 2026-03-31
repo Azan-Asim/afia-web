@@ -64,7 +64,7 @@ export function HeroContent({ cycle, isActive }: HeroContentProps) {
       className={`space-y-8 ${
         isRtl
           ? "text-right lg:ml-auto lg:max-w-[37rem] lg:translate-x-12 xl:max-w-[39rem] xl:translate-x-14"
-          : "translate-x-2 sm:translate-x-4 md:translate-x-8 lg:translate-x-14 xl:translate-x-[4.5rem]"
+          : "lg:translate-x-14 xl:translate-x-[4.5rem]"
       }`}
     >
       <div

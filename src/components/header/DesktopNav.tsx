@@ -8,7 +8,7 @@ type DesktopNavProps = {
 
 export function DesktopNav({ items, ariaLabel }: DesktopNavProps) {
   return (
-    <nav className="hidden items-center gap-7 md:flex" aria-label={ariaLabel}>
+    <nav className="hidden items-center gap-7 lg:flex" aria-label={ariaLabel}>
       {items.map((item) => (
         <a
           key={item.href}
