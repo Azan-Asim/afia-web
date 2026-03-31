@@ -1,4 +1,5 @@
 // Custom SVG visuals that give each platform capability card a distinct illustration.
+import { ReactElement } from "react";
 type PlatformCapabilityTitle =
   | "Device Agnostic"
   | "AI Interpretation"
@@ -336,7 +337,7 @@ function PrivacyFirstVisual() {
   );
 }
 
-const capabilityVisualMap: Record<PlatformCapabilityTitle, () => JSX.Element> = {
+const capabilityVisualMap: Record<PlatformCapabilityTitle, () => ReactElement> = {
   "Device Agnostic": DeviceAgnosticVisual,
   "AI Interpretation": AiInterpretationVisual,
   "Family Intelligence": FamilyIntelligenceVisual,
