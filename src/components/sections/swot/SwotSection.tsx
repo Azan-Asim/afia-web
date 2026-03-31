@@ -4,10 +4,10 @@
 import { LineIcon } from "@/components/common/icons/LineIcons";
 import { pageContainerClass } from "@/components/common/layout/PageContainer";
 import { SectionHeading } from "@/components/common/ui/SectionHeading";
-import { useInViewOnce } from "@/components/sections/opportunity/useInViewOnce";
 import { ConvergenceGrid } from "@/components/sections/swot/ConvergenceGrid";
 import { useHomeContent } from "@/content/home/useHomeContent";
 import type { SwotCard as SwotCardContent } from "@/content/home/swot/SwotTypes";
+import { useInViewOnce } from "@/components/sections/opportunity/useInViewOnce";
 
 const swotSummaryCardStyle = {
   background:
@@ -317,7 +317,8 @@ function SwotVisual({
 }
 
 export function SwotSection() {
-  const { ref, hasEntered } = useInViewOnce<HTMLDivElement>();
+  const { ref, hasEntered, cycle } = useInViewOnce<HTMLDivElement>();
+  const hasAnimated = cycle > 0;
   const { swot } = useHomeContent();
 
   return (
@@ -360,7 +361,9 @@ export function SwotSection() {
               className={`relative overflow-hidden rounded-[2rem] p-8 shadow-[0_4px_24px_rgba(0,0,0,0.04)] ${
                 hasEntered
                   ? "animate-[convergence-card-enter_760ms_cubic-bezier(0.22,1,0.36,1)_both]"
-                  : "opacity-0"
+                  : hasAnimated
+                    ? "opacity-100"
+                    : "opacity-0"
               }`}
               style={{
                 background: card.softBackground,
@@ -412,7 +415,9 @@ export function SwotSection() {
           className={`mt-10 flex items-center gap-4 rounded-2xl p-5 ${
             hasEntered
               ? "animate-[convergence-card-enter_760ms_cubic-bezier(0.22,1,0.36,1)_both]"
-              : "opacity-0"
+              : hasAnimated
+                ? "opacity-100"
+                : "opacity-0"
           }`}
           style={{
             ...swotSummaryCardStyle,
@@ -434,3 +439,6 @@ export function SwotSection() {
     </section>
   );
 }
+
+
+

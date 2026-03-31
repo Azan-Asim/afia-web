@@ -1,9 +1,10 @@
 "use client";
 
 // Four-card convergence block that explains why the current market timing is compelling.
-import { useInViewOnce } from "@/components/sections/opportunity/useInViewOnce";
 import { useHomeContent } from "@/content/home/useHomeContent";
 import type { ConvergenceItemId } from "@/content/home/swot/SwotTypes";
+import { useInViewOnce } from "@/components/sections/opportunity/useInViewOnce";
+
 
 const convergenceCardStyleMap = {
   green: {
@@ -447,3 +448,6 @@ export function ConvergenceGrid() {
     </div>
   );
 }
+
+
+
