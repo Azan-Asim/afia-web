@@ -1,5 +1,6 @@
 "use client";
 
+// Radial moat diagram that visualizes Afia's defensibility pillars around a central core.
 import { LineIcon } from "@/components/common/icons/LineIcons";
 import { useInViewOnce } from "@/components/sections/opportunity/useInViewOnce";
 
@@ -15,6 +16,7 @@ type MoatSector = {
 };
 
 const moatSectors: MoatSector[] = [
+  // These wedges map directly to the five moat pillars shown around the shield core.
   {
     label: ["AI", "Architecture"],
     fill: "rgba(39, 174, 96, 0.10)",
@@ -130,6 +132,7 @@ export function MoatVisual() {
               cy="160"
               r={radius}
               fill="none"
+              // The dashed guide rings help the center core feel anchored without competing with the sector strokes.
               stroke="rgba(45,45,45,0.08)"
               strokeDasharray="6 6"
               className={

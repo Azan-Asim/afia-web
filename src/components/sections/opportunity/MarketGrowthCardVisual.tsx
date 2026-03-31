@@ -1,5 +1,6 @@
 "use client";
 
+// Illustration for the market-growth card in the opportunity highlights section.
 import { useInViewOnce } from "./useInViewOnce";
 
 const mainBar = {

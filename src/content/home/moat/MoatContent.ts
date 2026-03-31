@@ -1,3 +1,4 @@
+// Content for the moat feature list that supports the defensive narrative.
 import type { MoatItem } from "@/types/home/Home";
 
 export const moatItems: MoatItem[] = [

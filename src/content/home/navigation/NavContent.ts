@@ -1,3 +1,4 @@
+// Top-level navigation items used by the site header.
 import type { NavItem } from "@/types/home/Home";
 
 export const navItems: NavItem[] = [

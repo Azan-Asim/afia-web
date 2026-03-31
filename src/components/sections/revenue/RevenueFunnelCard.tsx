@@ -1,5 +1,6 @@
 "use client";
 
+// Funnel visualization that shows how audience reach converts into monetizable opportunity.
 import { LineIcon } from "@/components/common/icons/LineIcons";
 import { accentStyles } from "@/components/common/styles/AccentStyles";
 import { useInViewOnce } from "@/components/sections/opportunity/useInViewOnce";
@@ -40,13 +41,11 @@ export function RevenueFunnelCard() {
       </div>
 
       <div className="mt-6 flex justify-center text-[var(--color-green)]">
-        <div className="flex flex-col items-center gap-2">
-          <div className="h-9 w-[2px] origin-top bg-current animate-[revenue-dollar-line-blink_2.8s_ease-in-out_infinite]" />
-          <LineIcon
-            name="dollar"
-            className="size-[1.35rem] animate-[revenue-dollar-icon-blink_2.8s_ease-in-out_infinite]"
-            style={{ animationDelay: "220ms" }}
-          />
+        <div className="flex origin-center transform-gpu flex-col items-center gap-2 opacity-70 will-change-transform motion-safe:animate-[revenue-dollar-stack-pulse_5.2s_cubic-bezier(0.37,0,0.2,1)_infinite]">
+          <div className="h-9 w-[2px] origin-top bg-current/70" />
+          <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[rgba(39,174,96,0.08)]">
+            <span className="block text-[1.15rem] font-bold leading-none">$</span>
+          </div>
         </div>
       </div>
     </div>

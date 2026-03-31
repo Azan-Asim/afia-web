@@ -1,3 +1,4 @@
+// Before-versus-after comparison that contrasts the user journey with and without Afia AI.
 import { WithAiCard } from "./WithAiCard";
 import { WithoutAiCard } from "./WithoutAiCard";
 

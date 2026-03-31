@@ -1,3 +1,4 @@
+// Shared section heading layout that pairs a badge with a centered title.
 import { SectionBadge } from "@/components/common/ui/SectionBadge";
 
 type SectionHeadingProps = {

@@ -1,3 +1,4 @@
+// Home page composition that arranges the landing sections in display order.
 import { Footer } from "@/components/footer/Footer";
 import { Navbar } from "@/components/header/Navbar";
 import { ContactSection } from "@/components/sections/contact/ContactSection";
@@ -20,7 +21,6 @@ export default function Home() {
         Skip to content
       </a>
       <div id="top" />
-      <div className="pointer-events-none fixed inset-x-0 top-0 z-[60] h-[2px] bg-[linear-gradient(90deg,var(--color-green),var(--color-blue))]" />
       <Navbar items={navItems} />
 
       <main id="main-content">

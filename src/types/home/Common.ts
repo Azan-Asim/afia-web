@@ -1,3 +1,4 @@
+// Shared primitive types used across navigation, icons, hero data, and common UI pieces.
 export type IconName =
   | "activity"
   | "arrowRight"

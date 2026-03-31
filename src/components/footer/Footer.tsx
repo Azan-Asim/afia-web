@@ -1,3 +1,4 @@
+// Footer section with brand identity, legal copy, and investor-facing disclaimer text.
 import Image from "next/image";
 
 import { pageContainerClass } from "@/components/common/layout/PageContainer";

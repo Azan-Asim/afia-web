@@ -1,13 +1,14 @@
+// Problem-state comparison card showing the fragmented experience without Afia AI.
 import { accentStyles } from "@/components/common/styles/AccentStyles";
 import type { Accent } from "@/types/home/Home";
 
-const currentSignals: Array<[string, string, Accent, string]> = [
-  ["HRV", "42ms", "red", ""],
-  ["SpO2", "97%", "orange", "rotate-[0.3deg]"],
-  ["Steps", "8,240", "orange", "rotate-[0.35deg]"],
-  ["Sleep", "7h 20m", "pink", ""],
-  ["Stress", "34", "red", "rotate-[0.35deg]"],
-  ["Calories", "1,840", "orange", "rotate-[0.1deg]"],
+const currentSignals: Array<[string, string, Accent]> = [
+  ["HRV", "42ms", "red"],
+  ["SpO2", "97%", "orange"],
+  ["Steps", "8,240", "orange"],
+  ["Sleep", "7h 20m", "pink"],
+  ["Stress", "34", "red"],
+  ["Calories", "1,840", "orange"],
 ];
 
 export function WithoutAiCard() {
@@ -19,13 +20,17 @@ export function WithoutAiCard() {
       </div>
       <div className="text-[1.05rem] font-semibold text-[#FF4D4F]">Raw Data Overload</div>
       <div className="mt-5 grid grid-cols-3 gap-2.5">
-        {currentSignals.map(([label, value, accent, rotateClass]) => {
+        {currentSignals.map(([label, value, accent], index) => {
           const styles = accentStyles[accent];
+          const swayClass =
+            index < 3
+              ? "motion-safe:animate-[without-ai-card-sway-down_5.4s_cubic-bezier(0.22,1,0.36,1)_infinite]"
+              : "motion-safe:animate-[without-ai-card-sway-up_5.4s_cubic-bezier(0.22,1,0.36,1)_infinite]";
 
           return (
             <div
               key={label}
-              className={`flex min-h-[3.7rem] flex-col items-center justify-center rounded-[0.95rem] border px-3 py-2 text-center ${rotateClass} ${styles.border}`}
+              className={`flex min-h-[3.7rem] flex-col items-center justify-center rounded-[0.95rem] border px-3 py-2 text-center ${swayClass} ${styles.border}`}
               style={{
                 background:
                   accent === "orange"

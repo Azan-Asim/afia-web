@@ -1,3 +1,4 @@
+// Platform steps and capabilities content used to explain the product stack.
 import type { PlatformCapability, PlatformStep } from "@/types/home/Home";
 
 export const platformSteps: PlatformStep[] = [

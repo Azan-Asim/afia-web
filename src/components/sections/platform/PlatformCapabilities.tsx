@@ -1,3 +1,4 @@
+// Capability cards that describe the major product building blocks in the platform stack.
 import { SurfaceCard } from "@/components/common/ui/SurfaceCard";
 import { platformCapabilities } from "@/content/home/platform/PlatformContent";
 

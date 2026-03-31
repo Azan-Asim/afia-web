@@ -1,3 +1,4 @@
+// Orbiting hero illustration layer that visualizes connected signals around the core product.
 import { heroOrbitNodes } from "@/components/sections/hero/HeroVisualData";
 
 const heroOrbitPairs = [
@@ -7,7 +8,7 @@ const heroOrbitPairs = [
 ] as const;
 
 function createPulseValues(nodeScale: number, reverse = false) {
-  const baseRadius = 4 * nodeScale;
+  const baseRadius = 3.35 * nodeScale;
   const smallRadius = (baseRadius * 0.82).toFixed(2);
   const midRadius = baseRadius.toFixed(2);
   const largeRadius = (baseRadius * 1.22).toFixed(2);
@@ -78,7 +79,7 @@ export function HeroOrbit() {
                 <circle
                   cx={forwardNode.x}
                   cy={forwardNode.y}
-                  r={(4 * forwardNode.scale).toFixed(2)}
+                  r={(3.35 * forwardNode.scale).toFixed(2)}
                   fill="#27AE60"
                   opacity={forwardNode.dotOpacity}
                 >
@@ -115,7 +116,7 @@ export function HeroOrbit() {
                 <circle
                   cx={reverseNode.x}
                   cy={reverseNode.y}
-                  r={(4 * reverseNode.scale).toFixed(2)}
+                  r={(3.35 * reverseNode.scale).toFixed(2)}
                   fill="#27AE60"
                   opacity={reverseNode.dotOpacity}
                 >

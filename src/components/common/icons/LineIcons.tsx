@@ -1,3 +1,4 @@
+// Central icon registry that keeps line-style SVG icons consistent across the UI.
 import type { ReactElement, ReactNode, SVGProps } from "react";
 
 import type { IconName } from "@/types/home/Home";
@@ -5,6 +6,7 @@ import type { IconName } from "@/types/home/Home";
 type IconProps = SVGProps<SVGSVGElement>;
 
 function createIcon(children: ReactNode) {
+  // Keep the icon set visually consistent by wrapping each glyph in the same SVG shell.
   return function Icon(props: IconProps) {
     return (
       <svg
@@ -167,11 +169,11 @@ const ShieldIcon = createIcon(
 
 const SparklesIcon = createIcon(
   <>
-    <path d="m12 3 1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3Z" />
-    <path d="M19 4v3" />
-    <path d="M20.5 5.5h-3" />
-    <path d="M4 16v2.5" />
-    <path d="M5.25 17.25h-2.5" />
+    <path d="M12 4.2c.6 2.6 1 4 1.8 4.8s2.2 1.2 4.8 1.8c-2.6.6-4 1-4.8 1.8S12.6 14.8 12 17.4c-.6-2.6-1-4-1.8-4.8s-2.2-1.2-4.8-1.8c2.6-.6 4-1 4.8-1.8S11.4 6.8 12 4.2Z" />
+    <path d="M18.4 5.6v4.2" />
+    <path d="M20.5 7.7h-4.2" />
+    <path d="M5.4 15.7v2.2" />
+    <path d="M6.5 16.8H4.3" />
   </>,
 );
 

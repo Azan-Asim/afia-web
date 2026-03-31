@@ -1,5 +1,6 @@
 "use client";
 
+// Five-year projection chart that compares revenue growth against user growth over time.
 import { accentStyles } from "@/components/common/styles/AccentStyles";
 import { useInViewOnce } from "@/components/sections/opportunity/useInViewOnce";
 import { revenueProjection } from "@/content/home/investment/InvestmentContent";
@@ -36,11 +37,13 @@ export function RevenueProjectionCard() {
         <div className="flex h-44 items-end gap-4">
           {revenueProjection.map((entry, index) => {
             const styles = accentStyles[entry.accent];
+            // Larger bars can comfortably host the revenue label inside the fill.
+            const showInsideBar = ["Y3", "Y4", "Y5"].includes(entry.year);
 
             return (
               <div
                 key={entry.year}
-                className="flex flex-1 flex-col items-center gap-2"
+                className="flex flex-1 flex-col items-center gap-1"
               >
                 <div className="flex h-40 w-full items-end justify-center gap-1">
                   <div className="relative h-full flex-1">
@@ -55,21 +58,23 @@ export function RevenueProjectionCard() {
                         ["--investment-bar-height" as string]: entry.revenueHeight,
                       }}
                     />
-                    {entry.year !== "Y5" ? (
-                      <span
-                        className={`absolute left-1/2 -translate-x-1/2 text-[9px] font-bold ${styles.text} ${
-                          hasEntered
-                            ? "motion-safe:animate-[investment-revenue-label-enter_420ms_ease-out_both]"
-                            : "opacity-0"
-                        }`}
-                        style={{
-                          bottom: `calc(${entry.revenueHeight} + 4px)`,
-                          animationDelay: `${300 + index * 130}ms`,
-                        }}
-                      >
-                        {entry.revenue}
-                      </span>
-                    ) : null}
+                    <span
+                      className={`absolute left-1/2 -translate-x-1/2 text-[9px] font-bold ${
+                        showInsideBar ? styles.text : "text-[rgb(39,174,96)]"
+                      } ${
+                        hasEntered
+                          ? "motion-safe:animate-[investment-revenue-label-enter_420ms_ease-out_both]"
+                          : "opacity-0"
+                      }`}
+                      style={{
+                        bottom: showInsideBar
+                          ? "10px"
+                          : `calc(${entry.revenueHeight} + 4px)`,
+                        animationDelay: `${300 + index * 130}ms`,
+                      }}
+                    >
+                      {entry.revenue}
+                    </span>
                   </div>
 
                   <div className="relative h-full w-2">
@@ -87,7 +92,7 @@ export function RevenueProjectionCard() {
                   </div>
                 </div>
 
-                <div className="text-[10px] font-semibold text-[#9CA3AF]">
+                <div className="mt-0.5 text-[10px] font-semibold text-[#9CA3AF]">
                   {entry.year}
                 </div>
                 <div className="text-[9px] text-[#BFBFBF]">{entry.users}</div>

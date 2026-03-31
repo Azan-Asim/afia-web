@@ -1,5 +1,6 @@
 "use client";
 
+// Revenue stream list that explains the business model across multiple monetization layers.
 import { LineIcon } from "@/components/common/icons/LineIcons";
 import { accentStyles } from "@/components/common/styles/AccentStyles";
 import { useInViewOnce } from "@/components/sections/opportunity/useInViewOnce";

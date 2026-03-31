@@ -1,3 +1,4 @@
+// Revenue funnel and stream content used in the monetization section.
 import type { RevenueFunnelStage, RevenueStream } from "@/types/home/Home";
 
 export const revenueFunnel: RevenueFunnelStage[] = [
@@ -18,7 +19,7 @@ export const revenueStreams: RevenueStream[] = [
     accent: "green",
   },
   {
-    title: "AI Health Marketplace",
+    title: "AI Marketplace",
     description:
       "Decision-driven commerce tied to personal AI health patterns.",
     share: "28%",

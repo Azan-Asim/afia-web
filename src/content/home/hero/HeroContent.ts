@@ -1,3 +1,4 @@
+// Hero copy, metrics, and floating signal content used at the top of the page.
 import type { FloatingSignal, HeroMetric } from "@/types/home/Home";
 
 export const heroMetrics: HeroMetric[] = [

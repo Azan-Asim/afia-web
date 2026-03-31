@@ -1,5 +1,5 @@
+// Competitive moat section that pairs the orbit visual with feature-level advantages.
 import { pageContainerClass } from "@/components/common/layout/PageContainer";
-import { ScrollActiveZoom } from "@/components/common/motion/ScrollActiveZoom";
 import { SectionHeading } from "@/components/common/ui/SectionHeading";
 
 import { MoatFeatureList } from "./MoatFeatureList";
@@ -12,7 +12,7 @@ export function MoatSection() {
         aria-hidden="true"
         className="absolute left-[-4%] top-[28%] size-[20rem] rounded-full bg-[rgba(45,156,219,0.16)] blur-3xl"
       />
-      <ScrollActiveZoom variant="story" className={pageContainerClass}>
+      <div className={pageContainerClass}>
         <SectionHeading
           badge="Competitive Moat"
           title="An AI Moat Difficult to Replicate"
@@ -22,7 +22,7 @@ export function MoatSection() {
           <MoatVisual />
           <MoatFeatureList />
         </div>
-      </ScrollActiveZoom>
+      </div>
     </section>
   );
 }

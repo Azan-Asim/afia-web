@@ -1,7 +1,38 @@
 "use client";
 
+// Four-card convergence block that explains why the current market timing is compelling.
 import { useInViewOnce } from "@/components/sections/opportunity/useInViewOnce";
 import { convergenceItems } from "@/content/home/swot/SwotContent";
+
+const convergenceCardStyleMap = {
+  green: {
+    background:
+      "linear-gradient(135deg, rgba(39, 174, 96, 0.03), rgba(39, 174, 96, 0.016))",
+    border: "1.5px solid rgba(39, 174, 96, 0.125)",
+  },
+  blue: {
+    background:
+      "linear-gradient(135deg, rgba(45, 156, 219, 0.03), rgba(45, 156, 219, 0.016))",
+    border: "1.5px solid rgba(45, 156, 219, 0.125)",
+  },
+  pink: {
+    background:
+      "linear-gradient(135deg, rgba(236, 72, 153, 0.03), rgba(236, 72, 153, 0.016))",
+    border: "1.5px solid rgba(236, 72, 153, 0.125)",
+  },
+  orange: {
+    background:
+      "linear-gradient(135deg, rgba(245, 158, 11, 0.03), rgba(245, 158, 11, 0.016))",
+    border: "1.5px solid rgba(245, 158, 11, 0.125)",
+  },
+} as const;
+
+type ConvergenceAccent = keyof typeof convergenceCardStyleMap;
+
+const defaultConvergenceCardStyle = {
+  background: "white",
+  border: "1.5px solid rgba(0, 0, 0, 0.06)",
+} as const;
 
 function FirstCardVisual({ hasEntered }: { hasEntered: boolean }) {
   return (
@@ -86,36 +117,9 @@ function FirstCardVisual({ hasEntered }: { hasEntered: boolean }) {
 function SecondCardVisual() {
   return (
     <svg viewBox="0 0 120 130" fill="none" className="h-full w-full">
-      <rect
-        x="44"
-        y="4"
-        width="32"
-        height="16"
-        rx="5"
-        fill="#2D9CDB18"
-        stroke="#2D9CDB35"
-        strokeWidth="1.5"
-      />
-      <rect
-        x="44"
-        y="110"
-        width="32"
-        height="16"
-        rx="5"
-        fill="#2D9CDB18"
-        stroke="#2D9CDB35"
-        strokeWidth="1.5"
-      />
-      <rect
-        x="22"
-        y="19"
-        width="76"
-        height="72"
-        rx="22"
-        fill="white"
-        stroke="#2D9CDB25"
-        strokeWidth="1.5"
-      />
+      <rect x="44" y="4" width="32" height="16" rx="5" fill="#2D9CDB18" stroke="#2D9CDB35" strokeWidth="1.5" />
+      <rect x="44" y="110" width="32" height="16" rx="5" fill="#2D9CDB18" stroke="#2D9CDB35" strokeWidth="1.5" />
+      <rect x="22" y="19" width="76" height="72" rx="22" fill="white" stroke="#2D9CDB25" strokeWidth="1.5" />
       <rect x="22" y="19" width="76" height="72" rx="22" fill="#2D9CDB05" />
       <rect x="30" y="27" width="60" height="56" rx="16" fill="#2D9CDB08" />
 
@@ -131,18 +135,8 @@ function SecondCardVisual() {
         strokeDashoffset="1"
         opacity="0.95"
       >
-        <animate
-          attributeName="stroke-dashoffset"
-          values="1;0;0;0;1"
-          dur="5.8s"
-          repeatCount="indefinite"
-        />
-        <animate
-          attributeName="opacity"
-          values="0;1;1;0;0"
-          dur="5.8s"
-          repeatCount="indefinite"
-        />
+        <animate attributeName="stroke-dashoffset" values="1;0;0;0;1" dur="5.8s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0;1;1;0;0" dur="5.8s" repeatCount="indefinite" />
       </polyline>
 
       <circle cx="92" cy="55" r="3.5" fill="#2D9CDB" opacity="0">
@@ -269,7 +263,13 @@ function ThirdCardVisual() {
           stroke="#EC489955"
           strokeWidth="1.5"
         >
-          <animate attributeName="r" values="7;8.2;7" dur="3.1s" begin={node.delay} repeatCount="indefinite" />
+          <animate
+            attributeName="r"
+            values="7;8.2;7"
+            dur="3.1s"
+            begin={node.delay}
+            repeatCount="indefinite"
+          />
           <animate
             attributeName="opacity"
             values="0.64;1;0.64"
@@ -330,11 +330,11 @@ function FourthCardVisual() {
         cy="55"
         r="24"
         fill="rgba(0,0,0,0.03)"
-        stroke="#F59E0B22"
-        strokeWidth="1.5"
+        stroke="#F59E0B99"
+        strokeWidth="1.9"
         strokeDasharray="6 4"
       >
-        <animate attributeName="opacity" values="0.2;0.45;0.2" dur="4.8s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.68;0.98;0.68" dur="4.8s" repeatCount="indefinite" />
         <animate attributeName="r" values="22;25.5;22" dur="4.8s" repeatCount="indefinite" />
       </circle>
 
@@ -417,34 +417,9 @@ export function ConvergenceGrid() {
   return (
     <div ref={ref} className="mt-14 grid grid-cols-2 gap-6 md:grid-cols-4">
       {convergenceItems.map((item, index) => {
-        const cardStyleMap = {
-          green: {
-            background:
-              "linear-gradient(135deg, rgba(39, 174, 96, 0.03), rgba(39, 174, 96, 0.016))",
-            border: "1.5px solid rgba(39, 174, 96, 0.125)",
-          },
-          blue: {
-            background:
-              "linear-gradient(135deg, rgba(45, 156, 219, 0.03), rgba(45, 156, 219, 0.016))",
-            border: "1.5px solid rgba(45, 156, 219, 0.125)",
-          },
-          pink: {
-            background:
-              "linear-gradient(135deg, rgba(236, 72, 153, 0.03), rgba(236, 72, 153, 0.016))",
-            border: "1.5px solid rgba(236, 72, 153, 0.125)",
-          },
-          orange: {
-            background:
-              "linear-gradient(135deg, rgba(245, 158, 11, 0.03), rgba(245, 158, 11, 0.016))",
-            border: "1.5px solid rgba(245, 158, 11, 0.125)",
-          },
-        } as const;
-
         const cardStyle =
-          cardStyleMap[item.accent as keyof typeof cardStyleMap] ?? {
-            background: "white",
-            border: "1.5px solid rgba(0, 0, 0, 0.06)",
-          };
+          convergenceCardStyleMap[item.accent as ConvergenceAccent] ??
+          defaultConvergenceCardStyle;
 
         return (
           <div
@@ -462,12 +437,8 @@ export function ConvergenceGrid() {
             <div className="mb-4 flex h-20 w-full justify-center">
               <ConvergenceVisual index={index} hasEntered={hasEntered} />
             </div>
-            <div className="mb-1 text-[1.8rem] font-bold text-[#2D2D2D]">
-              {item.value}
-            </div>
-            <div className="text-xs font-medium text-[#9CA3AF]">
-              {item.label}
-            </div>
+            <div className="mb-1 text-[1.8rem] font-bold text-[#2D2D2D]">{item.value}</div>
+            <div className="text-xs font-medium text-[#9CA3AF]">{item.label}</div>
           </div>
         );
       })}

@@ -1,3 +1,4 @@
+// Mobile navigation drawer that shows links and actions on smaller screens.
 import { useEffect, useRef } from "react";
 
 import { LineIcon } from "@/components/common/icons/LineIcons";
