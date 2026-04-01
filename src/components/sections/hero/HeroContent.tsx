@@ -1,8 +1,6 @@
 "use client";
 
 // Animated hero copy block that cycles through product positioning and headline messaging.
-import { useEffect, useState } from "react";
-
 import { LineIcon } from "@/components/common/icons/LineIcons";
 import {
   gradientCtaClass,
@@ -16,45 +14,12 @@ type HeroContentProps = {
   isActive: boolean;
 };
 
-const heroCagrAnimationDurationMs = 1400;
-const heroCagrTargetValue = 14.9;
 const heroPrimaryCtaClass =
   `${gradientCtaClass} ${gradientCtaFocusClass} px-5 py-2.5 text-sm leading-[var(--text-sm--line-height)] shadow-[0_4px_20px_rgba(39,174,96,0.25)] duration-500`;
 const heroSecondaryCtaClass =
   `${sharedSecondaryCtaClass} border-[1.5px] border-[rgba(39,174,96,0.25)] px-6 py-3 text-sm shadow-[0_4px_16px_rgba(0,0,0,0.04)] duration-500`;
 
 export function HeroContent({ cycle, isActive }: HeroContentProps) {
-  const [marketCagrValue, setMarketCagrValue] = useState(0);
-
-  useEffect(() => {
-    if (cycle === 0) {
-      return;
-    }
-
-    // Re-run the CAGR count-up every time the hero section becomes active again.
-    const startTime = performance.now();
-
-    let frameId = 0;
-
-    const updateValue = (timestamp: number) => {
-      const elapsed = timestamp - startTime;
-      const progress = Math.min(elapsed / heroCagrAnimationDurationMs, 1);
-      const easedProgress = 1 - (1 - progress) * (1 - progress);
-
-      setMarketCagrValue(heroCagrTargetValue * easedProgress);
-
-      if (progress < 1) {
-        frameId = window.requestAnimationFrame(updateValue);
-      }
-    };
-
-    frameId = window.requestAnimationFrame(updateValue);
-
-    return () => {
-      window.cancelAnimationFrame(frameId);
-    };
-  }, [cycle]);
-
   return (
     <div className="space-y-8 translate-x-2 sm:translate-x-4 md:translate-x-8 lg:translate-x-14 xl:translate-x-[4.5rem]">
       <div
@@ -106,9 +71,7 @@ export function HeroContent({ cycle, isActive }: HeroContentProps) {
         {heroMetrics.map((metric) => (
           <div key={metric.label} className="flex flex-col">
             <dd className="text-[1.9rem] font-bold tracking-[-0.03em] text-[#2D2D2D]">
-              {metric.label === "Market CAGR"
-                ? `${marketCagrValue.toFixed(1)}%`
-                : metric.value}
+              {metric.value}
             </dd>
             <dt className="mt-0.5 text-xs font-medium text-[#9CA3AF]">
               {metric.label}

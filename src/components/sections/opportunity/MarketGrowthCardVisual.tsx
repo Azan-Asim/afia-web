@@ -24,8 +24,8 @@ export function MarketGrowthCardVisual() {
             y1={y}
             x2="114"
             y2={y}
-            stroke="#2D9CDB12"
-            strokeWidth="1"
+            stroke="#2D9CDB30"
+            strokeWidth="1.25"
             strokeDasharray="3 4"
           />
         ))}
@@ -78,7 +78,7 @@ export function MarketGrowthCardVisual() {
           }}
         />
 
-        <line x1="6" y1="100" x2="114" y2="100" stroke="#2D9CDB20" strokeWidth="1.5" />
+        <line x1="6" y1="100" x2="114" y2="100" stroke="#2D9CDB42" strokeWidth="1.7" />
       </svg>
     </div>
   );

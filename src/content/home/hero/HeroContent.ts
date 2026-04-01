@@ -2,9 +2,9 @@
 import type { FloatingSignal, HeroMetric } from "@/types/home/Home";
 
 export const heroMetrics: HeroMetric[] = [
-  { value: "1.1B+", label: "Wearable Users" },
-  { value: "14.9%", label: "Market CAGR" },
-  { value: "Unsolved", label: "AI Gap" },
+  { value: "8-10M", label: "Wearable Users" },
+  { value: "12%-15%", label: "Market CAGR" },
+  { value: "0", label: "AI Gap" },
 ];
 
 export const floatingSignals: FloatingSignal[] = [

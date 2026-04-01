@@ -7,7 +7,7 @@ import { MoatVisual } from "./MoatVisual";
 
 export function MoatSection() {
   return (
-    <section id="moat" className="relative py-24 md:py-32">
+    <section id="moat" className="relative py-16 md:py-20">
       <div
         aria-hidden="true"
         className="absolute left-[-4%] top-[28%] size-[20rem] rounded-full bg-[rgba(45,156,219,0.16)] blur-3xl"
@@ -18,7 +18,7 @@ export function MoatSection() {
           title="An AI Moat Difficult to Replicate"
         />
 
-        <div className="mt-16 grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="mt-12 grid items-center gap-8 lg:grid-cols-[0.95fr_1.05fr]">
           <MoatVisual />
           <MoatFeatureList />
         </div>

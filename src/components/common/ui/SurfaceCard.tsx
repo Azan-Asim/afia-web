@@ -12,7 +12,7 @@ export function SurfaceCard({
 }: SurfaceCardProps) {
   return (
     <div
-      className={`rounded-[2rem] border border-black/6 bg-white shadow-[0_10px_32px_rgba(17,24,39,0.05)] ${className}`}
+      className={`rounded-[2rem] border border-black/10 bg-white shadow-[0_10px_32px_rgba(17,24,39,0.08)] ${className}`}
     >
       {children}
     </div>

@@ -10,27 +10,27 @@
   --color-sand: #faf7f2;
   --color-sand-strong: #f3eee7;
   --color-ink: #2d2d2d;
-  --color-muted: #6b7280;
-  --color-subtle: #9ca3af;
-  --color-cloud: #d1d5db;
+  --color-muted: #525f70;
+  --color-subtle: #5f6d80;
+  --color-cloud: #94a3b8;
   --color-green: #27ae60;
   --color-blue: #2d9cdb;
   --color-purple: #8b5cf6;
   --color-orange: #f59e0b;
   --color-pink: #ec4899;
   --color-red: #ef4444;
-  --color-green-soft: rgba(39, 174, 96, 0.08);
-  --color-blue-soft: rgba(45, 156, 219, 0.08);
-  --color-purple-soft: rgba(139, 92, 246, 0.08);
-  --color-orange-soft: rgba(245, 158, 11, 0.08);
-  --color-pink-soft: rgba(236, 72, 153, 0.08);
-  --color-red-soft: rgba(239, 68, 68, 0.08);
-  --color-green-soft-border: rgba(39, 174, 96, 0.22);
-  --color-blue-soft-border: rgba(45, 156, 219, 0.22);
-  --color-purple-soft-border: rgba(139, 92, 246, 0.22);
-  --color-orange-soft-border: rgba(245, 158, 11, 0.22);
-  --color-pink-soft-border: rgba(236, 72, 153, 0.22);
-  --color-red-soft-border: rgba(239, 68, 68, 0.22);
+  --color-green-soft: rgba(39, 174, 96, 0.14);
+  --color-blue-soft: rgba(45, 156, 219, 0.14);
+  --color-purple-soft: rgba(139, 92, 246, 0.14);
+  --color-orange-soft: rgba(245, 158, 11, 0.14);
+  --color-pink-soft: rgba(236, 72, 153, 0.14);
+  --color-red-soft: rgba(239, 68, 68, 0.14);
+  --color-green-soft-border: rgba(39, 174, 96, 0.32);
+  --color-blue-soft-border: rgba(45, 156, 219, 0.32);
+  --color-purple-soft-border: rgba(139, 92, 246, 0.32);
+  --color-orange-soft-border: rgba(245, 158, 11, 0.32);
+  --color-pink-soft-border: rgba(236, 72, 153, 0.32);
+  --color-red-soft-border: rgba(239, 68, 68, 0.32);
 }
 
 @theme inline {
@@ -108,7 +108,7 @@ section[id] {
 @keyframes hero-card-float {
   0%,
   100% {
-    opacity: 0.94;
+    opacity: 0.98;
     transform: translateY(var(--hero-card-offset, 0px)) scale(1);
   }
 
@@ -121,7 +121,7 @@ section[id] {
 @keyframes hero-card-float-alt {
   0%,
   100% {
-    opacity: 0.94;
+    opacity: 0.98;
     transform: translateY(var(--hero-card-offset, 0px)) scale(1);
   }
 
@@ -165,7 +165,7 @@ section[id] {
   0%,
   100% {
     transform: translateY(0);
-    opacity: 0.55;
+    opacity: 0.8;
   }
 
   50% {
@@ -345,12 +345,12 @@ section[id] {
 @keyframes investment-orbit-ring-glow {
   0%,
   100% {
-    opacity: 0.72;
+    opacity: 0.88;
     transform: scale(1);
   }
 
   50% {
-    opacity: 0.9;
+    opacity: 1;
     transform: scale(1.012);
   }
 }
@@ -431,13 +431,13 @@ section[id] {
 @keyframes revenue-dollar-stack-pulse {
   0%,
   100% {
-    opacity: 0.46;
+    opacity: 0.78;
     transform: translateY(0) scale(0.9);
     filter: drop-shadow(0 0 0 rgba(39, 174, 96, 0));
   }
 
   50% {
-    opacity: 0.9;
+    opacity: 1;
     transform: translateY(-1px) scale(1.08);
     filter: drop-shadow(0 0 10px rgba(39, 174, 96, 0.24));
   }

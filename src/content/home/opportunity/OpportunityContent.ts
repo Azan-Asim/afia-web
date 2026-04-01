@@ -3,7 +3,7 @@ import type { OpportunityCard } from "@/types/home/Home";
 
 export const opportunityCards: OpportunityCard[] = [
   {
-    value: "5.8B",
+    value: "12-15M",
     title: "Wearables by 2028",
     description:
       "Devices generating health data daily, with no AI to interpret it.",
@@ -11,9 +11,9 @@ export const opportunityCards: OpportunityCard[] = [
     accent: "green",
   },
   {
-    value: "$100B+",
+    value: "$3.5-4.5B",
     title: "Digital Health Market",
-    description: "AI-driven health intelligence growing at 14.9% CAGR.",
+    description: "AI-driven health intelligence growing at 12%-15% CAGR.",
     icon: "chart",
     accent: "blue",
   },

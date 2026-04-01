@@ -9,12 +9,12 @@ export function InterpretationGapCardVisual() {
             y1={y}
             x2="50"
             y2="55"
-            stroke="#8B5CF635"
-            strokeWidth="1"
+            stroke="#8B5CF66E"
+            strokeWidth="1.25"
             strokeDasharray="4 3"
-            opacity={index === 1 ? "0.28" : "0.34"}
+            opacity={index === 1 ? "0.52" : "0.6"}
           />
-          <circle cx="18" cy={y} r="8" fill="#8B5CF618" stroke="#8B5CF650" strokeWidth="1.5">
+          <circle cx="18" cy={y} r="8" fill="#8B5CF62A" stroke="#8B5CF688" strokeWidth="1.7">
             <animate
               attributeName="opacity"
               values="0.45;0.95;0.45"
@@ -35,12 +35,12 @@ export function InterpretationGapCardVisual() {
         cx="60"
         cy="55"
         r="24"
-        fill="rgba(0,0,0,0.03)"
-        stroke="#8B5CF622"
-        strokeWidth="1.5"
+        fill="rgba(139,92,246,0.08)"
+        stroke="#8B5CF688"
+        strokeWidth="1.8"
         strokeDasharray="6 4"
       >
-        <animate attributeName="opacity" values="0.2;0.45;0.2" dur="4.8s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.5;0.9;0.5" dur="4.8s" repeatCount="indefinite" />
         <animate attributeName="r" values="22;25.5;22" dur="4.8s" repeatCount="indefinite" />
       </circle>
 
@@ -48,11 +48,11 @@ export function InterpretationGapCardVisual() {
         x="60"
         y="62"
         textAnchor="middle"
-        fill="#8B5CF670"
+        fill="#8B5CF6D0"
         style={{ fontSize: 22, fontWeight: 800, fontFamily: "Inter, sans-serif" }}
       >
         ?
-        <animate attributeName="opacity" values="0.38;0.72;0.38" dur="4.8s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.65;1;0.65" dur="4.8s" repeatCount="indefinite" />
       </text>
 
       {[24, 55, 86].map((y, index) => (
@@ -62,23 +62,23 @@ export function InterpretationGapCardVisual() {
             y1="55"
             x2="94"
             y2={y}
-            stroke="#8B5CF615"
-            strokeWidth="1"
+            stroke="#8B5CF652"
+            strokeWidth="1.25"
             strokeDasharray="4 3"
-            opacity={index === 1 ? "0.3" : "0.24"}
+            opacity={index === 1 ? "0.48" : "0.42"}
           />
           <circle
             cx="102"
             cy={y}
             r="8"
-            fill="rgba(0,0,0,0.03)"
-            stroke="rgba(0,0,0,0.1)"
-            strokeWidth="1.5"
+            fill="rgba(139,92,246,0.06)"
+            stroke="rgba(139,92,246,0.34)"
+            strokeWidth="1.7"
             strokeDasharray="4 3"
           >
             <animate
               attributeName="opacity"
-              values={`${0.12 + index * 0.03};${0.28 + index * 0.06};${0.12 + index * 0.03}`}
+              values={`${0.28 + index * 0.04};${0.52 + index * 0.08};${0.28 + index * 0.04}`}
               dur={`${4.6 + index * 0.35}s`}
               repeatCount="indefinite"
             />

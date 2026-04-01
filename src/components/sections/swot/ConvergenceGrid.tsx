@@ -7,23 +7,23 @@ import { convergenceItems } from "@/content/home/swot/SwotContent";
 const convergenceCardStyleMap = {
   green: {
     background:
-      "linear-gradient(135deg, rgba(39, 174, 96, 0.03), rgba(39, 174, 96, 0.016))",
-    border: "1.5px solid rgba(39, 174, 96, 0.125)",
+      "linear-gradient(135deg, rgba(39, 174, 96, 0.07), rgba(39, 174, 96, 0.03))",
+    border: "1.5px solid rgba(39, 174, 96, 0.24)",
   },
   blue: {
     background:
-      "linear-gradient(135deg, rgba(45, 156, 219, 0.03), rgba(45, 156, 219, 0.016))",
-    border: "1.5px solid rgba(45, 156, 219, 0.125)",
+      "linear-gradient(135deg, rgba(45, 156, 219, 0.07), rgba(45, 156, 219, 0.03))",
+    border: "1.5px solid rgba(45, 156, 219, 0.24)",
   },
   pink: {
     background:
-      "linear-gradient(135deg, rgba(236, 72, 153, 0.03), rgba(236, 72, 153, 0.016))",
-    border: "1.5px solid rgba(236, 72, 153, 0.125)",
+      "linear-gradient(135deg, rgba(236, 72, 153, 0.07), rgba(236, 72, 153, 0.03))",
+    border: "1.5px solid rgba(236, 72, 153, 0.24)",
   },
   orange: {
     background:
-      "linear-gradient(135deg, rgba(245, 158, 11, 0.03), rgba(245, 158, 11, 0.016))",
-    border: "1.5px solid rgba(245, 158, 11, 0.125)",
+      "linear-gradient(135deg, rgba(245, 158, 11, 0.07), rgba(245, 158, 11, 0.03))",
+    border: "1.5px solid rgba(245, 158, 11, 0.24)",
   },
 } as const;
 
@@ -44,8 +44,8 @@ function FirstCardVisual({ hasEntered }: { hasEntered: boolean }) {
           y1={y}
           x2="114"
           y2={y}
-          stroke="#27AE6012"
-          strokeWidth="1"
+          stroke="#27AE6032"
+          strokeWidth="1.2"
           strokeDasharray="3 4"
         />
       ))}
@@ -109,7 +109,7 @@ function FirstCardVisual({ hasEntered }: { hasEntered: boolean }) {
         }}
       />
 
-      <line x1="6" y1="100" x2="114" y2="100" stroke="#27AE6020" strokeWidth="1.5" />
+      <line x1="6" y1="100" x2="114" y2="100" stroke="#27AE6048" strokeWidth="1.7" />
     </svg>
   );
 }
@@ -117,11 +117,11 @@ function FirstCardVisual({ hasEntered }: { hasEntered: boolean }) {
 function SecondCardVisual() {
   return (
     <svg viewBox="0 0 120 130" fill="none" className="h-full w-full">
-      <rect x="44" y="4" width="32" height="16" rx="5" fill="#2D9CDB18" stroke="#2D9CDB35" strokeWidth="1.5" />
-      <rect x="44" y="110" width="32" height="16" rx="5" fill="#2D9CDB18" stroke="#2D9CDB35" strokeWidth="1.5" />
-      <rect x="22" y="19" width="76" height="72" rx="22" fill="white" stroke="#2D9CDB25" strokeWidth="1.5" />
-      <rect x="22" y="19" width="76" height="72" rx="22" fill="#2D9CDB05" />
-      <rect x="30" y="27" width="60" height="56" rx="16" fill="#2D9CDB08" />
+      <rect x="44" y="4" width="32" height="16" rx="5" fill="#2D9CDB2C" stroke="#2D9CDB68" strokeWidth="1.7" />
+      <rect x="44" y="110" width="32" height="16" rx="5" fill="#2D9CDB2C" stroke="#2D9CDB68" strokeWidth="1.7" />
+      <rect x="22" y="19" width="76" height="72" rx="22" fill="white" stroke="#2D9CDB4A" strokeWidth="1.7" />
+      <rect x="22" y="19" width="76" height="72" rx="22" fill="#2D9CDB10" />
+      <rect x="30" y="27" width="60" height="56" rx="16" fill="#2D9CDB14" />
 
       <polyline
         points="32,55 40,55 45,38 52,72 59,48 65,55 73,55 79,42 86,55 92,55"
@@ -161,9 +161,9 @@ function SecondCardVisual() {
         cy="55"
         r="18"
         stroke="#2D9CDB"
-        strokeWidth="1"
+        strokeWidth="1.4"
         fill="none"
-        opacity="0.18"
+        opacity="0.34"
       >
         <animateTransform
           attributeName="transform"
@@ -175,13 +175,13 @@ function SecondCardVisual() {
         />
         <animate
           attributeName="opacity"
-          values="0.16;0.08;0"
+          values="0.3;0.16;0"
           dur="5.8s"
           repeatCount="indefinite"
         />
       </circle>
 
-      <circle cx="60" cy="55" r="36" stroke="#2D9CDB" strokeWidth="1" fill="none" opacity="0">
+      <circle cx="60" cy="55" r="36" stroke="#2D9CDB" strokeWidth="1.3" fill="none" opacity="0">
         <animateTransform
           attributeName="transform"
           type="scale"
@@ -192,7 +192,7 @@ function SecondCardVisual() {
         />
         <animate
           attributeName="opacity"
-          values="0;0.07;0"
+          values="0;0.16;0"
           dur="5.8s"
           repeatCount="indefinite"
         />
@@ -240,12 +240,12 @@ function ThirdCardVisual() {
           y1={y1}
           x2={x2}
           y2={y2}
-          stroke="#EC489928"
-          strokeWidth="1"
+          stroke="#EC489962"
+          strokeWidth="1.2"
         >
           <animate
             attributeName="opacity"
-            values="0.18;0.55;0.18"
+            values="0.36;0.82;0.36"
             dur="2.8s"
             begin={`${index * 0.08}s`}
             repeatCount="indefinite"
@@ -259,9 +259,9 @@ function ThirdCardVisual() {
           cx={node.x}
           cy={node.y}
           r="7"
-          fill="#EC489914"
-          stroke="#EC489955"
-          strokeWidth="1.5"
+          fill="#EC489924"
+          stroke="#EC489988"
+          strokeWidth="1.7"
         >
           <animate
             attributeName="r"
@@ -303,12 +303,12 @@ function FourthCardVisual() {
             y1={y}
             x2="50"
             y2="55"
-            stroke="#F59E0B35"
-            strokeWidth="1"
+            stroke="#F59E0BC0"
+            strokeWidth="1.45"
             strokeDasharray="4 3"
-            opacity={index === 1 ? "0.28" : "0.34"}
+            opacity={index === 1 ? "0.76" : "0.84"}
           />
-          <circle cx="18" cy={y} r="8" fill="#F59E0B18" stroke="#F59E0B50" strokeWidth="1.5">
+          <circle cx="18" cy={y} r="8" fill="#F59E0B38" stroke="#F59E0BC8" strokeWidth="1.9">
             <animate
               attributeName="opacity"
               values="0.45;0.95;0.45"
@@ -329,12 +329,12 @@ function FourthCardVisual() {
         cx="60"
         cy="55"
         r="24"
-        fill="rgba(0,0,0,0.03)"
-        stroke="#F59E0B99"
-        strokeWidth="1.9"
+        fill="rgba(245,158,11,0.12)"
+        stroke="#F59E0BE0"
+        strokeWidth="2.1"
         strokeDasharray="6 4"
       >
-        <animate attributeName="opacity" values="0.68;0.98;0.68" dur="4.8s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.82;1;0.82" dur="4.8s" repeatCount="indefinite" />
         <animate attributeName="r" values="22;25.5;22" dur="4.8s" repeatCount="indefinite" />
       </circle>
 
@@ -342,11 +342,11 @@ function FourthCardVisual() {
         x="60"
         y="62"
         textAnchor="middle"
-        fill="#F59E0B70"
+        fill="#F59E0BFF"
         style={{ fontSize: 22, fontWeight: 800, fontFamily: "Inter, sans-serif" }}
       >
         ?
-        <animate attributeName="opacity" values="0.38;0.72;0.38" dur="4.8s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.82;1;0.82" dur="4.8s" repeatCount="indefinite" />
       </text>
 
       {[24, 55, 86].map((y, index) => (
@@ -356,23 +356,23 @@ function FourthCardVisual() {
             y1="55"
             x2="94"
             y2={y}
-            stroke="#F59E0B15"
-            strokeWidth="1"
+            stroke="#F59E0BA0"
+            strokeWidth="1.45"
             strokeDasharray="4 3"
-            opacity={index === 1 ? "0.3" : "0.24"}
+            opacity={index === 1 ? "0.7" : "0.62"}
           />
           <circle
             cx="102"
             cy={y}
             r="8"
-            fill="rgba(0,0,0,0.03)"
-            stroke="rgba(0,0,0,0.1)"
-            strokeWidth="1.5"
+            fill="rgba(245,158,11,0.09)"
+            stroke="rgba(245,158,11,0.54)"
+            strokeWidth="1.9"
             strokeDasharray="4 3"
           >
             <animate
               attributeName="opacity"
-              values={`${0.12 + index * 0.03};${0.28 + index * 0.06};${0.12 + index * 0.03}`}
+              values={`${0.48 + index * 0.05};${0.78 + index * 0.08};${0.48 + index * 0.05}`}
               dur={`${4.6 + index * 0.35}s`}
               repeatCount="indefinite"
             />
@@ -415,7 +415,7 @@ export function ConvergenceGrid() {
   const { ref, hasEntered } = useInViewOnce<HTMLDivElement>();
 
   return (
-    <div ref={ref} className="mt-14 grid grid-cols-2 gap-6 md:grid-cols-4">
+    <div ref={ref} className="mt-10 grid grid-cols-2 gap-3.5 md:grid-cols-4">
       {convergenceItems.map((item, index) => {
         const cardStyle =
           convergenceCardStyleMap[item.accent as ConvergenceAccent] ??
@@ -424,7 +424,7 @@ export function ConvergenceGrid() {
         return (
           <div
             key={item.label}
-            className={`flex min-h-[16.25rem] flex-col items-center rounded-[2rem] p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.03)] ${
+            className={`mx-auto flex w-full max-w-[17.5rem] flex-col items-center rounded-[1.5rem] px-4 pt-4 pb-1.5 text-center shadow-[0_6px_20px_rgba(0,0,0,0.05)] ${
               hasEntered
                 ? "animate-[convergence-card-enter_760ms_cubic-bezier(0.22,1,0.36,1)_both]"
                 : "opacity-0"
@@ -434,11 +434,11 @@ export function ConvergenceGrid() {
               ...cardStyle,
             }}
           >
-            <div className="mb-4 flex h-20 w-full justify-center">
+            <div className="mb-2 flex h-11 w-full justify-center">
               <ConvergenceVisual index={index} hasEntered={hasEntered} />
             </div>
-            <div className="mb-1 text-[1.8rem] font-bold text-[#2D2D2D]">{item.value}</div>
-            <div className="text-xs font-medium text-[#9CA3AF]">{item.label}</div>
+            <div className="mb-1 text-[1.35rem] font-bold text-[#2D2D2D]">{item.value}</div>
+            <div className="text-[0.8rem] font-medium text-[#64748B]">{item.label}</div>
           </div>
         );
       })}

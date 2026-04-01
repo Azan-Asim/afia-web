@@ -25,7 +25,7 @@ export function MarketLayersShowcase() {
   return (
     <div
       ref={ref}
-      className="mt-16 grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr]"
+      className="mt-12 grid items-center gap-8 lg:grid-cols-[0.95fr_1.05fr]"
     >
       <div className="flex justify-center">
         <div className="relative flex h-[300px] w-[300px] items-center justify-center">
@@ -86,7 +86,7 @@ export function MarketLayersShowcase() {
             >
               <div className="flex size-[5.9rem] flex-col items-center justify-center rounded-full bg-[radial-gradient(circle_at_50%_45%,rgba(250,250,251)_0%,rgba(245,246,248)_62%,rgba(241,237,250)_100%)] text-center shadow-[inset_0_0_0_2px_rgba(139,92,246)] backdrop-blur-[2px] motion-safe:animate-[investment-orbit-core-glow_6.2s_ease-in-out_infinite]">
                 <div className="text-[1.95rem] font-black leading-none tracking-[-0.04em] text-[#2D2D2D]">
-                  $1.2B
+                  $150M
                 </div>
                 <div className="mt-2 text-[0.76rem] font-bold uppercase leading-none tracking-[0.01em] text-[#8B5CF6]">
                   SOM
@@ -97,14 +97,14 @@ export function MarketLayersShowcase() {
         </div>
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-3">
         {marketLayers.map((layer, index) => {
           const styles = accentStyles[layer.accent];
 
           return (
             <div
               key={layer.label}
-              className={`rounded-[1.7rem] border bg-[rgba(255,255,255,0.72)] px-6 py-6 shadow-[0_10px_30px_rgba(15,23,42,0.02)] backdrop-blur-[2px] ${styles.border} ${
+              className={`rounded-[1.7rem] border bg-[rgba(255,255,255,0.92)] px-6 py-5 shadow-[0_10px_30px_rgba(15,23,42,0.04)] backdrop-blur-[2px] ${styles.border} ${
                 hasEntered
                   ? "motion-safe:animate-[investment-market-card-enter_760ms_cubic-bezier(0.22,1,0.36,1)_both]"
                   : "opacity-0"
@@ -118,10 +118,10 @@ export function MarketLayersShowcase() {
                   {layer.label}
                 </div>
                 <div className="pt-1">
-                  <div className="text-[1.08rem] font-semibold leading-[1.25] tracking-[-0.015em] text-[#3A3A3A]">
-                    {layer.value} {"\u2014"} {marketCardTitles[layer.label]}
+                  <div className="text-[1.08rem] font-semibold leading-[1.25] tracking-[-0.015em] text-[#2D3748]">
+                    {layer.value} {marketCardTitles[layer.label]}
                   </div>
-                  <p className="mt-3 text-[0.84rem] font-medium leading-[1.45] tracking-[-0.01em] text-[#A1ACBB]">
+                  <p className="mt-2 text-[0.84rem] font-medium leading-[1.45] tracking-[-0.01em] text-[#64748B]">
                     {layer.description}
                   </p>
                 </div>

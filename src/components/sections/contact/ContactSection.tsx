@@ -3,7 +3,7 @@ import { ContactCtaCard } from "./ContactCtaCard";
 
 export function ContactSection() {
   return (
-    <section id="contact" className="relative overflow-hidden py-24 md:py-32">
+    <section id="contact" className="relative overflow-hidden py-16 md:py-20">
       <div
         aria-hidden="true"
         className="absolute left-1/2 top-[8%] size-[34rem] -translate-x-1/2 rounded-full bg-[rgba(39,174,96,0.16)] blur-[90px]"

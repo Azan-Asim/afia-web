@@ -58,33 +58,33 @@ export const heroSignalStyles: Record<
   { border: string; iconSurface: string; iconText: string }
 > = {
   green: {
-    border: "border-[rgba(39,174,96,0.145)]",
-    iconSurface: "bg-[rgba(39,174,96,0.07)]",
+    border: "border-[rgba(39,174,96,0.26)]",
+    iconSurface: "bg-[rgba(39,174,96,0.16)]",
     iconText: "text-[rgb(39,174,96)]",
   },
   blue: {
-    border: "border-[rgba(45,156,219,0.145)]",
-    iconSurface: "bg-[rgba(45,156,219,0.07)]",
+    border: "border-[rgba(45,156,219,0.26)]",
+    iconSurface: "bg-[rgba(45,156,219,0.16)]",
     iconText: "text-[rgb(45,156,219)]",
   },
   purple: {
-    border: "border-[rgba(139,92,246,0.145)]",
-    iconSurface: "bg-[rgba(139,92,246,0.07)]",
+    border: "border-[rgba(139,92,246,0.26)]",
+    iconSurface: "bg-[rgba(139,92,246,0.16)]",
     iconText: "text-[rgb(139,92,246)]",
   },
   orange: {
-    border: "border-[rgba(245,158,11,0.145)]",
-    iconSurface: "bg-[rgba(245,158,11,0.07)]",
+    border: "border-[rgba(245,158,11,0.26)]",
+    iconSurface: "bg-[rgba(245,158,11,0.16)]",
     iconText: "text-[rgb(245,158,11)]",
   },
   pink: {
-    border: "border-[rgba(236,72,153,0.145)]",
-    iconSurface: "bg-[rgba(236,72,153,0.07)]",
+    border: "border-[rgba(236,72,153,0.26)]",
+    iconSurface: "bg-[rgba(236,72,153,0.16)]",
     iconText: "text-[rgb(236,72,153)]",
   },
   red: {
-    border: "border-[rgba(239,68,68,0.145)]",
-    iconSurface: "bg-[rgba(239,68,68,0.07)]",
+    border: "border-[rgba(239,68,68,0.26)]",
+    iconSurface: "bg-[rgba(239,68,68,0.16)]",
     iconText: "text-[rgb(239,68,68)]",
   },
 };

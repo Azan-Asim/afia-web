@@ -13,7 +13,7 @@ const currentSignals: Array<[string, string, Accent]> = [
 
 export function WithoutAiCard() {
   return (
-    <div className="relative overflow-hidden rounded-[2rem] border border-[color:var(--color-red-soft-border)] bg-[var(--color-red-soft)] px-8 py-7">
+    <div className="relative overflow-hidden rounded-[2rem] border border-[color:var(--color-red-soft-border)] bg-[rgba(239,68,68,0.12)] px-8 py-7">
       <div className="mb-4 flex items-center gap-2 text-xs font-semibold text-[#FF6B6B]">
         <div className="size-2 rounded-full bg-red-400" />
         Without AI
@@ -34,13 +34,13 @@ export function WithoutAiCard() {
               style={{
                 background:
                   accent === "orange"
-                    ? "rgba(249,115,22,0.03)"
+                    ? "rgba(249,115,22,0.08)"
                     : accent === "pink"
-                      ? "rgba(236,72,153,0.03)"
-                      : "rgba(239,68,68,0.03)",
+                      ? "rgba(236,72,153,0.08)"
+                      : "rgba(239,68,68,0.08)",
               }}
             >
-              <div className="text-[10px] leading-none text-[#9CA3AF]">{label}</div>
+              <div className="text-[10px] leading-none text-[#64748B]">{label}</div>
               <div className={`mt-1.5 text-[1.02rem] font-bold leading-none ${styles.text}`}>{value}</div>
             </div>
           );

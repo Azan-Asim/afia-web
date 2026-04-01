@@ -25,13 +25,13 @@ function DeviceAgnosticVisual() {
             y1="55"
             x2={node.x}
             y2={node.y}
-            stroke="#27AE6030"
+            stroke="#27AE6068"
             strokeWidth="1.5"
             strokeDasharray="4 3"
           >
             <animate
               attributeName="opacity"
-              values="0.24;0.56;0.24"
+              values="0.5;0.9;0.5"
               dur="3.4s"
               begin={node.delay}
               repeatCount="indefinite"
@@ -41,9 +41,9 @@ function DeviceAgnosticVisual() {
             cx={node.x}
             cy={node.y}
             r="9"
-            fill="#27AE6010"
-            stroke="#27AE6040"
-            strokeWidth="1.5"
+            fill="#27AE6022"
+            stroke="#27AE6076"
+            strokeWidth="1.7"
           >
             <animate
               attributeName="r"
@@ -63,9 +63,9 @@ function DeviceAgnosticVisual() {
         </g>
       ))}
 
-      <circle cx="60" cy="55" r="16" fill="#27AE6012" stroke="#27AE6040" strokeWidth="1.5" />
-      <circle cx="60" cy="55" r="16" stroke="#27AE60" strokeWidth="1.5" fill="none">
-        <animate attributeName="opacity" values="0;0.35;0" dur="2.8s" repeatCount="indefinite" />
+      <circle cx="60" cy="55" r="16" fill="#27AE6028" stroke="#27AE607A" strokeWidth="1.7" />
+      <circle cx="60" cy="55" r="16" stroke="#27AE60" strokeWidth="1.7" fill="none">
+        <animate attributeName="opacity" values="0;0.55;0" dur="2.8s" repeatCount="indefinite" />
         <animate attributeName="r" values="16;20;21.5" dur="2.8s" repeatCount="indefinite" />
       </circle>
     </svg>
@@ -111,12 +111,12 @@ function AiInterpretationVisual() {
           y1={y1}
           x2={x2}
           y2={y2}
-          stroke="#2D9CDB28"
-          strokeWidth="1"
+          stroke="#2D9CDB62"
+          strokeWidth="1.2"
         >
           <animate
             attributeName="opacity"
-            values="0.18;0.55;0.18"
+            values="0.36;0.82;0.36"
             dur="2.8s"
             begin={`${index * 0.08}s`}
             repeatCount="indefinite"
@@ -130,9 +130,9 @@ function AiInterpretationVisual() {
           cx={node.x}
           cy={node.y}
           r="7"
-          fill="#2D9CDB14"
-          stroke="#2D9CDB55"
-          strokeWidth="1.5"
+          fill="#2D9CDB24"
+          stroke="#2D9CDB88"
+          strokeWidth="1.7"
         >
           <animate
             attributeName="r"
@@ -194,32 +194,32 @@ function FamilyIntelligenceVisual() {
 
   return (
     <svg viewBox="0 0 120 110" fill="none" className="h-full w-full">
-      <circle cx="60" cy="55" r="20" fill="#8B5CF608" stroke="#8B5CF612" strokeWidth="1">
-        <animate attributeName="opacity" values="0.45;0.75;0.45" dur="4.6s" repeatCount="indefinite" />
+      <circle cx="60" cy="55" r="20" fill="#8B5CF618" stroke="#8B5CF642" strokeWidth="1.2">
+        <animate attributeName="opacity" values="0.6;0.9;0.6" dur="4.6s" repeatCount="indefinite" />
       </circle>
 
       <g>
-        <line x1="28" y1="38" x2="92" y2="38" stroke="#8B5CF635" strokeWidth="1.5" strokeDasharray="4 3">
+        <line x1="28" y1="38" x2="92" y2="38" stroke="#8B5CF672" strokeWidth="1.6" strokeDasharray="4 3">
           <animate
             attributeName="opacity"
-            values="0.34;0.78;0.34"
+            values="0.5;0.92;0.5"
             dur="4s"
             repeatCount="indefinite"
           />
         </line>
-        <line x1="28" y1="38" x2="60" y2="82" stroke="#8B5CF635" strokeWidth="1.5" strokeDasharray="4 3">
+        <line x1="28" y1="38" x2="60" y2="82" stroke="#8B5CF672" strokeWidth="1.6" strokeDasharray="4 3">
           <animate
             attributeName="opacity"
-            values="0.34;0.78;0.34"
+            values="0.5;0.92;0.5"
             dur="4s"
             begin="0.3s"
             repeatCount="indefinite"
           />
         </line>
-        <line x1="92" y1="38" x2="60" y2="82" stroke="#8B5CF635" strokeWidth="1.5" strokeDasharray="4 3">
+        <line x1="92" y1="38" x2="60" y2="82" stroke="#8B5CF672" strokeWidth="1.6" strokeDasharray="4 3">
           <animate
             attributeName="opacity"
-            values="0.34;0.78;0.34"
+            values="0.5;0.92;0.5"
             dur="4s"
             begin="0.6s"
             repeatCount="indefinite"
@@ -242,9 +242,9 @@ function FamilyIntelligenceVisual() {
               cx={face.x}
               cy={face.y}
               r={face.r}
-              fill="#8B5CF612"
-              stroke="#8B5CF645"
-              strokeWidth="1.5"
+              fill="#8B5CF626"
+              stroke="#8B5CF688"
+              strokeWidth="1.7"
             >
               <animate
                 attributeName="opacity"
@@ -254,7 +254,7 @@ function FamilyIntelligenceVisual() {
                 repeatCount="indefinite"
               />
             </circle>
-            <circle cx={face.x} cy={face.y - face.r * 0.3} r={face.eye} fill="#8B5CF640">
+            <circle cx={face.x} cy={face.y - face.r * 0.3} r={face.eye} fill="#8B5CF68C">
               <animate
                 attributeName="opacity"
                 values="0.55;1;0.55"
@@ -265,8 +265,8 @@ function FamilyIntelligenceVisual() {
             </circle>
             <path
               d={face.mouth}
-              stroke="#8B5CF655"
-              strokeWidth="1.5"
+              stroke="#8B5CF69A"
+              strokeWidth="1.7"
               fill="none"
               strokeLinecap="round"
             >
@@ -294,8 +294,8 @@ function PrivacyFirstVisual() {
           cx="60"
           cy="58"
           r={radius}
-          stroke={index === 0 ? "#F59E0B40" : index === 1 ? "#F59E0B22" : "#F59E0B10"}
-          strokeWidth="1"
+          stroke={index === 0 ? "#F59E0BA0" : index === 1 ? "#F59E0B72" : "#F59E0B48"}
+          strokeWidth="1.25"
           fill="none"
           strokeDasharray="5 4"
         >
@@ -316,21 +316,21 @@ function PrivacyFirstVisual() {
 
       <path
         d="M60,10 L90,24 L90,56 Q90,80 60,92 Q30,80 30,56 L30,24 Z"
-        fill="#F59E0B10"
-        stroke="#F59E0B45"
-        strokeWidth="1.5"
+        fill="#F59E0B20"
+        stroke="#F59E0B88"
+        strokeWidth="1.7"
       >
         <animate attributeName="opacity" values="0.72;1;0.72" dur="3.4s" repeatCount="indefinite" />
       </path>
-      <rect x="50" y="52" width="20" height="15" rx="4" fill="#F59E0B28" stroke="#F59E0B65" strokeWidth="1.5" />
+      <rect x="50" y="52" width="20" height="15" rx="4" fill="#F59E0B40" stroke="#F59E0BA0" strokeWidth="1.7" />
       <path
         d="M53,52 L53,46 Q53,40 60,40 Q67,40 67,46 L67,52"
-        stroke="#F59E0B65"
+        stroke="#F59E0BAA"
         strokeWidth="2"
         fill="none"
         strokeLinecap="round"
       />
-      <circle cx="60" cy="59.5" r="2.5" fill="#F59E0B90">
+      <circle cx="60" cy="59.5" r="2.5" fill="#F59E0BDD">
         <animate attributeName="opacity" values="0.45;1;0.45" dur="2.6s" repeatCount="indefinite" />
       </circle>
     </svg>

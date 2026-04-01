@@ -65,7 +65,7 @@ const swotCards: SwotCard[] = [
     borderColor: "rgba(45, 156, 219, 0.2)",
     topLineColor: "rgba(45, 156, 219, 0.5)",
     bullets: [
-      "$100B+ market - 14.9% CAGR",
+      "$6-8B market - 12%-15% CAGR",
       "MENA under-served by AI health",
       "Enterprise & insurance expansion",
     ],
@@ -388,7 +388,7 @@ export function SwotSection() {
   const { ref, hasEntered } = useInViewOnce<HTMLDivElement>();
 
   return (
-    <section id="swot" className="relative overflow-hidden bg-white py-24 md:py-32">
+    <section id="swot" className="relative overflow-hidden bg-white py-16 md:py-20">
       <div
         className="pointer-events-none absolute rounded-full blur-[60px]"
         style={{

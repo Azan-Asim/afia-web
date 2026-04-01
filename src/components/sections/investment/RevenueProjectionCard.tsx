@@ -17,9 +17,17 @@ export function RevenueProjectionCard() {
               5-Year Projection
             </div>
             <h3 className="font-[family:var(--font-display)] text-[clamp(18px,3vw,26px)] font-bold tracking-[-0.02em] text-[#2D2D2D]">
-              Reaching <span className="text-[rgb(39,174,96)]">$58M ARR</span> by
+              Reaching <span className="text-[rgb(39,174,96)]">$30M ARR</span> by
               Year 5
             </h3>
+            <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-black/[0.06] bg-[rgba(39,174,96,0.08)] px-3 py-1.5">
+              <span className="text-[10px] font-semibold uppercase tracking-[0.08em] text-[#7B8794]">
+                Total ARR (5 Years)
+              </span>
+              <span className="text-sm font-black text-[rgb(39,174,96)]">
+                $53.5M
+              </span>
+            </div>
           </div>
 
           <div className="flex items-center gap-4">
@@ -103,21 +111,21 @@ export function RevenueProjectionCard() {
 
         <div className="mt-4 flex flex-wrap gap-6 border-t border-black/[0.04] pt-4">
           <div>
-            <div className="text-[10px] text-[#9CA3AF]">Year 1</div>
+            <div className="text-[10px] text-[#9CA3AF]">ARR Year 1</div>
             <div className="text-xs font-bold text-[rgb(39,174,96)]">
-              50K users - $0.4M
+              $0.5M
             </div>
           </div>
           <div>
-            <div className="text-[10px] text-[#9CA3AF]">Break-even</div>
+            <div className="text-[10px] text-[#9CA3AF]">ARR Year 3</div>
             <div className="text-xs font-bold text-[rgb(45,156,219)]">
-              Year 3 - 600K users
+              $6M
             </div>
           </div>
           <div>
-            <div className="text-[10px] text-[#9CA3AF]">Year 5</div>
+            <div className="text-[10px] text-[#9CA3AF]">ARR Year 5</div>
             <div className="text-xs font-bold text-[rgb(139,92,246)]">
-              $58M - 3M users
+              $30M
             </div>
           </div>
         </div>

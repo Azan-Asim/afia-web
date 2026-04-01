@@ -7,14 +7,14 @@ import { RevenueStreamsList } from "./RevenueStreamsList";
 
 export function RevenueSection() {
   return (
-    <section id="revenue" className="bg-white py-24 md:py-32">
+    <section id="revenue" className="bg-white py-16 md:py-20">
       <div className={pageContainerClass}>
         <SectionHeading
           badge="Business Model"
           title="Multi-Layer AI Revenue Engine"
         />
 
-        <div className="mt-16 grid gap-8 lg:grid-cols-2">
+        <div className="mt-12 grid gap-6 lg:grid-cols-2">
           <RevenueFunnelCard />
           <RevenueStreamsList />
         </div>

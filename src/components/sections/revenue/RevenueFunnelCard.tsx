@@ -41,7 +41,7 @@ export function RevenueFunnelCard() {
       </div>
 
       <div className="mt-6 flex justify-center text-[var(--color-green)]">
-        <div className="flex origin-center transform-gpu flex-col items-center gap-2 opacity-70 will-change-transform motion-safe:animate-[revenue-dollar-stack-pulse_5.2s_cubic-bezier(0.37,0,0.2,1)_infinite]">
+        <div className="flex origin-center transform-gpu flex-col items-center gap-2 opacity-100 will-change-transform motion-safe:animate-[revenue-dollar-stack-pulse_5.2s_cubic-bezier(0.37,0,0.2,1)_infinite]">
           <div className="h-9 w-[2px] origin-top bg-current/70" />
           <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[rgba(39,174,96,0.08)]">
             <span className="block text-[1.15rem] font-bold leading-none">$</span>
