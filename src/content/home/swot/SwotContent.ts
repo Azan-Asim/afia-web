@@ -22,7 +22,7 @@ export const convergenceItems: ConvergenceItem[] = [
   },
   {
     value: "0%",
-    label: "True AI Interpreters",
+    label: "True AI Interpreters %",
     icon: "zap",
     accent: "orange",
   },

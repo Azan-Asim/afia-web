@@ -6,22 +6,22 @@ export const opportunityCards: OpportunityCard[] = [
     value: "12-15M",
     title: "Wearables by 2028",
     description:
-      "Devices generating health data daily, with no AI to interpret it.",
+      "Wearable Users (KSA 2025): 8-10 million",
     icon: "watch",
     accent: "green",
   },
   {
     value: "$3.5-4.5B",
-    title: "Digital Health Market",
-    description: "AI-driven health intelligence growing at 12%-15% CAGR.",
+    title: "Digital Health Market (2028)",
+    description: "Market CAGR: 12%-15%",
     icon: "chart",
     accent: "blue",
   },
   {
     value: "0",
-    title: "AI Platforms That Interpret",
+    title: "AI Platforms (True Interpreters)",
     description:
-      "Everyone collects health data. No AI explains what it means.",
+      "True AI Interpreters %: 0%",
     icon: "brain",
     accent: "purple",
   },

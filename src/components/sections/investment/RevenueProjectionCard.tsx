@@ -117,15 +117,33 @@ export function RevenueProjectionCard() {
             </div>
           </div>
           <div>
+            <div className="text-[10px] text-[#9CA3AF]">ARR Year 2</div>
+            <div className="text-xs font-bold text-[rgb(39,174,96)]">
+              $2M
+            </div>
+          </div>
+          <div>
             <div className="text-[10px] text-[#9CA3AF]">ARR Year 3</div>
             <div className="text-xs font-bold text-[rgb(45,156,219)]">
               $6M
             </div>
           </div>
           <div>
+            <div className="text-[10px] text-[#9CA3AF]">ARR Year 4</div>
+            <div className="text-xs font-bold text-[rgb(45,156,219)]">
+              $15M
+            </div>
+          </div>
+          <div>
             <div className="text-[10px] text-[#9CA3AF]">ARR Year 5</div>
             <div className="text-xs font-bold text-[rgb(139,92,246)]">
               $30M
+            </div>
+          </div>
+          <div>
+            <div className="text-[10px] text-[#9CA3AF]">Total ARR(5Year)</div>
+            <div className="text-xs font-bold text-[rgb(139,92,246)]">
+              $53.5M
             </div>
           </div>
         </div>

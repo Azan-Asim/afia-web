@@ -10,13 +10,13 @@ export const marketLayers: MarketLayer[] = [
   {
     label: "TAM",
     value: "$6-8B",
-    description: "Digital health and AI interpretation market by 2030",
+    description: "Serviceable wearable AI opportunity by 2030",
     accent: "green",
   },
   {
     label: "SAM",
     value: "$1.5-2.5B",
-    description: "Serviceable wearable AI opportunity by 2030",
+    description: "Serviceable addressable market for wearable AI by 2030",
     accent: "blue",
   },
   {
@@ -113,20 +113,20 @@ export const unitEconomics: UnitEconomicsCard[] = [
   {
     value: "$25-$40",
     title: "CAC",
-    description: "Customer acquisition cost",
+    description: "Digital health and AI interpretation market by 2030",
     icon: "users",
     accent: "green",
   },
   {
     value: "4x-6x",
-    title: "LTV / CAC",
+    title: "LTV/CAC",
     description: "Healthy payback profile",
     icon: "trendingUp",
     accent: "blue",
   },
   {
     value: "$5-$8/mo",
-    title: "ARPU",
+    title: "ARPU (Monthly)",
     description: "Average monthly revenue per user",
     icon: "dollar",
     accent: "purple",
