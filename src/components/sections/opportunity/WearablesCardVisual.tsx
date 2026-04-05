@@ -8,9 +8,9 @@ export function WearablesCardVisual() {
         width="32"
         height="16"
         rx="5"
-        fill="#27AE602C"
-        stroke="#27AE6068"
-        strokeWidth="1.7"
+        fill="#27AE6058"
+        stroke="#27AE60D8"
+        strokeWidth="2"
       />
       <rect
         x="44"
@@ -18,9 +18,9 @@ export function WearablesCardVisual() {
         width="32"
         height="16"
         rx="5"
-        fill="#27AE602C"
-        stroke="#27AE6068"
-        strokeWidth="1.7"
+        fill="#27AE6058"
+        stroke="#27AE60D8"
+        strokeWidth="2"
       />
       <rect
         x="22"
@@ -29,16 +29,16 @@ export function WearablesCardVisual() {
         height="72"
         rx="22"
         fill="white"
-        stroke="#27AE604A"
-        strokeWidth="1.7"
+        stroke="#27AE60C8"
+        strokeWidth="2"
       />
-      <rect x="22" y="19" width="76" height="72" rx="22" fill="#27AE6010" />
-      <rect x="30" y="27" width="60" height="56" rx="16" fill="#27AE6014" />
+      <rect x="22" y="19" width="76" height="72" rx="22" fill="#27AE6026" />
+      <rect x="30" y="27" width="60" height="56" rx="16" fill="#27AE6030" />
 
       <polyline
         points="32,55 40,55 45,38 52,72 59,48 65,55 73,55 79,42 86,55 92,55"
         stroke="#27AE60"
-        strokeWidth="2.2"
+        strokeWidth="2.8"
         strokeLinecap="round"
         strokeLinejoin="round"
         fill="none"
@@ -61,7 +61,7 @@ export function WearablesCardVisual() {
         />
       </polyline>
 
-      <circle cx="92" cy="55" r="3.5" fill="#27AE60" opacity="0">
+      <circle cx="92" cy="55" r="4.2" fill="#27AE60" opacity="0">
         <animate
           attributeName="r"
           values="0;0;4.2;5.2;2.2;0"
@@ -83,9 +83,9 @@ export function WearablesCardVisual() {
         cy="55"
         r="18"
         stroke="#27AE60"
-        strokeWidth="1.4"
+        strokeWidth="1.9"
         fill="none"
-        opacity="0.34"
+        opacity="0.62"
       >
         <animateTransform
           attributeName="transform"
@@ -97,13 +97,13 @@ export function WearablesCardVisual() {
         />
         <animate
           attributeName="opacity"
-          values="0.3;0.16;0"
+          values="0.58;0.3;0"
           dur="5.8s"
           repeatCount="indefinite"
         />
       </circle>
 
-      <circle cx="60" cy="55" r="36" stroke="#27AE60" strokeWidth="1.3" fill="none" opacity="0">
+      <circle cx="60" cy="55" r="36" stroke="#27AE60" strokeWidth="1.8" fill="none" opacity="0">
         <animateTransform
           attributeName="transform"
           type="scale"
@@ -114,7 +114,7 @@ export function WearablesCardVisual() {
         />
         <animate
           attributeName="opacity"
-          values="0;0.16;0"
+          values="0;0.34;0"
           dur="5.8s"
           repeatCount="indefinite"
         />

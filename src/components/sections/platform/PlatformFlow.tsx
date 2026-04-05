@@ -10,7 +10,7 @@ export function PlatformFlow() {
   const { ref, hasEntered } = useInViewOnce<HTMLDivElement>();
 
   return (
-    <div ref={ref} className="mt-16">
+    <div ref={ref} className="mt-10">
       <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
         {platformSteps.map((step, index) => {
           const styles = accentStyles[step.accent];

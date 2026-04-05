@@ -8,7 +8,7 @@ import { UnitEconomicsGrid } from "./UnitEconomicsGrid";
 
 export function InvestmentSection() {
   return (
-    <section id="investment" className="relative py-16 md:py-20">
+    <section id="investment" className="relative py-12 md:py-14">
       <div
         aria-hidden="true"
         className="absolute right-[-6%] top-[8%] size-[20rem] rounded-full bg-[rgba(39,174,96,0.16)] blur-3xl"

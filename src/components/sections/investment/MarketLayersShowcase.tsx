@@ -25,7 +25,7 @@ export function MarketLayersShowcase() {
   return (
     <div
       ref={ref}
-      className="mt-12 grid items-center gap-8 lg:grid-cols-[0.95fr_1.05fr]"
+      className="mt-10 grid items-center gap-6 lg:grid-cols-[0.82fr_auto]"
     >
       <div className="flex justify-center">
         <div className="relative flex h-[300px] w-[300px] items-center justify-center">
@@ -97,14 +97,14 @@ export function MarketLayersShowcase() {
         </div>
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-3 justify-self-start">
         {marketLayers.map((layer, index) => {
           const styles = accentStyles[layer.accent];
 
           return (
             <div
               key={layer.label}
-              className={`rounded-[1.7rem] border bg-[rgba(255,255,255,0.92)] px-6 py-5 shadow-[0_10px_30px_rgba(15,23,42,0.04)] backdrop-blur-[2px] ${styles.border} ${
+              className={`w-fit max-w-[42rem] rounded-[1.7rem] border bg-[rgba(255,255,255,0.92)] px-6 py-5 shadow-[0_10px_30px_rgba(15,23,42,0.04)] backdrop-blur-[2px] ${styles.border} ${
                 hasEntered
                   ? "motion-safe:animate-[investment-market-card-enter_760ms_cubic-bezier(0.22,1,0.36,1)_both]"
                   : "opacity-0"
@@ -117,7 +117,7 @@ export function MarketLayersShowcase() {
                 >
                   {layer.label}
                 </div>
-                <div className="pt-1">
+                <div className="min-w-0 max-w-[31rem] pt-1">
                   <div className="text-[1.08rem] font-semibold leading-[1.25] tracking-[-0.015em] text-[#2D3748]">
                     {layer.value} {marketCardTitles[layer.label]}
                   </div>

@@ -7,7 +7,7 @@ import { OpportunityHighlights } from "./OpportunityHighlights";
 
 export function OpportunitySection() {
   return (
-    <section id="opportunity" className="relative overflow-hidden bg-white py-16 md:py-20">
+    <section id="opportunity" className="relative overflow-hidden bg-white py-12 md:py-14">
       <div className={pageContainerClass}>
         <div className="space-y-4 text-center">
           <SectionBadge title="Market Opportunity" />

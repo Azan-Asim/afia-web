@@ -31,7 +31,7 @@ export function HeroSignalCard({
       }}
     >
       <div
-        className={`flex min-w-[96px] items-center gap-2 rounded-xl border-[1.5px] bg-white px-3 py-2 shadow-[0_12px_28px_rgba(17,24,39,0.12)] ${config.animationClass} ${styles.border}`}
+        className={`flex min-w-[122px] items-center gap-2.5 rounded-[0.95rem] border-[1.5px] bg-white px-4 py-2.5 shadow-[0_14px_30px_rgba(17,24,39,0.14)] ${config.animationClass} ${styles.border}`}
         style={{
           ["--hero-card-offset" as string]: config.floatOffset,
           // The inner card picks up the continuous float only after the arrival finishes.
@@ -41,13 +41,13 @@ export function HeroSignalCard({
         }}
       >
         <div
-          className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-lg ${styles.iconSurface} ${styles.iconText}`}
+          className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-lg ${styles.iconSurface} ${styles.iconText}`}
         >
-          <LineIcon name={icon} className="size-3.5" />
+          <LineIcon name={icon} className="size-4" />
         </div>
         <div>
-          <div className="text-[9px] leading-none text-[#9CA3AF]">{label}</div>
-          <div className="text-[11px] font-semibold leading-snug text-[#2D2D2D]">
+          <div className="text-[10px] leading-none text-[#7A8699]">{label}</div>
+          <div className="text-[13px] font-semibold leading-snug text-[#2D2D2D]">
             {value}
           </div>
         </div>

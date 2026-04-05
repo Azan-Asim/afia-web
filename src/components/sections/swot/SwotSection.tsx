@@ -388,7 +388,7 @@ export function SwotSection() {
   const { ref, hasEntered } = useInViewOnce<HTMLDivElement>();
 
   return (
-    <section id="swot" className="relative overflow-hidden bg-white py-16 md:py-20">
+    <section id="swot" className="relative overflow-hidden bg-white pt-5 pb-12 md:pt-6 md:pb-14">
       <div
         className="pointer-events-none absolute rounded-full blur-[60px]"
         style={{
@@ -416,11 +416,11 @@ export function SwotSection() {
         <SectionHeading badge="Why Now" title="The AI Convergence Moment" />
         <ConvergenceGrid />
 
-        <div className="mt-24">
+        <div className="mt-10">
           <SectionHeading badge="SWOT Analysis" title="A Transparent Business Landscape" />
         </div>
 
-        <div ref={ref} className="mt-14 grid gap-6 md:grid-cols-2">
+        <div ref={ref} className="mt-10 grid gap-5 md:grid-cols-2">
           {swotCards.map((card, index) => (
             <article
               key={card.title}

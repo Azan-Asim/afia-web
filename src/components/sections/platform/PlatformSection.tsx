@@ -7,7 +7,7 @@ import { PlatformFlow } from "./PlatformFlow";
 
 export function PlatformSection() {
   return (
-    <section id="platform" className="relative overflow-hidden py-16 md:py-20">
+    <section id="platform" className="relative overflow-hidden pt-5 pb-12 md:pt-6 md:pb-14">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute rounded-full bg-[rgb(39,174,96)] blur-[60px] motion-safe:animate-[hero-drift_15s_ease-in-out_infinite]"
