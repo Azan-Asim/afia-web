@@ -1,7 +1,10 @@
 "use client";
 
 // Supporting moat bullet list that explains why the platform is difficult to replicate.
+import { motion } from "motion/react";
+
 import { LineIcon } from "@/components/common/icons/LineIcons";
+import { revealSide } from "@/components/common/motion/motion";
 import { accentStyles } from "@/components/common/styles/AccentStyles";
 import { useInViewOnce } from "@/components/sections/opportunity/useInViewOnce";
 import { moatItems } from "@/content/home/moat/MoatContent";
@@ -15,14 +18,12 @@ export function MoatFeatureList() {
         const styles = accentStyles[item.accent];
 
         return (
-          <div
+          <motion.div
             key={item.title}
-            className={`flex gap-4 ${
-              hasEntered
-                ? "motion-safe:animate-[moat-card-enter_760ms_cubic-bezier(0.22,1,0.36,1)_both]"
-                : "opacity-0"
-            }`}
-            style={{ animationDelay: `${index * 120}ms` }}
+            className="flex gap-4"
+            initial="hidden"
+            animate={hasEntered ? "visible" : "hidden"}
+            variants={revealSide(index * 0.12, -28, 0.76)}
           >
             <div
               className={`flex size-10 shrink-0 items-center justify-center rounded-[1.15rem] ${styles.soft} ${styles.text}`}
@@ -34,7 +35,7 @@ export function MoatFeatureList() {
                 {item.title}
               </h3>
             </div>
-          </div>
+          </motion.div>
         );
       })}
     </div>

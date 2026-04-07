@@ -1,6 +1,8 @@
 "use client";
 
 // Five-year projection chart that compares revenue growth against user growth over time.
+import { motion } from "motion/react";
+
 import { accentStyles } from "@/components/common/styles/AccentStyles";
 import { useInViewOnce } from "@/components/sections/opportunity/useInViewOnce";
 import { revenueProjection } from "@/content/home/investment/InvestmentContent";
@@ -55,47 +57,35 @@ export function RevenueProjectionCard() {
               >
                 <div className="flex h-40 w-full items-end justify-center gap-1">
                   <div className="relative h-full flex-1">
-                    <div
-                      className={`absolute bottom-0 left-0 right-0 h-0 rounded-t-xl border-[1.5px] ${styles.softSolid} ${styles.border} ${
-                        hasEntered
-                          ? "motion-safe:animate-[investment-revenue-bar-grow_880ms_cubic-bezier(0.22,1,0.36,1)_both]"
-                          : "opacity-0"
-                      }`}
-                      style={{
-                        animationDelay: `${index * 130}ms`,
-                        ["--investment-bar-height" as string]: entry.revenueHeight,
-                      }}
+                    <motion.div
+                      className={`absolute bottom-0 left-0 right-0 rounded-t-xl border-[1.5px] ${styles.softSolid} ${styles.border}`}
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: hasEntered ? 1 : 0, height: hasEntered ? entry.revenueHeight : 0 }}
+                      transition={{ duration: 0.88, delay: index * 0.13, ease: [0.22, 1, 0.36, 1] }}
                     />
-                    <span
-                      className={`absolute left-1/2 -translate-x-1/2 text-[9px] font-bold ${
+                    <motion.span
+                      className={`absolute left-1/2 text-[9px] font-bold ${
                         showInsideBar ? styles.text : "text-[rgb(39,174,96)]"
-                      } ${
-                        hasEntered
-                          ? "motion-safe:animate-[investment-revenue-label-enter_420ms_ease-out_both]"
-                          : "opacity-0"
                       }`}
+                      initial={{ opacity: 0, x: "-50%", y: 6 }}
+                      animate={{ opacity: hasEntered ? 1 : 0, x: "-50%", y: hasEntered ? 0 : 6 }}
+                      transition={{ duration: 0.42, delay: 0.3 + index * 0.13, ease: "easeOut" }}
                       style={{
                         bottom: showInsideBar
                           ? "10px"
                           : `calc(${entry.revenueHeight} + 4px)`,
-                        animationDelay: `${300 + index * 130}ms`,
                       }}
                     >
                       {entry.revenue}
-                    </span>
+                    </motion.span>
                   </div>
 
                   <div className="relative h-full w-2">
-                    <div
-                      className={`absolute bottom-0 left-0 right-0 h-0 rounded-t-lg border border-[rgba(45,156,219,0.376)] bg-[rgba(45,156,219,0.25)] ${
-                        hasEntered
-                          ? "motion-safe:animate-[investment-revenue-bar-grow_760ms_cubic-bezier(0.22,1,0.36,1)_both]"
-                          : "opacity-0"
-                      }`}
-                      style={{
-                        animationDelay: `${120 + index * 130}ms`,
-                        ["--investment-bar-height" as string]: entry.userHeight,
-                      }}
+                    <motion.div
+                      className="absolute bottom-0 left-0 right-0 rounded-t-lg border border-[rgba(45,156,219,0.376)] bg-[rgba(45,156,219,0.25)]"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: hasEntered ? 1 : 0, height: hasEntered ? entry.userHeight : 0 }}
+                      transition={{ duration: 0.76, delay: 0.12 + index * 0.13, ease: [0.22, 1, 0.36, 1] }}
                     />
                   </div>
                 </div>

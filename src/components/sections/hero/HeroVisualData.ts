@@ -16,40 +16,40 @@ export const heroSignalConfigs = {
     positionY: "-164px",
     floatOffset: "-2.247px",
     entryDelay: "0.12s",
-    animationClass:
-      "motion-safe:animate-[hero-card-float_9.2s_ease-in-out_infinite]",
+    floatDuration: 9.2,
+    floatDirection: "up",
   },
   Sleep: {
     positionX: "162px",
     positionY: "-28px",
     floatOffset: "-2.21788px",
     entryDelay: "0.6s",
-    animationClass:
-      "motion-safe:animate-[hero-card-float-alt_10.1s_ease-in-out_infinite]",
+    floatDuration: 10.1,
+    floatDirection: "down",
   },
   Activity: {
     positionX: "34px",
     positionY: "144px",
     floatOffset: "-2.19455px",
     entryDelay: "0.84s",
-    animationClass:
-      "motion-safe:animate-[hero-card-float_9.6s_ease-in-out_infinite]",
+    floatDuration: 9.6,
+    floatDirection: "up",
   },
   Decision: {
     positionX: "-214px",
     positionY: "34px",
     floatOffset: "-0.475549px",
     entryDelay: "0s",
-    animationClass:
-      "motion-safe:animate-[hero-card-float-alt_10.4s_ease-in-out_infinite]",
+    floatDuration: 10.4,
+    floatDirection: "down",
   },
   HRV: {
     positionX: "-162px",
     positionY: "-108px",
     floatOffset: "-0.555132px",
     entryDelay: "0.32s",
-    animationClass:
-      "motion-safe:animate-[hero-card-float_9.8s_ease-in-out_infinite]",
+    floatDuration: 9.8,
+    floatDirection: "up",
   },
 } as const;
 

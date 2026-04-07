@@ -1,7 +1,10 @@
 "use client";
 
 // Radial moat diagram that visualizes Afia's defensibility pillars around a central core.
+import { motion } from "motion/react";
+
 import { LineIcon } from "@/components/common/icons/LineIcons";
+import { fadeIn, scaleIn } from "@/components/common/motion/motion";
 import { useInViewOnce } from "@/components/sections/opportunity/useInViewOnce";
 
 type MoatSector = {
@@ -110,23 +113,21 @@ export function MoatVisual() {
       <div className="relative size-80">
         <svg viewBox="0 0 320 320" className="h-full w-full">
           {moatSectors.map((sector, index) => (
-            <path
+            <motion.path
               key={sector.label.join("-")}
               d={describeSector(160, 160, 122, sector.startAngle, sector.endAngle)}
               fill={sector.fill}
               stroke={sector.stroke}
               strokeWidth="1.5"
-              className={
-                hasEntered
-                  ? "origin-center motion-safe:animate-[moat-orbit-enter_880ms_cubic-bezier(0.22,1,0.36,1)_both]"
-                  : "origin-center opacity-0"
-              }
-              style={{ animationDelay: `${index * 90}ms` }}
+              className="origin-center"
+              initial="hidden"
+              animate={hasEntered ? "visible" : "hidden"}
+              variants={scaleIn(index * 0.09, 0.18, 0.88)}
             />
           ))}
 
           {[46, 82, 122].map((radius, index) => (
-            <circle
+            <motion.circle
               key={radius}
               cx="160"
               cy="160"
@@ -135,12 +136,10 @@ export function MoatVisual() {
               // The dashed guide rings help the center core feel anchored without competing with the sector strokes.
               stroke="rgba(45,45,45,0.08)"
               strokeDasharray="6 6"
-              className={
-                hasEntered
-                  ? "origin-center motion-safe:animate-[moat-orbit-enter_880ms_cubic-bezier(0.22,1,0.36,1)_both]"
-                  : "origin-center opacity-0"
-              }
-              style={{ animationDelay: `${120 + index * 90}ms` }}
+              className="origin-center"
+              initial="hidden"
+              animate={hasEntered ? "visible" : "hidden"}
+              variants={scaleIn(0.12 + index * 0.09, 0.18, 0.88)}
             />
           ))}
 
@@ -148,36 +147,31 @@ export function MoatVisual() {
             const point = polarToCartesian(160, 160, 122, angle);
 
             return (
-              <line
+              <motion.line
                 key={angle}
                 x1="160"
                 y1="160"
                 x2={point.x}
                 y2={point.y}
                 stroke="rgba(45,45,45,0.12)"
-                className={
-                  hasEntered
-                    ? "origin-center motion-safe:animate-[moat-orbit-enter_880ms_cubic-bezier(0.22,1,0.36,1)_both]"
-                    : "origin-center opacity-0"
-                }
-                style={{ animationDelay: `${180 + index * 80}ms` }}
+                className="origin-center"
+                initial="hidden"
+                animate={hasEntered ? "visible" : "hidden"}
+                variants={fadeIn(0.18 + index * 0.08, 0.5)}
               />
             );
           })}
 
           {moatSectors.map((sector, index) => (
-            <text
+            <motion.text
               key={`${sector.label.join("-")}-text`}
               x={sector.labelX}
               y={sector.labelY}
               textAnchor="middle"
               fill={sector.labelColor}
-              className={
-                hasEntered
-                  ? "motion-safe:animate-[moat-orbit-label-enter_680ms_cubic-bezier(0.22,1,0.36,1)_both]"
-                  : "opacity-0"
-              }
-              style={{ animationDelay: `${340 + index * 90}ms` }}
+              initial="hidden"
+              animate={hasEntered ? "visible" : "hidden"}
+              variants={scaleIn(0.34 + index * 0.09, 0.72, 0.68)}
             >
               {sector.label.map((line, lineIndex) => (
                 <tspan
@@ -190,20 +184,18 @@ export function MoatVisual() {
                   {line}
                 </tspan>
               ))}
-            </text>
+            </motion.text>
           ))}
         </svg>
 
-        <div
-          className={`absolute inset-[6.75rem] flex items-center justify-center rounded-full bg-[linear-gradient(135deg,var(--color-green),var(--color-blue))] shadow-[0_18px_44px_rgba(39,174,96,0.2)] ${
-            hasEntered
-              ? "motion-safe:animate-[moat-orbit-core-enter_820ms_cubic-bezier(0.22,1,0.36,1)_both]"
-              : "opacity-0"
-          }`}
-          style={{ animationDelay: "220ms" }}
+        <motion.div
+          className="absolute inset-[6.75rem] flex items-center justify-center rounded-full bg-[linear-gradient(135deg,var(--color-green),var(--color-blue))] shadow-[0_18px_44px_rgba(39,174,96,0.2)]"
+          initial="hidden"
+          animate={hasEntered ? "visible" : "hidden"}
+          variants={scaleIn(0.22, 0.32, 0.82)}
         >
           <LineIcon name="shield" className="size-9 text-white" />
-        </div>
+        </motion.div>
       </div>
     </div>
   );

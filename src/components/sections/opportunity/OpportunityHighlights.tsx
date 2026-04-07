@@ -12,7 +12,7 @@ function OpportunityVisual({ title }: { title: string }) {
     return <WearablesCardVisual />;
   }
 
-  if (title === "Digital Health Market") {
+  if (title.startsWith("Digital Health Market")) {
     return <MarketGrowthCardVisual />;
   }
 

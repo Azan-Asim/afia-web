@@ -1,7 +1,10 @@
 "use client";
 
 // TAM/SAM/SOM showcase that pairs orbit rings with supporting market cards.
+import { motion, useReducedMotion } from "motion/react";
+
 import { accentStyles } from "@/components/common/styles/AccentStyles";
+import { driftLoop, revealSide, scaleIn } from "@/components/common/motion/motion";
 import { useInViewOnce } from "@/components/sections/opportunity/useInViewOnce";
 import { marketLayers } from "@/content/home/investment/InvestmentContent";
 
@@ -21,6 +24,7 @@ const marketCardTitles = {
 
 export function MarketLayersShowcase() {
   const { ref, hasEntered } = useInViewOnce<HTMLDivElement>();
+  const reduceMotion = useReducedMotion();
 
   return (
     <div
@@ -35,20 +39,19 @@ export function MarketLayersShowcase() {
             const styles = accentStyles[layer.accent];
 
             return (
-              <div
+              <motion.div
                 key={`${layer.label}-ring`}
-                className={`absolute ${ringInsets[index]} ${
-                  hasEntered
-                    ? "motion-safe:animate-[investment-orbit-enter_900ms_cubic-bezier(0.22,1,0.36,1)_both]"
-                    : "opacity-0"
-                }`}
-                style={{ animationDelay: `${index * 120}ms` }}
+                className={`absolute ${ringInsets[index]}`}
+                initial="hidden"
+                animate={hasEntered ? "visible" : "hidden"}
+                variants={scaleIn(index * 0.12, 0.18, 0.9)}
               >
-                <div
-                  className={`absolute inset-0 rounded-full border-[2px] ${styles.border} bg-[rgba(255,255,255,0.08)] motion-safe:animate-[investment-orbit-ring-glow_5.8s_ease-in-out_infinite]`}
-                  style={{ animationDelay: `${index * 280}ms` }}
+                <motion.div
+                  className={`absolute inset-0 rounded-full border-[2px] ${styles.border} bg-[rgba(255,255,255,0.08)]`}
+                  animate={reduceMotion ? undefined : { opacity: [0.88, 1, 0.88], scale: [1, 1.012, 1] }}
+                  transition={reduceMotion ? undefined : driftLoop(5.8, index * 0.28)}
                 />
-              </div>
+              </motion.div>
             );
           })}
 
@@ -56,14 +59,12 @@ export function MarketLayersShowcase() {
             const styles = accentStyles[layer.accent];
 
             return (
-              <div
+              <motion.div
                 key={layer.label}
-                className={`absolute ${layerPositions[index]} text-center ${
-                  hasEntered
-                    ? "motion-safe:animate-[investment-orbit-label-enter_720ms_cubic-bezier(0.22,1,0.36,1)_both]"
-                    : "opacity-0"
-                }`}
-                style={{ animationDelay: `${360 + index * 100}ms` }}
+                className={`absolute ${layerPositions[index]} text-center`}
+                initial="hidden"
+                animate={hasEntered ? "visible" : "hidden"}
+                variants={scaleIn(0.36 + index * 0.1, 0.75, 0.72)}
               >
                 <div className={`text-[1.05rem] font-black leading-none ${styles.text}`}>
                   {layer.value}
@@ -71,28 +72,41 @@ export function MarketLayersShowcase() {
                 <div className={`mt-1 text-[0.84rem] font-bold leading-none ${styles.text}`}>
                   {layer.label}
                 </div>
-              </div>
+              </motion.div>
             );
           })}
 
           <div className="absolute inset-0 flex items-center justify-center">
-            <div
-              className={`${
-                hasEntered
-                  ? "motion-safe:animate-[investment-orbit-core-enter_860ms_cubic-bezier(0.22,1,0.36,1)_both]"
-                  : "opacity-0"
-              }`}
-              style={{ animationDelay: "240ms" }}
+            <motion.div
+              initial="hidden"
+              animate={hasEntered ? "visible" : "hidden"}
+              variants={scaleIn(0.24, 0.3, 0.86)}
             >
-              <div className="flex size-[5.9rem] flex-col items-center justify-center rounded-full bg-[radial-gradient(circle_at_50%_45%,rgba(250,250,251)_0%,rgba(245,246,248)_62%,rgba(241,237,250)_100%)] text-center shadow-[inset_0_0_0_2px_rgba(139,92,246)] backdrop-blur-[2px] motion-safe:animate-[investment-orbit-core-glow_6.2s_ease-in-out_infinite]">
+              <motion.div
+                className="flex size-[5.9rem] flex-col items-center justify-center rounded-full bg-[radial-gradient(circle_at_50%_45%,rgba(250,250,251)_0%,rgba(245,246,248)_62%,rgba(241,237,250)_100%)] text-center shadow-[inset_0_0_0_2px_rgba(139,92,246)] backdrop-blur-[2px]"
+                animate={
+                  reduceMotion
+                    ? undefined
+                    : {
+                        opacity: [0.94, 1, 0.94],
+                        scale: [1, 1.018, 1],
+                        boxShadow: [
+                          "0 20px 50px rgba(39, 174, 96, 0.2)",
+                          "0 24px 56px rgba(39, 174, 96, 0.24)",
+                          "0 20px 50px rgba(39, 174, 96, 0.2)",
+                        ],
+                      }
+                }
+                transition={reduceMotion ? undefined : driftLoop(6.2)}
+              >
                 <div className="text-[1.95rem] font-black leading-none tracking-[-0.04em] text-[#2D2D2D]">
                   $150M
                 </div>
                 <div className="mt-2 text-[0.76rem] font-bold uppercase leading-none tracking-[0.01em] text-[#8B5CF6]">
                   SOM
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </div>
@@ -102,14 +116,12 @@ export function MarketLayersShowcase() {
           const styles = accentStyles[layer.accent];
 
           return (
-            <div
+            <motion.div
               key={layer.label}
-              className={`w-fit max-w-[42rem] rounded-[1.7rem] border bg-[rgba(255,255,255,0.92)] px-6 py-5 shadow-[0_10px_30px_rgba(15,23,42,0.04)] backdrop-blur-[2px] ${styles.border} ${
-                hasEntered
-                  ? "motion-safe:animate-[investment-market-card-enter_760ms_cubic-bezier(0.22,1,0.36,1)_both]"
-                  : "opacity-0"
-              }`}
-              style={{ animationDelay: `${220 + index * 120}ms` }}
+              className={`w-fit max-w-[42rem] rounded-[1.7rem] border bg-[rgba(255,255,255,0.92)] px-6 py-5 shadow-[0_10px_30px_rgba(15,23,42,0.04)] backdrop-blur-[2px] ${styles.border}`}
+              initial="hidden"
+              animate={hasEntered ? "visible" : "hidden"}
+              variants={revealSide(0.22 + index * 0.12, 64, 0.76)}
             >
               <div className="flex items-start gap-3">
                 <div
@@ -126,7 +138,7 @@ export function MarketLayersShowcase() {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>

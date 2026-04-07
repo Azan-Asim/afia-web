@@ -1,7 +1,10 @@
 "use client";
 
 // Animated hero copy block that cycles through product positioning and headline messaging.
+import { motion } from "motion/react";
+
 import { LineIcon } from "@/components/common/icons/LineIcons";
+import { revealUp } from "@/components/common/motion/motion";
 import {
   gradientCtaClass,
   gradientCtaFocusClass,
@@ -10,7 +13,6 @@ import {
 import { heroMetrics } from "@/content/home/hero/HeroContent";
 
 type HeroContentProps = {
-  cycle: number;
   isActive: boolean;
 };
 
@@ -19,29 +21,21 @@ const heroPrimaryCtaClass =
 const heroSecondaryCtaClass =
   `${sharedSecondaryCtaClass} border-[1.5px] border-[rgba(39,174,96,0.25)] px-6 py-3 text-sm shadow-[0_4px_16px_rgba(0,0,0,0.04)] duration-500`;
 
-export function HeroContent({ cycle, isActive }: HeroContentProps) {
+export function HeroContent({ isActive }: HeroContentProps) {
   return (
     <div className="space-y-8 translate-x-2 sm:translate-x-4 md:translate-x-8 lg:translate-x-14 xl:translate-x-[4.5rem]">
-      <div
-        className={
-          isActive
-            ? "motion-safe:animate-[hero-enter_700ms_cubic-bezier(0.22,1,0.36,1)_both]"
-            : "opacity-0"
-        }
-      >
+      <motion.div initial="hidden" animate={isActive ? "visible" : "hidden"} variants={revealUp(0, 24, 0.7)}>
         <span className="inline-flex items-center gap-1.5 rounded-full border border-[rgba(39,174,96,0.2)] bg-[rgba(39,174,96,0.08)] px-3.5 py-1 text-xs font-semibold text-[rgb(39,174,96)] [font-synthesis:none]">
           <LineIcon name="sparkles" className="size-3" />
           Investor Overview
         </span>
-      </div>
+      </motion.div>
 
-      <div
-        className={`space-y-5 ${
-          isActive
-            ? "motion-safe:animate-[hero-enter_820ms_cubic-bezier(0.22,1,0.36,1)_both]"
-            : "opacity-0"
-        }`}
-        style={{ animationDelay: "120ms" }}
+      <motion.div
+        className="space-y-5"
+        initial="hidden"
+        animate={isActive ? "visible" : "hidden"}
+        variants={revealUp(0.12, 24, 0.82)}
       >
         <h1
           id="hero-title"
@@ -58,15 +52,13 @@ export function HeroContent({ cycle, isActive }: HeroContentProps) {
         <p className="max-w-md text-[1.05rem] leading-[1.7] text-[#6B7280]">
           AI that transforms wearable signals into personal health decisions.
         </p>
-      </div>
+      </motion.div>
 
-      <dl
-        className={`flex flex-wrap gap-6 md:gap-8 ${
-          isActive
-            ? "motion-safe:animate-[hero-enter_900ms_cubic-bezier(0.22,1,0.36,1)_both]"
-            : "opacity-0"
-        }`}
-        style={{ animationDelay: "220ms" }}
+      <motion.dl
+        className="flex flex-wrap gap-6 md:gap-8"
+        initial="hidden"
+        animate={isActive ? "visible" : "hidden"}
+        variants={revealUp(0.22, 24, 0.9)}
       >
         {heroMetrics.map((metric) => (
           <div key={metric.label} className="flex flex-col">
@@ -78,15 +70,13 @@ export function HeroContent({ cycle, isActive }: HeroContentProps) {
             </dt>
           </div>
         ))}
-      </dl>
+      </motion.dl>
 
-      <div
-        className={`flex flex-wrap gap-3 ${
-          isActive
-            ? "motion-safe:animate-[hero-enter_980ms_cubic-bezier(0.22,1,0.36,1)_both]"
-            : "opacity-0"
-        }`}
-        style={{ animationDelay: "320ms" }}
+      <motion.div
+        className="flex flex-wrap gap-3"
+        initial="hidden"
+        animate={isActive ? "visible" : "hidden"}
+        variants={revealUp(0.32, 24, 0.98)}
       >
         <a
           href="#contact"
@@ -102,7 +92,7 @@ export function HeroContent({ cycle, isActive }: HeroContentProps) {
           Explore
           <LineIcon name="chevronRight" className="size-4 text-[#27AE60]" />
         </a>
-      </div>
+      </motion.div>
     </div>
   );
 }

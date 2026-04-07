@@ -1,5 +1,10 @@
+"use client";
+
 // Problem-state comparison card showing the fragmented experience without Afia AI.
+import { motion, useReducedMotion } from "motion/react";
+
 import { accentStyles } from "@/components/common/styles/AccentStyles";
+import { driftLoop, pulseLoopFast, revealUp } from "@/components/common/motion/motion";
 import type { Accent } from "@/types/home/Home";
 
 const currentSignals: Array<[string, string, Accent]> = [
@@ -12,8 +17,16 @@ const currentSignals: Array<[string, string, Accent]> = [
 ];
 
 export function WithoutAiCard() {
+  const reduceMotion = useReducedMotion();
+
   return (
-    <div className="relative overflow-hidden rounded-[2rem] border border-[color:var(--color-red-soft-border)] bg-[rgba(239,68,68,0.12)] px-8 py-7">
+    <motion.div
+      className="relative overflow-hidden rounded-[2rem] border border-[color:var(--color-red-soft-border)] bg-[rgba(239,68,68,0.12)] px-8 py-7"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.35 }}
+      variants={revealUp(0, 20, 0.72)}
+    >
       <div className="mb-4 flex items-center gap-2 text-xs font-semibold text-[#FF6B6B]">
         <div className="size-2 rounded-full bg-red-400" />
         Without AI
@@ -22,15 +35,11 @@ export function WithoutAiCard() {
       <div className="mt-5 grid grid-cols-3 gap-2.5">
         {currentSignals.map(([label, value, accent], index) => {
           const styles = accentStyles[accent];
-          const swayClass =
-            index < 3
-              ? "motion-safe:animate-[without-ai-card-sway-down_5.4s_cubic-bezier(0.22,1,0.36,1)_infinite]"
-              : "motion-safe:animate-[without-ai-card-sway-up_5.4s_cubic-bezier(0.22,1,0.36,1)_infinite]";
 
           return (
-            <div
+            <motion.div
               key={label}
-              className={`flex min-h-[3.7rem] flex-col items-center justify-center rounded-[0.95rem] border px-3 py-2 text-center ${swayClass} ${styles.border}`}
+              className={`flex min-h-[3.7rem] flex-col items-center justify-center rounded-[0.95rem] border px-3 py-2 text-center ${styles.border}`}
               style={{
                 background:
                   accent === "orange"
@@ -39,17 +48,27 @@ export function WithoutAiCard() {
                       ? "rgba(236,72,153,0.08)"
                       : "rgba(239,68,68,0.08)",
               }}
+              animate={
+                reduceMotion
+                  ? undefined
+                  : { rotate: index < 3 ? [0, 1.85, 0] : [0, -1.85, 0] }
+              }
+              transition={reduceMotion ? undefined : driftLoop(5.4, index * 0.08)}
             >
               <div className="text-[10px] leading-none text-[#64748B]">{label}</div>
               <div className={`mt-1.5 text-[1.02rem] font-bold leading-none ${styles.text}`}>{value}</div>
-            </div>
+            </motion.div>
           );
         })}
       </div>
       <div className="mt-5 flex items-center gap-2 text-xs text-[#FF6B6B]">
-        <div className="size-2 rounded-full bg-red-400 animate-pulse" />
+        <motion.div
+          className="size-2 rounded-full bg-red-400"
+          animate={reduceMotion ? undefined : { opacity: [0.35, 1, 0.35], scale: [0.85, 1.15, 0.85] }}
+          transition={reduceMotion ? undefined : pulseLoopFast}
+        />
         No guidance provided
       </div>
-    </div>
+    </motion.div>
   );
 }
