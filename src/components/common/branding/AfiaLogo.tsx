@@ -6,6 +6,8 @@ type AfiaLogoProps = {
   compact?: boolean;
   inverse?: boolean;
   showBadge?: boolean;
+  showWordmark?: boolean;
+  logoClassName?: string;
 };
 
 export function AfiaLogo({
@@ -13,6 +15,8 @@ export function AfiaLogo({
   compact = false,
   inverse = false,
   showBadge = true,
+  showWordmark = true,
+  logoClassName = "",
 }: AfiaLogoProps) {
   const textColor = inverse ? "text-white" : "text-[#2d2d2d]";
   const badgeText = inverse ? "text-white/80" : "text-[var(--color-muted)]";
@@ -20,14 +24,14 @@ export function AfiaLogo({
   return (
     <div className={`inline-flex items-center ${compact ? "gap-2" : "gap-3"} ${className}`}>
       {inverse ? (
-        <div className="relative flex size-11 items-center justify-center overflow-hidden rounded-2xl bg-[linear-gradient(135deg,var(--color-green),var(--color-blue))] shadow-[0_12px_30px_rgba(39,174,96,0.25)]">
+        <div className={`relative flex size-11 items-center justify-center overflow-hidden rounded-2xl bg-[linear-gradient(135deg,var(--color-green),var(--color-blue))] shadow-[0_12px_30px_rgba(39,174,96,0.25)] ${logoClassName}`}>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.35),transparent_52%)]" />
           <span className="relative text-lg font-black tracking-[-0.08em] text-white">
             A
           </span>
         </div>
       ) : (
-        <div className="h-9 w-9">
+        <div className={`h-9 w-9 ${logoClassName}`}>
           <Image
             src="/logo.svg"
             alt="Afia logo"
@@ -37,7 +41,8 @@ export function AfiaLogo({
           />
         </div>
       )}
-      <div className={`flex items-center ${compact ? "gap-1.5" : "gap-2"}`}>
+      {showWordmark ? (
+        <div className={`flex items-center ${compact ? "gap-1.5" : "gap-2"}`}>
         <span
           className={`${compact ? "text-sm" : "text-[1.15rem]"} font-[family:var(--font-sans)] leading-none font-semibold tracking-[-0.01em] [font-synthesis:none] ${compact ? badgeText : textColor}`}
         >
@@ -48,7 +53,8 @@ export function AfiaLogo({
             Investor
           </span>
         ) : null}
-      </div>
+        </div>
+      ) : null}
     </div>
   );
 }

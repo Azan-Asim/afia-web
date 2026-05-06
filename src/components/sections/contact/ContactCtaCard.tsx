@@ -1,4 +1,6 @@
 // Final call-to-action card that encourages contact and reinforces the Afia brand.
+import Link from "next/link";
+
 import { LineIcon } from "@/components/common/icons/LineIcons";
 import { contactEmail } from "@/content/home/contact/ContactContent";
 
@@ -34,13 +36,13 @@ export function ContactCtaCard() {
       </p>
 
       <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
-        <a
-          href={`mailto:${contactEmail}`}
+        <Link
+          href="/contact"
           className="inline-flex min-w-[14.5rem] items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,var(--color-green),var(--color-blue))] px-7 py-3.5 text-[1.02rem] font-semibold !text-white shadow-[0_16px_40px_rgba(39,174,96,0.24)] transition-transform duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-blue)] focus-visible:ring-offset-2"
         >
           <LineIcon name="mail" className="size-4.5 !text-white" />
           Contact Afia Team
-        </a>
+        </Link>
         <a
           href="#platform"
           className="inline-flex min-w-[12.4rem] items-center justify-center gap-2 rounded-full border border-[rgba(39,174,96,0.24)] bg-white px-7 py-3.5 text-[1.02rem] font-semibold text-[var(--color-ink)] shadow-[0_8px_24px_rgba(17,24,39,0.04)] transition-transform duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-green)] focus-visible:ring-offset-2"
