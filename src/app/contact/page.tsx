@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Send a confidential message to the Afia team using a premium contact form.",
+  
 };
 
 export default function ContactPage() {
