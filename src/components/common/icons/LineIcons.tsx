@@ -6,7 +6,7 @@ import type { IconName } from "@/types/home/Home";
 type IconProps = SVGProps<SVGSVGElement>;
 
 function createIcon(children: ReactNode) {
-  // Keep the icon set visually consistent by wrapping each glyph in the same SVG shell.
+  // Keep the icon set visually consistent by wrapping each glyph in the same SVG shell
   return function Icon(props: IconProps) {
     return (
       <svg
