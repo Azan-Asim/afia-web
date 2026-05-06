@@ -4,7 +4,7 @@
 // Animated hero copy block that cycles through product positioning and headline messaging.
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 import { LineIcon } from "@/components/common/icons/LineIcons";
 import { revealUp } from "@/components/common/motion/motion";
