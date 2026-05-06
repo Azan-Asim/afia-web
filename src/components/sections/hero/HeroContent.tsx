@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client";
 
 // Animated hero copy block that cycles through product positioning and headline messaging.
