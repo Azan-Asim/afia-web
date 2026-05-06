@@ -40,6 +40,7 @@ export function HeroContent({ isActive }: HeroContentProps) {
         animate={isActive ? "visible" : "hidden"}
         variants={revealUp(0.12, 24, 0.82)}
       >
+        
         <h1
           id="hero-title"
           className="font-[family:var(--font-display)] text-[clamp(32px,5vw,62px)] font-bold leading-[1.1] tracking-tight text-[#2D2D2D] [font-synthesis:none]"
