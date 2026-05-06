@@ -2,6 +2,7 @@
 
 // Responsive top navigation that coordinates the logo, desktop nav, and mobile menu.
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 import { AfiaLogo } from "@/components/common/branding/AfiaLogo";
 import { LineIcon } from "@/components/common/icons/LineIcons";
@@ -106,15 +107,13 @@ export function Navbar({ items }: NavbarProps) {
           <DesktopNav items={items} />
 
           <div className="flex items-center gap-3">
-            <div className="hidden xl:block">
-              <a
-                href="#contact"
-                className={requestDeckLinkClass}
-              >
-                <LineIcon name="mail" className="size-3.5 !text-white" />
-                Request Deck
-              </a>
-            </div>
+            <Link
+              href="/contact"
+              className="hidden items-center gap-2 rounded-full !bg-transparent [background-image:linear-gradient(135deg,rgb(39,174,96),rgb(45,156,219))] px-5 py-2.5 font-[family:var(--font-sans)] text-sm font-medium leading-[var(--text-sm--line-height)] !text-white [font-synthesis:none] shadow-[0_4px_20px_rgba(39,174,96,0.25)] transition-transform duration-500 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-blue)] focus-visible:ring-offset-2 md:inline-flex"
+            >
+              <LineIcon name="mail" className="size-3.5 !text-white" />
+              Contact
+            </Link>
             <button
               ref={menuButtonRef}
               type="button"
