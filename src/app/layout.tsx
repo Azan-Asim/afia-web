@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  
   applicationName: "Afia AI",
   title: {
     default: "Afia AI | Investor Overview",
