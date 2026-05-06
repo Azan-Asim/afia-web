@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import { useState, type FormEvent } from "react";
@@ -8,23 +7,60 @@ import { contactEmail } from "@/content/home/contact/ContactContent";
 
 export function ContactPageContent() {
   const [copied, setCopied] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const form = event.currentTarget; // Save form reference before async operations
+    setIsSubmitting(true);
+    setErrorMessage("");
+    setSubmitStatus("idle");
 
-    const formData = new FormData(event.currentTarget);
+    const formData = new FormData(form);
     const name = String(formData.get("name") || "").trim();
     const email = String(formData.get("email") || "").trim();
     const message = String(formData.get("message") || "").trim();
 
-    if (!name || !email || !message) {
+    // Validation
+    if (!name) {
+      setErrorMessage("Please enter your name");
+      setSubmitStatus("error");
+      setIsSubmitting(false);
+      return;
+    }
+    if (!email) {
+      setErrorMessage("Please enter your email");
+      setSubmitStatus("error");
+      setIsSubmitting(false);
+      return;
+    }
+    if (!message) {
+      setErrorMessage("Please enter a message");
+      setSubmitStatus("error");
+      setIsSubmitting(false);
       return;
     }
 
     const subject = `Afia contact from ${name}`;
     const body = [`Name: ${name}`, `Email: ${email}`, "", message].join("\n");
 
+    // Simulate a short delay for UX
+    await new Promise(resolve => setTimeout(resolve, 500));
+
+    // Open email client
     window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    setSubmitStatus("success");
+    form.reset(); // Use saved form reference
+    
+    // Clear success message after 3 seconds
+    setTimeout(() => {
+      setSubmitStatus("idle");
+    }, 3000);
+    
+    setIsSubmitting(false);
   };
 
   const handleCopyEmail = async () => {
@@ -98,7 +134,7 @@ export function ContactPageContent() {
             <div className="w-full mt-4 md:mt-6 flex items-center justify-between">
               <div className="flex gap-6">
                 <div>
-                  <p className="text-2xl font-bold text-[var(--color-ink)]">5000+</p>
+                  <p className="text-2xl font-bold text-[var(--color-ink)]">50+</p>
                   <p className="text-xs text-[var(--color-muted)]">Happy clients</p>
                 </div>
                 <div>
@@ -119,13 +155,26 @@ export function ContactPageContent() {
 
           <section className="rounded-[1.6rem] border border-black/5 bg-white p-5 md:p-6">
             <form className="space-y-3.5" onSubmit={handleSubmit}>
+              {errorMessage && (
+                <div className="rounded-xl bg-red-50 border border-red-200 p-3 text-sm text-red-700">
+                  {errorMessage}
+                </div>
+              )}
+              
+              {submitStatus === "success" && (
+                <div className="rounded-xl bg-green-50 border border-green-200 p-3 text-sm text-green-700">
+                  ✓ Email client opened! Please review and send your message.
+                </div>
+              )}
+
               <label className="block space-y-1.5">
                 <span className="text-sm font-medium">Name</span>
                 <input
                   name="name"
                   type="text"
                   required
-                  className="w-full rounded-2xl border border-black/10 bg-[var(--color-sand)] px-4 py-3 text-sm outline-none transition-colors placeholder:text-[var(--color-subtle)] focus:border-[rgba(39,174,96,0.34)] focus:bg-white"
+                  disabled={isSubmitting}
+                  className="w-full rounded-2xl border border-black/10 bg-[var(--color-sand)] px-4 py-3 text-sm outline-none transition-colors placeholder:text-[var(--color-subtle)] focus:border-[rgba(39,174,96,0.34)] focus:bg-white disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="Your name"
                 />
               </label>
@@ -136,7 +185,8 @@ export function ContactPageContent() {
                   name="email"
                   type="email"
                   required
-                  className="w-full rounded-2xl border border-black/10 bg-[var(--color-sand)] px-4 py-3 text-sm outline-none transition-colors placeholder:text-[var(--color-subtle)] focus:border-[rgba(39,174,96,0.34)] focus:bg-white"
+                  disabled={isSubmitting}
+                  className="w-full rounded-2xl border border-black/10 bg-[var(--color-sand)] px-4 py-3 text-sm outline-none transition-colors placeholder:text-[var(--color-subtle)] focus:border-[rgba(39,174,96,0.34)] focus:bg-white disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="you@example.com"
                 />
               </label>
@@ -146,17 +196,19 @@ export function ContactPageContent() {
                 <textarea
                   name="message"
                   required
+                  disabled={isSubmitting}
                   rows={5}
-                  className="w-full rounded-[1.35rem] border border-black/10 bg-[var(--color-sand)] px-4 py-3 text-sm outline-none transition-colors placeholder:text-[var(--color-subtle)] focus:border-[rgba(39,174,96,0.34)] focus:bg-white"
+                  className="w-full rounded-[1.35rem] border border-black/10 bg-[var(--color-sand)] px-4 py-3 text-sm outline-none transition-colors placeholder:text-[var(--color-subtle)] focus:border-[rgba(39,174,96,0.34)] focus:bg-white disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="Write your message"
                 />
               </label>
 
               <button
                 type="submit"
-                className="inline-flex w-full items-center justify-center rounded-full bg-[linear-gradient(135deg,var(--color-green),var(--color-blue))] px-5 py-3 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(39,174,96,0.22)] transition-transform duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-blue)] focus-visible:ring-offset-2"
+                disabled={isSubmitting}
+                className="inline-flex w-full items-center justify-center rounded-full bg-[linear-gradient(135deg,var(--color-green),var(--color-blue))] px-5 py-3 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(39,174,96,0.22)] transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-blue)] focus-visible:ring-offset-2 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0"
               >
-                Send
+                {isSubmitting ? "Sending..." : "Send"}
               </button>
             </form>
           </section>

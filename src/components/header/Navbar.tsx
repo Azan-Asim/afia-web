@@ -6,10 +6,6 @@ import Link from "next/link";
 
 import { AfiaLogo } from "@/components/common/branding/AfiaLogo";
 import { LineIcon } from "@/components/common/icons/LineIcons";
-import {
-  gradientCtaClass,
-  gradientCtaFocusClass,
-} from "@/components/common/styles/CtaStyles";
 import { DesktopNav } from "@/components/header/DesktopNav";
 import { MobileMenu } from "@/components/header/MobileMenu";
 import type { NavItem } from "@/types/home/Home";
@@ -17,12 +13,6 @@ import type { NavItem } from "@/types/home/Home";
 type NavbarProps = {
   items: NavItem[];
 };
-
-const requestDeckLinkClass =
-  `${gradientCtaClass} ${gradientCtaFocusClass} px-5 py-2.5 text-sm leading-[var(--text-sm--line-height)] shadow-[0_4px_20px_rgba(39,174,96,0.25)] duration-500`;
-
-const mobileMenuButtonClass =
-  "rounded-xl p-2 text-[var(--color-ink)] transition-colors hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-green)] lg:hidden";
 
 export function Navbar({ items }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -100,9 +90,9 @@ export function Navbar({ items }: NavbarProps) {
           />
         </div>
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-5 lg:px-10">
-          <a href="#top" aria-label="Afia home">
+          <Link href="/" aria-label="Afia home">
             <AfiaLogo />
-          </a>
+          </Link>
 
           <DesktopNav items={items} />
 
@@ -117,7 +107,7 @@ export function Navbar({ items }: NavbarProps) {
             <button
               ref={menuButtonRef}
               type="button"
-              className={mobileMenuButtonClass}
+              className="rounded-xl p-2 text-[var(--color-ink)] transition-colors hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-green)] md:hidden"
               aria-controls="mobile-navigation"
               aria-expanded={isMenuOpen}
               aria-label={isMenuOpen ? "Close navigation" : "Open navigation"}
