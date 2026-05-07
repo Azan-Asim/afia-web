@@ -76,7 +76,7 @@ export function ContactPageContent() {
     <div className="overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(39,174,96,0.08),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(45,156,219,0.07),transparent_26%),var(--color-sand)] px-4 py-16 text-[var(--color-ink)] md:px-6 md:py-24">
       <div className="mx-auto flex w-full max-w-6xl items-center">
         <div className="grid w-full gap-8 rounded-[2.5rem] border border-black/5 bg-white/90 p-6 shadow-[0_32px_96px_rgba(17,24,39,0.1)] backdrop-blur-xl md:grid-cols-2 md:p-10">
-          <section className="flex min-h-[22rem] flex-col items-center justify-start gap-10 rounded-[2rem] bg-[linear-gradient(180deg,rgba(39,174,96,0.06),rgba(39,174,96,0.02))] p-8 text-left md:min-h-[32rem] md:p-12">
+          <section className="flex flex-col items-center justify-start gap-8 rounded-[2rem] bg-[linear-gradient(180deg,rgba(39,174,96,0.06),rgba(39,174,96,0.02))] p-8 text-left md:p-12">
             <div className="w-full flex flex-col items-center md:items-start">
               <div className="motion-safe:animate-[hero-card-float_6s_ease-in-out_infinite]" style={{ ["--hero-card-offset" as string]: "0px" }}>
                 <AfiaLogo compact showBadge={false} showWordmark={false} logoClassName="h-20 w-20 md:h-24 md:w-24" />
@@ -92,7 +92,7 @@ export function ContactPageContent() {
               </div>
             </div>
 
-            <div className="w-full mt-4 md:mt-6">
+            <div className="w-full">
               <div className="relative rounded-2xl border border-white/40 bg-gradient-to-br from-white/30 to-white/10 p-6 md:max-w-sm shadow-[0_20px_48px_rgba(39,174,96,0.15)] backdrop-blur-sm overflow-hidden group">
                 <div className="absolute inset-0 rounded-2xl bg-[radial-gradient(circle_at_top_right,rgba(39,174,96,0.1),transparent_60%)] pointer-events-none" />
                 <div className="relative flex items-start justify-between gap-4">
@@ -135,7 +135,7 @@ export function ContactPageContent() {
               </div> */}
             </div>
 
-            <div className="w-full mt-4 md:mt-6 flex items-center justify-between">
+            <div className="w-full flex items-center justify-between">
               <div className="flex gap-6">
                 <div>
                   <p className="text-2xl font-bold text-[var(--color-ink)]">50+</p>
