@@ -89,7 +89,7 @@ export function MobileMenu({ items, isOpen, onClose }: MobileMenuProps) {
         </nav>
 
         <Link
-          href="/contact"
+          href="#contact"
           className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full !bg-transparent [background-image:linear-gradient(135deg,rgb(39,174,96),rgb(45,156,219))] px-5 py-3 font-[family:var(--font-sans)] text-sm font-medium leading-[var(--text-sm--line-height)] !text-white [font-synthesis:none] shadow-[0_4px_20px_rgba(39,174,96,0.25)] transition-transform duration-500 hover:-translate-y-0.5"
           onClick={onClose}
         >

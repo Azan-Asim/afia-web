@@ -1,6 +1,7 @@
 // Home page composition that arranges the landing sections in display order.
 import { Footer } from "@/components/footer/Footer";
 import { Navbar } from "@/components/header/Navbar";
+import { ContactPageContent } from "@/components/sections/contact/ContactPageContent";
 import { ContactSection } from "@/components/sections/contact/ContactSection";
 import { HeroSection } from "@/components/sections/hero/HeroSection";
 import { InvestmentSection } from "@/components/sections/investment/InvestmentSection";
@@ -31,7 +32,10 @@ export default function Home() {
         <RevenueSection />
         <MoatSection />
         <SwotSection />
-        <ContactSection />
+        {/* <ContactSection /> */}
+        <section id="contact">
+          <ContactPageContent />
+        </section>
       </main>
 
       <Footer />

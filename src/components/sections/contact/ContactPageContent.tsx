@@ -75,16 +75,20 @@ export function ContactPageContent() {
   return (
     <div className="min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(39,174,96,0.08),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(45,156,219,0.07),transparent_26%),var(--color-sand)] px-4 py-4 text-[var(--color-ink)] md:px-6 md:py-6">
       <div className="mx-auto flex min-h-[calc(100vh-2rem)] w-full max-w-6xl items-center">
-        <div className="grid w-full gap-2 rounded-[2rem] border border-black/5 bg-white/85 p-4 shadow-[0_24px_80px_rgba(17,24,39,0.08)] backdrop-blur md:grid-cols-[0.92fr_1.08fr] md:p-6">
-          <section className="flex min-h-[18rem] flex-col items-center justify-between gap-6 rounded-[1.6rem] bg-[linear-gradient(180deg,rgba(39,174,96,0.06),rgba(39,174,96,0.02))] p-6 text-left md:min-h-[26rem] md:p-8">
+        <div className="grid w-full gap-8 rounded-[2.5rem] border border-black/5 bg-white/90 p-6 shadow-[0_32px_96px_rgba(17,24,39,0.1)] backdrop-blur-xl md:grid-cols-2 md:p-10">
+          <section className="flex min-h-[22rem] flex-col items-center justify-start gap-10 rounded-[2rem] bg-[linear-gradient(180deg,rgba(39,174,96,0.06),rgba(39,174,96,0.02))] p-8 text-left md:min-h-[32rem] md:p-12">
             <div className="w-full flex flex-col items-center md:items-start">
               <div className="motion-safe:animate-[hero-card-float_6s_ease-in-out_infinite]" style={{ ["--hero-card-offset" as string]: "0px" }}>
                 <AfiaLogo compact showBadge={false} showWordmark={false} logoClassName="h-20 w-20 md:h-24 md:w-24" />
               </div>
 
               <div className="mt-2">
-                <h3 className="text-2xl font-extrabold text-[var(--color-ink)]">Afia Wellness</h3>
-                {/* <p className="mt-2 text-sm text-[var(--color-muted)] max-w-sm">Serenity meets purpose — personalized plans, certified therapists, confidential care.</p> */}
+                <span className="relative inline-block font-bold text-7xl bg-gradient-to-r from-[#27AE60] to-[#2D9CDB] bg-clip-text text-transparent">
+                  Afia
+                  <span className="absolute -bottom-6 right-0 text-lg tracking-wide opacity-80 bg-gradient-to-r from-[#27AE60] to-[#2D9CDB] bg-clip-text text-transparent">
+                    Be well.
+                  </span>
+                </span>
               </div>
             </div>
 
@@ -153,8 +157,8 @@ export function ContactPageContent() {
             </div>
           </section>
 
-          <section className="rounded-[1.6rem] border border-black/5 bg-white p-5 md:p-6">
-            <form className="space-y-3.5" onSubmit={handleSubmit}>
+          <section className="flex flex-col justify-start rounded-[2rem] border border-black/5 bg-white p-8 md:p-12 shadow-[0_8px_30px_rgba(0,0,0,0.02)]">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               {errorMessage && (
                 <div className="rounded-xl bg-red-50 border border-red-200 p-3 text-sm text-red-700">
                   {errorMessage}
@@ -167,32 +171,29 @@ export function ContactPageContent() {
                 </div>
               )}
 
-              <label className="block space-y-1.5">
-                <span className="text-sm font-medium">Name</span>
+              <label className="block">
                 <input
                   name="name"
                   type="text"
                   required
                   disabled={isSubmitting}
                   className="w-full rounded-2xl border border-black/10 bg-[var(--color-sand)] px-4 py-3 text-sm outline-none transition-colors placeholder:text-[var(--color-subtle)] focus:border-[rgba(39,174,96,0.34)] focus:bg-white disabled:opacity-50 disabled:cursor-not-allowed"
-                  placeholder="Your name"
+                  placeholder="Write your name"
                 />
               </label>
 
-              <label className="block space-y-1.5">
-                <span className="text-sm font-medium">Email</span>
+              <label className="block">
                 <input
                   name="email"
                   type="email"
                   required
                   disabled={isSubmitting}
                   className="w-full rounded-2xl border border-black/10 bg-[var(--color-sand)] px-4 py-3 text-sm outline-none transition-colors placeholder:text-[var(--color-subtle)] focus:border-[rgba(39,174,96,0.34)] focus:bg-white disabled:opacity-50 disabled:cursor-not-allowed"
-                  placeholder="you@example.com"
+                  placeholder="Write your email"
                 />
               </label>
 
-              <label className="block space-y-1.5">
-                <span className="text-sm font-medium">Message</span>
+              <label className="block">
                 <textarea
                   name="message"
                   required
