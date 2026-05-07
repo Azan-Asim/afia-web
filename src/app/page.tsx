@@ -12,6 +12,7 @@ import { RevenueSection } from "@/components/sections/revenue/RevenueSection";
 import { SwotSection } from "@/components/sections/swot/SwotSection";
 import { navItems } from "@/content/home/navigation/NavContent";
 
+
 export default function Home() {
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-[var(--color-sand)] text-[var(--color-ink)]">
