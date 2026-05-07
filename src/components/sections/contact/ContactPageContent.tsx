@@ -73,8 +73,8 @@ export function ContactPageContent() {
   };
 
   return (
-    <div className="min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(39,174,96,0.08),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(45,156,219,0.07),transparent_26%),var(--color-sand)] px-4 py-4 text-[var(--color-ink)] md:px-6 md:py-6">
-      <div className="mx-auto flex min-h-[calc(100vh-2rem)] w-full max-w-6xl items-center">
+    <div className="overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(39,174,96,0.08),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(45,156,219,0.07),transparent_26%),var(--color-sand)] px-4 py-16 text-[var(--color-ink)] md:px-6 md:py-24">
+      <div className="mx-auto flex w-full max-w-6xl items-center">
         <div className="grid w-full gap-8 rounded-[2.5rem] border border-black/5 bg-white/90 p-6 shadow-[0_32px_96px_rgba(17,24,39,0.1)] backdrop-blur-xl md:grid-cols-2 md:p-10">
           <section className="flex min-h-[22rem] flex-col items-center justify-start gap-10 rounded-[2rem] bg-[linear-gradient(180deg,rgba(39,174,96,0.06),rgba(39,174,96,0.02))] p-8 text-left md:min-h-[32rem] md:p-12">
             <div className="w-full flex flex-col items-center md:items-start">

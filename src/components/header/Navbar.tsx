@@ -97,13 +97,13 @@ export function Navbar({ items }: NavbarProps) {
           <DesktopNav items={items} />
 
           <div className="flex items-center gap-3">
-            <Link
-              href="#contact"
+            <a
+              href="/#contact"
               className="hidden items-center gap-2 rounded-full !bg-transparent [background-image:linear-gradient(135deg,rgb(39,174,96),rgb(45,156,219))] px-5 py-2.5 font-[family:var(--font-sans)] text-sm font-medium leading-[var(--text-sm--line-height)] !text-white [font-synthesis:none] shadow-[0_4px_20px_rgba(39,174,96,0.25)] transition-transform duration-500 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-blue)] focus-visible:ring-offset-2 md:inline-flex"
             >
               <LineIcon name="mail" className="size-3.5 !text-white" />
               Contact
-            </Link>
+            </a>
             <button
               ref={menuButtonRef}
               type="button"

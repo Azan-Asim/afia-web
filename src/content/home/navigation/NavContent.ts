@@ -8,5 +8,4 @@ export const navItems: NavItem[] = [
   { href: "/#revenue", label: "Revenue" },
   { href: "/#moat", label: "Moat" },
   { href: "/#swot", label: "SWOT" },
-  // { href: "/contact", label: "Contact" },
 ];
