@@ -20,6 +20,7 @@ export default function Home() {
         className="sr-only fixed left-4 top-4 z-[70] rounded-full bg-white px-4 py-2 text-sm font-semibold text-[var(--color-ink)] shadow-lg focus:not-sr-only focus:outline-none focus:ring-2 focus:ring-[var(--color-green)]"
       >
         Skip to content
+        
       </a>
       <div id="top" />
       <Navbar items={navItems} />
