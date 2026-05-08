@@ -1,11 +1,14 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useState, type FormEvent, useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 import { AfiaLogo } from "@/components/common/branding/AfiaLogo";
 import { contactEmail } from "@/content/home/contact/ContactContent";
+import { EMAILJS_CONFIG } from "@/lib/emailjs";
 
 export function ContactPageContent() {
+  const formRef = useRef<HTMLFormElement>(null);
   const [copied, setCopied] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
@@ -13,54 +16,39 @@ export function ContactPageContent() {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const form = event.currentTarget; // Save form reference before async operations
+    if (!formRef.current) return;
+
     setIsSubmitting(true);
     setErrorMessage("");
     setSubmitStatus("idle");
 
-    const formData = new FormData(form);
-    const name = String(formData.get("name") || "").trim();
-    const email = String(formData.get("email") || "").trim();
-    const message = String(formData.get("message") || "").trim();
+    const { SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY } = EMAILJS_CONFIG;
 
-    // Validation
-    if (!name) {
-      setErrorMessage("Please enter your name");
+    try {
+      const result = await emailjs.sendForm(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        formRef.current,
+        PUBLIC_KEY
+      );
+
+      if (result.text === "OK") {
+        setSubmitStatus("success");
+        formRef.current.reset();
+        
+        setTimeout(() => {
+          setSubmitStatus("idle");
+        }, 5000);
+      } else {
+        throw new Error("Failed to send message");
+      }
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      setErrorMessage("Sorry, something went wrong. Please try again later or email us directly.");
       setSubmitStatus("error");
+    } finally {
       setIsSubmitting(false);
-      return;
     }
-    if (!email) {
-      setErrorMessage("Please enter your email");
-      setSubmitStatus("error");
-      setIsSubmitting(false);
-      return;
-    }
-    if (!message) {
-      setErrorMessage("Please enter a message");
-      setSubmitStatus("error");
-      setIsSubmitting(false);
-      return;
-    }
-
-    const subject = `Afia contact from ${name}`;
-    const body = [`Name: ${name}`, `Email: ${email}`, "", message].join("\n");
-
-    // Simulate a short delay for UX
-    await new Promise(resolve => setTimeout(resolve, 500));
-
-    // Open email client
-    window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    setSubmitStatus("success");
-    form.reset(); // Use saved form reference
-    
-    // Clear success message after 3 seconds
-    setTimeout(() => {
-      setSubmitStatus("idle");
-    }, 3000);
-    
-    setIsSubmitting(false);
   };
 
   const handleCopyEmail = async () => {
@@ -76,6 +64,7 @@ export function ContactPageContent() {
     <div className="overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(39,174,96,0.08),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(45,156,219,0.07),transparent_26%),var(--color-sand)] px-4 py-16 text-[var(--color-ink)] md:px-6 md:py-24">
       <div className="mx-auto flex w-full max-w-6xl items-center">
         <div className="grid w-full gap-8 rounded-[2.5rem] border border-black/5 bg-white/90 p-6 shadow-[0_32px_96px_rgba(17,24,39,0.1)] backdrop-blur-xl md:grid-cols-2 md:p-10">
+          {/* Left Side: Contact Info */}
           <section className="flex flex-col items-center justify-start gap-8 rounded-[2rem] bg-[linear-gradient(180deg,rgba(39,174,96,0.06),rgba(39,174,96,0.02))] p-8 text-left md:p-12">
             <div className="w-full flex flex-col items-center md:items-start">
               <div className="motion-safe:animate-[hero-card-float_6s_ease-in-out_infinite]" style={{ ["--hero-card-offset" as string]: "0px" }}>
@@ -115,24 +104,6 @@ export function ContactPageContent() {
                   </div>
                 </div>
               </div>
-
-              {/* <div className="mt-4 md:mt-6 md:max-w-sm">
-                <h4 className="text-sm font-semibold text-[var(--color-ink)]">What we offer</h4>
-                <ul className="mt-3 space-y-2 text-sm text-[var(--color-muted)]">
-                  <li className="flex items-start gap-3">
-                    <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-[var(--color-green)] text-[var(--color-sand)]">✓</span>
-                    <span>Personalized wellness plans</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-[var(--color-green)] text-[var(--color-sand)]">✓</span>
-                    <span>Certified therapists & coaches</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-[var(--color-green)] text-[var(--color-sand)]">✓</span>
-                    <span>Confidential, evidence-based care</span>
-                  </li>
-                </ul>
-              </div> */}
             </div>
 
             <div className="w-full flex items-center justify-between">
@@ -150,15 +121,12 @@ export function ContactPageContent() {
                   <p className="text-xs text-[var(--color-muted)]">Confidential</p>
                 </div>
               </div>
-
-              {/* <div>
-                <button className="rounded-full border border-[rgba(0,0,0,0.06)] px-4 py-2 text-sm font-semibold text-[var(--color-ink)] hover:bg-white/5">Start a free consult</button>
-              </div> */}
             </div>
           </section>
 
+          {/* Right Side: Form */}
           <section className="flex flex-col justify-start rounded-[2rem] border border-black/5 bg-white p-8 md:p-12 shadow-[0_8px_30px_rgba(0,0,0,0.02)]">
-            <form className="space-y-6" onSubmit={handleSubmit}>
+            <form ref={formRef} className="space-y-6" onSubmit={handleSubmit}>
               {errorMessage && (
                 <div className="rounded-xl bg-red-50 border border-red-200 p-3 text-sm text-red-700">
                   {errorMessage}
@@ -167,13 +135,13 @@ export function ContactPageContent() {
               
               {submitStatus === "success" && (
                 <div className="rounded-xl bg-green-50 border border-green-200 p-3 text-sm text-green-700">
-                  ✓ Email client opened! Please review and send your message.
+                  ✓ Message sent successfully! We'll get back to you soon.
                 </div>
               )}
 
               <label className="block">
                 <input
-                  name="name"
+                  name="from_name"
                   type="text"
                   required
                   disabled={isSubmitting}
@@ -184,7 +152,7 @@ export function ContactPageContent() {
 
               <label className="block">
                 <input
-                  name="email"
+                  name="reply_to"
                   type="email"
                   required
                   disabled={isSubmitting}
