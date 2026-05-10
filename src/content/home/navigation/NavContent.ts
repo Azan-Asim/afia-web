@@ -2,6 +2,7 @@
 import type { NavItem } from "@/types/home/Home";
 
 export const navItems: NavItem[] = [
+  { href: "/#home", label: "Home" },
   { href: "/#opportunity", label: "Opportunity" },
   { href: "/#platform", label: "Platform" },
   { href: "/#investment", label: "Investment" },

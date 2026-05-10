@@ -26,7 +26,7 @@ const heroSecondaryCtaClass =
 
 export function HeroContent({ isActive }: HeroContentProps) {
   return (
-    <div className="space-y-8 translate-x-2 sm:translate-x-4 md:translate-x-8 lg:translate-x-14 xl:translate-x-[4.5rem]">
+    <div id="home" className="space-y-8 translate-x-2 sm:translate-x-4 md:translate-x-8 lg:translate-x-14 xl:translate-x-[4.5rem]">
       <motion.div initial="hidden" animate={isActive ? "visible" : "hidden"} variants={revealUp(0, 24, 0.7)}>
         <span className="inline-flex items-center gap-1.5 rounded-full border border-[rgba(39,174,96,0.2)] bg-[rgba(39,174,96,0.08)] px-3.5 py-1 text-xs font-semibold text-[rgb(39,174,96)] [font-synthesis:none]">
           <LineIcon name="sparkles" className="size-3" />
@@ -87,7 +87,7 @@ export function HeroContent({ isActive }: HeroContentProps) {
           className="inline-flex items-center gap-2 rounded-full !bg-transparent [background-image:linear-gradient(135deg,rgb(39,174,96),rgb(45,156,219))] px-5 py-2.5 font-[family:var(--font-sans)] text-sm font-medium leading-[var(--text-sm--line-height)] !text-white [font-synthesis:none] shadow-[0_4px_20px_rgba(39,174,96,0.25)] transition-transform duration-500 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-blue)] focus-visible:ring-offset-2"
         >
           <LineIcon name="mail" className="size-3.5 !text-white" />
-          Contact
+          Contact us
         </Link>
         <a
           href="#platform"

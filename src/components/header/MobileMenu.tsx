@@ -94,7 +94,7 @@ export function MobileMenu({ items, isOpen, onClose }: MobileMenuProps) {
           onClick={onClose}
         >
           <LineIcon name="mail" className="size-4 !text-white" />
-          Contact
+          Contact us
         </a>
       </div>
     </>
