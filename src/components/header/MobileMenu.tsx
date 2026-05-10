@@ -25,6 +25,7 @@ export function MobileMenu({ items, isOpen, onClose }: MobileMenuProps) {
       ),
     );
 
+    
     focusableElements[0]?.focus();
 
     const handleKeyDown = (event: KeyboardEvent) => {
