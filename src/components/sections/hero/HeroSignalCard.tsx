@@ -40,6 +40,7 @@ export function HeroSignalCard({
       transition={{ duration: 1.32, delay: entryDelay, ease: easeOutExpo }}
       style={{ willChange: "transform, opacity", backfaceVisibility: "hidden" }}
     >
+      
       <motion.div
         className={`flex min-w-[122px] items-center gap-2.5 rounded-[0.95rem] border-[1.5px] bg-white px-4 py-2.5 shadow-[0_14px_30px_rgba(17,24,39,0.14)] ${styles.border}`}
         initial={{ y: baseOffset, opacity: 0.98, scale: 1 }}
